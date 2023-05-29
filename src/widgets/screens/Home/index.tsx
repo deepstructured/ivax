@@ -6,6 +6,8 @@ import { Partners } from './Partners/Partners'
 import { Technologies } from './Technologies/Technologies'
 import { TeamTicker } from './TeamTicker/TeamTicker'
 import { Projects } from './Projects/Projects'
+import { Testimonials } from './Testimonials/Testimonials'
+import { Team } from './Team/Team'
 
 export const homeScreens = [
   {
@@ -37,7 +39,15 @@ export const homeScreens = [
     element: <Technologies />,
   },
   {
+    id: 7,
+    element: <Testimonials />,
+  },
+  {
     id: 8,
     element: <TeamTicker />,
+  },
+  {
+    id: 9,
+    element: <Team />,
   },
 ]

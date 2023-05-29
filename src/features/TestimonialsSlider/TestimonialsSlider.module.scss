@@ -1,0 +1,71 @@
+.testimonialsSlider {
+  height: inherit;
+  width: inherit;
+
+  overflow: hidden;
+
+  .slider {
+    display: flex;
+    align-items: end;
+
+    height: 100%;
+    width: 100%;
+
+    transition: transform 1s cubic-bezier(0.83, 0, 0.17, 1);
+
+    .slide {
+      padding-right: 24px;
+
+      height: 100%;
+      min-width: 40%;
+      width: 40%;
+
+      animation: toBasic 1s forwards cubic-bezier(0.65, 0, 0.35, 1);
+
+      cursor: pointer;
+
+      img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+        object-position: center;
+
+        user-select: none;
+        -webkit-user-drag: none;
+      }
+
+      &.active {
+        min-width: 20%;
+        width: 20%;
+        height: 285px;
+
+        animation: toActive 1s forwards cubic-bezier(0.65, 0, 0.35, 1);
+      }
+    }
+  }
+}
+
+@keyframes toBasic {
+  50% {
+    height: 285px;
+  }
+
+  100% {
+    min-width: 20%;
+    width: 20%;
+    height: 285px;
+  }
+}
+
+@keyframes toActive {
+  50% {
+    height: 100%;
+  }
+
+  100% {
+    min-width: 40%;
+    width: 40%;
+    height: 100%;
+  }
+}

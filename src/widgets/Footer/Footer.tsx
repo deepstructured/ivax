@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.body}>
-        <div className={styles.col}>
+        <ul className={styles.col}>
           <h3>Communication</h3>
           <ul>
             <li>
@@ -15,15 +15,15 @@ const Footer = () => {
               <a href="mailto:ivax_dev@gmail.com">ivax_dev@gmail.com</a>
             </li>
           </ul>
-        </div>
-        <div className={styles.col}>
+        </ul>
+        <ul className={styles.col}>
           <h3>Address</h3>
           <li>
             Lviv, Ukraine
             <br />
             st. Zalizniaka 21
           </li>
-        </div>
+        </ul>
       </div>
       <div className={styles.down}>
         <div className={styles.logo}>
