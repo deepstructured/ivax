@@ -1,0 +1,42 @@
+.hero {
+  padding-block: 50px 35px;
+
+  .logo {
+    width: 110px;
+    height: 36px;
+  }
+
+  .wrapper {
+    display: flex;
+
+    padding-top: 150px;
+
+    .text {
+      width: 60%;
+
+      .title {
+        h1 {
+          &:nth-child(2) {
+            margin: 24px 0 44px;
+          }
+
+          &:last-child {
+            margin-left: 135px;
+          }
+        }
+      }
+
+      .buttons {
+        margin: 70px 200px 0 auto;
+      }
+    }
+
+    .picture {
+      width: 40%;
+    }
+  }
+
+  .statistics {
+    margin-top: 160px;
+  }
+}

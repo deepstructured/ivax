@@ -1,0 +1,13 @@
+.logosGrid {
+  width: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  row-gap: 48px;
+  column-gap: 96px;
+
+  margin: 80px 0 0;
+}

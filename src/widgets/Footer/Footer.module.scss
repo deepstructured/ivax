@@ -1,0 +1,48 @@
+.footer {
+  padding: 0 50px 85px;
+
+  .body {
+    display: flex;
+    gap: 146px;
+
+    padding-bottom: 70px;
+  }
+
+  .down {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    font-weight: 200;
+
+    .logo {
+      width: 84px;
+      height: 28px;
+    }
+
+    ul {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+  }
+
+  .col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+
+      list-style: none !important;
+
+      li {
+        font-weight: 300;
+        font-size: 20px;
+      }
+    }
+  }
+}

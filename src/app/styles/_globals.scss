@@ -1,0 +1,121 @@
+body {
+  font-family: 'League Spartan', sans-serif;
+  color: $primary;
+
+  &::-webkit-scrollbar {
+    appearance: none;
+    width: 6px;
+    background-color: $primary;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $secondary;
+    border-radius: 3px;
+  }
+}
+
+main {
+  border-inline: 1px solid $border;
+
+  margin: 0 100px;
+
+  position: relative;
+
+  &::before {
+    content: '';
+
+    position: absolute;
+
+    left: 50%;
+    translate: -50% 0;
+
+    width: 1px;
+    height: 100%;
+
+    background-color: $border;
+
+    z-index: 0;
+  }
+}
+
+section {
+  padding-inline: 50px;
+
+  &.gray {
+    background-color: $bg-1;
+
+    padding-block: 85px;
+  }
+}
+
+.section-space {
+  margin: 160px 0 0;
+}
+
+p {
+  color: $text;
+}
+
+h1,
+h2,
+h3 {
+  z-index: 1;
+}
+
+h1 {
+  font-size: 140px;
+}
+
+h2 {
+  font-size: 64px;
+}
+
+h3 {
+  font-size: 32px;
+}
+
+h4 {
+  font-weight: 600;
+  font-size: 24px;
+}
+
+big {
+  font-size: 160px;
+  font-weight: 700;
+}
+
+.yellow {
+  color: $secondary;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+
+  &.items-center {
+    align-items: center;
+  }
+
+  &.justify-between {
+    justify-content: space-between;
+  }
+
+  &.justify-start {
+    justify-content: start;
+  }
+
+  &.justify-end {
+    justify-content: end;
+  }
+
+  &.gap-40 {
+    gap: 40px;
+  }
+}
+
+.w-50 {
+  width: 50%;
+}

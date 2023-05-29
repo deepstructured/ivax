@@ -1,0 +1,43 @@
+import { Hero } from './Hero/Hero'
+import { Services } from './Services/Services'
+import { Benefits } from './Benefits/Benefits'
+import { ServicesTicker } from './ServicesTicker/ServicesTicker'
+import { Partners } from './Partners/Partners'
+import { Technologies } from './Technologies/Technologies'
+import { TeamTicker } from './TeamTicker/TeamTicker'
+import { Projects } from './Projects/Projects'
+
+export const homeScreens = [
+  {
+    id: 0,
+    element: <Hero />,
+  },
+  {
+    id: 1,
+    element: <Services />,
+  },
+  {
+    id: 2,
+    element: <Benefits />,
+  },
+  {
+    id: 3,
+    element: <ServicesTicker />,
+  },
+  {
+    id: 4,
+    element: <Partners />,
+  },
+  {
+    id: 5,
+    element: <Projects />,
+  },
+  {
+    id: 6,
+    element: <Technologies />,
+  },
+  {
+    id: 8,
+    element: <TeamTicker />,
+  },
+]

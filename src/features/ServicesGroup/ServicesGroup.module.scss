@@ -1,0 +1,9 @@
+.servicesGroup {
+  display: grid;
+
+  width: 100%;
+
+  grid-template-columns: repeat(2, auto);
+  justify-content: space-between;
+  row-gap: 140px;
+}

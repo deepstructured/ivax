@@ -1,0 +1,19 @@
+.filter {
+  .desktop {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+  }
+
+  li {
+    font-weight: 500;
+    color: #06171e;
+    text-transform: uppercase;
+
+    cursor: pointer;
+
+    &.active {
+      color: $secondary;
+    }
+  }
+}

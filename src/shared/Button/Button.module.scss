@@ -1,0 +1,47 @@
+.button {
+  height: 48px;
+
+  font-weight: 600;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  &.circle {
+    padding-left: 20px;
+
+    position: relative;
+
+    &::before {
+      content: '';
+
+      width: 48px;
+      height: 100%;
+
+      border: 1px solid $secondary;
+      color: $primary;
+
+      border-radius: 100%;
+
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+
+      z-index: 0;
+    }
+  }
+
+  &.common {
+    padding: 0 33px;
+    border-radius: 60px;
+
+    background-color: $secondary;
+    color: #fff;
+
+    &:active {
+      background-color: $btn-active;
+    }
+  }
+}
