@@ -3,10 +3,16 @@
 
   font-weight: 600;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
+  .text {
+    z-index: 2;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
 
   &.circle {
     padding-left: 20px;

@@ -1,0 +1,17 @@
+.input {
+  flex: 1;
+
+  border-bottom: 1px solid #e0e0e0;
+
+  font-weight: 400;
+  font-size: 16px;
+  color: $primary;
+
+  padding-bottom: 16px;
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}

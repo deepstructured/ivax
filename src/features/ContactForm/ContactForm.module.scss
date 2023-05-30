@@ -1,0 +1,29 @@
+.contactForm {
+  width: inherit;
+
+  .inputCol {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .checkboxRow {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    margin-block: 55px;
+  }
+
+  .inputRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 32px;
+  }
+
+  .submitRow {
+    margin-top: 70px;
+  }
+}

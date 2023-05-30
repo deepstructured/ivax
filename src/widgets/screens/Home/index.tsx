@@ -8,6 +8,7 @@ import { TeamTicker } from './TeamTicker/TeamTicker'
 import { Projects } from './Projects/Projects'
 import { Testimonials } from './Testimonials/Testimonials'
 import { Team } from './Team/Team'
+import { Contact } from './Contact/Contact'
 
 export const homeScreens = [
   {
@@ -49,5 +50,9 @@ export const homeScreens = [
   {
     id: 9,
     element: <Team />,
+  },
+  {
+    id: 10,
+    element: <Contact />,
   },
 ]

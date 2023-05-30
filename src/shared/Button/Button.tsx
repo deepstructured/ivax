@@ -5,10 +5,16 @@ import clsx from 'clsx'
 interface IProps {
   type: 'common' | 'circle'
   children: ReactNode
+  htmlType?: 'button' | 'reset' | 'submit'
 }
 
-export const Button: FC<IProps> = ({ type, children }) => {
+export const Button: FC<IProps> = ({ type, children, htmlType }) => {
   return (
-    <button className={clsx(styles.button, styles[type])}>{children}</button>
+    <button
+      type={htmlType ?? 'button'}
+      className={clsx(styles.button, styles[type])}
+    >
+      <div className={styles.text}>{children}</div>
+    </button>
   )
 }
