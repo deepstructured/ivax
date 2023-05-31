@@ -9,14 +9,39 @@
 
   min-height: 338px;
 
+  @media (max-width: $laptop_big) {
+    min-width: 300px;
+    max-width: 300px;
+    min-height: 270px;
+
+    padding: 25px 35px;
+  }
+
+  @media (max-width: $laptop) {
+    min-width: 250px;
+    max-width: 250px;
+    min-height: 220px;
+
+    padding: 25px;
+  }
+
   .content {
     display: flex;
     flex-direction: column;
     gap: 16px;
 
+    @media (max-width: $laptop) {
+      gap: 12px;
+    }
+
     .icon {
       width: 54px;
       height: 54px;
+
+      @media (max-width: $laptop) {
+        width: 40px;
+        height: 40px;
+      }
 
       img {
         width: 100%;
@@ -35,6 +60,10 @@
 
       font-size: 24px;
       color: $text;
+
+      @media (max-width: $laptop) {
+        font-size: 16px;
+      }
 
       li {
         display: flex;

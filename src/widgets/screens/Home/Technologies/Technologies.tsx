@@ -3,11 +3,13 @@ import { technologiesData } from './data'
 
 export const Technologies = () => {
   return (
-    <section className="gray">
-      <h2>
-        Our <span className="yellow">technologies</span>
-      </h2>
-      <LogosGrid data={technologiesData} />
+    <section id="our-technologies" className="gray">
+      <div className="container">
+        <h2>
+          Our <span className="yellow">technologies</span>
+        </h2>
+        <LogosGrid data={technologiesData} />
+      </div>
     </section>
   )
 }

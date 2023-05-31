@@ -13,6 +13,10 @@
     gap: 24px;
 
     margin-block: 55px;
+
+    @media (max-width: $laptop_small) {
+      flex-wrap: wrap;
+    }
   }
 
   .inputRow {

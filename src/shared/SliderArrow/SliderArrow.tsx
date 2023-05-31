@@ -4,15 +4,14 @@ import clsx from 'clsx'
 
 interface IProps {
   direction: 'left' | 'right'
-  active: boolean
   onClick?: () => void
 }
 
-export const SliderArrow: FC<IProps> = ({ direction, active, onClick }) => {
+export const SliderArrow: FC<IProps> = ({ direction, onClick }) => {
   return (
     <div
       onClick={() => onClick && onClick()}
-      className={clsx(styles.sliderArrow, active && styles.active)}
+      className={clsx(styles.sliderArrow)}
     >
       {direction === 'left' && (
         <svg

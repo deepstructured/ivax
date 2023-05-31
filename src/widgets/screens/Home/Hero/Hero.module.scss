@@ -1,15 +1,33 @@
 .hero {
-  padding-block: 50px 35px;
+  div[class='container'] {
+    padding-block: 50px 35px;
+
+    @media (max-width: $laptop_small) {
+      padding-block: 35px;
+    }
+  }
 
   .logo {
     width: 110px;
     height: 36px;
+
+    @media (max-width: $laptop_small) {
+      width: 90px;
+    }
   }
 
   .wrapper {
     display: flex;
 
     padding-top: 150px;
+
+    @media (max-width: $laptop_big) {
+      padding-top: 100px;
+    }
+
+    @media (max-width: $laptop_small) {
+      padding-top: 50px;
+    }
 
     .text {
       width: 60%;
@@ -18,6 +36,10 @@
         h1 {
           &:nth-child(2) {
             margin: 24px 0 44px;
+
+            @media (max-width: $laptop) {
+              margin: 18px 0 35px;
+            }
           }
 
           &:last-child {

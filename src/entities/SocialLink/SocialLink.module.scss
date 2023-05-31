@@ -1,0 +1,12 @@
+.socialLink {
+  width: 20px;
+  height: 20px;
+
+  &.primary path {
+    fill: $primary !important;
+  }
+
+  &.secondary path {
+    fill: $secondary !important;
+  }
+}

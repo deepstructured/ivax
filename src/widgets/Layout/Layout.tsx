@@ -1,19 +1,26 @@
-import { FC, ReactNode } from 'react'
+import { FC, ReactNode, useState } from 'react'
 import Sidebar from '../Sidebar/Sidebar'
 import Footer from '../Footer/Footer'
+import { Menu } from '../Menu/Menu'
+import { WithSmoothScroll } from '../../app/providers/WithSmoothScroll'
 
 interface IProps {
   children: ReactNode
 }
 
 export const Layout: FC<IProps> = ({ children }) => {
+  const [activeMenu, setActiveMenu] = useState<boolean>(false)
+
   return (
     <>
-      <main>
-        {children}
-        <Footer />
-      </main>
-      <Sidebar />
+      <WithSmoothScroll>
+        <main>
+          {children}
+          <Footer />
+        </main>
+      </WithSmoothScroll>
+      <Menu state={activeMenu} setState={setActiveMenu} />
+      <Sidebar setMenu={setActiveMenu} />
     </>
   )
 }

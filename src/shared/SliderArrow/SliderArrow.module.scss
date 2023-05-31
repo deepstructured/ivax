@@ -7,7 +7,7 @@
     transition: fill 0.7s ease;
   }
 
-  &.active {
+  &:hover {
     path {
       fill: $secondary;
     }

@@ -1,5 +1,9 @@
 .footer {
-  padding: 0 50px 85px;
+  padding: 0 100px;
+
+  div[class='container'] {
+    padding-bottom: 85px;
+  }
 
   .body {
     display: flex;
@@ -42,6 +46,14 @@
       li {
         font-weight: 300;
         font-size: 20px;
+
+        @media (max-width: $laptop) {
+          font-size: 16px;
+        }
+
+        @media (max-width: $laptop_small) {
+          font-size: 14px;
+        }
       }
     }
   }

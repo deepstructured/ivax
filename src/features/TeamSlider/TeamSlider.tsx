@@ -21,12 +21,12 @@ export const TeamSlider: FC<IProps> = ({ data }) => {
         speed={500}
         onSwiper={(swiper) => setSwiper(swiper)}
         onSlideChange={() => swiper && setActiveId(swiper.activeIndex)}
+        loop={true}
         effect="coverflow"
-        initialSlide={1}
         coverflowEffect={{
           rotate: 0,
           stretch: 0,
-          depth: 100,
+          depth: 50,
           modifier: 5,
           slideShadows: false,
         }}
@@ -40,18 +40,17 @@ export const TeamSlider: FC<IProps> = ({ data }) => {
             <p className="yellow position">{item.position}</p>
           </SwiperSlide>
         ))}
+        {data.map((item) => (
+          <SwiperSlide key={item.photo}>
+            <img src={item.photo} alt="" className="photo" />
+            <h3>{item.name}</h3>
+            <p className="yellow position">{item.position}</p>
+          </SwiperSlide>
+        ))}
       </Swiper>
       <div className="swiper-arrows">
-        <SliderArrow
-          onClick={() => swiper.slidePrev()}
-          direction="left"
-          active={activeId !== 0 && true}
-        />
-        <SliderArrow
-          onClick={() => swiper.slideNext()}
-          direction="right"
-          active={activeId !== data.length - 1 && true}
-        />
+        <SliderArrow onClick={() => swiper.slidePrev()} direction="left" />
+        <SliderArrow onClick={() => swiper.slideNext()} direction="right" />
       </div>
     </div>
   )

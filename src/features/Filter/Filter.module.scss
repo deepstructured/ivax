@@ -3,6 +3,10 @@
     display: flex;
     align-items: center;
     gap: 60px;
+
+    @media (max-width: $laptop_small) {
+      gap: 30px;
+    }
   }
 
   li {

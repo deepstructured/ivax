@@ -1,9 +1,18 @@
+// colors
 $primary: #2a524c;
 $secondary: #f2c94c;
 $text: #323232;
 $btn-active: #edc038;
-
-// background
 $bg-1: #fbfbfb;
-
 $border: #edeee9;
+
+// breakpoints
+$laptop_big: 1600px;
+$laptop: 1440px;
+$laptop_small: 1280px;
+$tablet_big: 991px;
+$tablet: 768px;
+$tablet_small: 656px;
+$mobile_big: 565px;
+$mobile: 465px;
+$mobile_small: 376px;

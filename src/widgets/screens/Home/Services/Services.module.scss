@@ -21,6 +21,21 @@
 
       object-position: center;
       object-fit: contain;
+
+      @media (max-width: $laptop_big) {
+        width: 450px;
+        height: 575px;
+      }
+
+      @media (max-width: $laptop) {
+        width: 400px;
+        height: 525px;
+      }
+
+      @media (max-width: $laptop_small) {
+        width: 350px;
+        height: 475px;
+      }
     }
   }
 }

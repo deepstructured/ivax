@@ -1,10 +1,23 @@
+import { FC } from 'react'
 import styles from './Logo.module.scss'
-import LogoImage from '/images/logo.svg'
 
-export const Logo = () => {
-  return (
-    <div className={styles.logo}>
-      <img src={LogoImage} alt="" />
-    </div>
-  )
+interface IProps {
+  type: 'primary' | 'secondary'
+}
+
+export const Logo: FC<IProps> = ({ type }) => {
+  switch (type) {
+    case 'primary':
+      return (
+        <div className={styles.logo}>
+          <img src="/images/logo.svg" alt="" />
+        </div>
+      )
+    case 'secondary':
+      return (
+        <div className={styles.logo}>
+          <img src="/images/logo-secondary.svg" alt="" />
+        </div>
+      )
+  }
 }

@@ -14,11 +14,24 @@
       width: 100%;
 
       div[id='row-1'] {
-        gap: 230px;
+        gap: 100px;
+
+        @media (max-width: $laptop) {
+          gap: 50px;
+        }
       }
 
       div[id='row-2'] {
-        gap: 230px;
+        justify-content: space-evenly;
+
+        @media (max-width: $laptop_big) {
+          gap: 100px;
+          justify-content: end;
+        }
+
+        @media (max-width: $laptop) {
+          gap: 50px;
+        }
       }
 
       .line {

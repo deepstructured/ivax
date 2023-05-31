@@ -10,4 +10,19 @@
   column-gap: 96px;
 
   margin: 80px 0 0;
+
+  img {
+    max-width: 10%;
+    min-width: 10%;
+    height: 100px;
+
+    object-fit: contain;
+    object-position: center;
+
+    @media (max-width: $laptop) {
+      height: 75px;
+      max-width: 7.5%;
+      min-width: 7.5%;
+    }
+  }
 }

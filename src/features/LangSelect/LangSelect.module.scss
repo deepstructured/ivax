@@ -1,0 +1,74 @@
+.langSelect {
+  position: relative;
+  user-select: none;
+
+  .activeLang {
+    font-weight: 500;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+
+    cursor: pointer;
+
+    text-transform: uppercase;
+
+    &::after {
+      content: '';
+      display: block;
+
+      width: 6.5px;
+      border-radius: 3.25px;
+
+      height: 1px;
+
+      background-color: $secondary;
+    }
+  }
+
+  .select {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0;
+
+    bottom: -5px;
+    left: 50%;
+
+    translate: -50% 100%;
+
+    padding: 8px;
+    min-width: 75px;
+
+    background: #fcfcfc;
+    box-shadow: 0px 12px 28px rgba(51, 71, 60, 0.31);
+    border-radius: 12px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+    &.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .item {
+      text-align: center;
+
+      cursor: pointer;
+
+      color: $text;
+      font-weight: 500;
+
+      text-transform: uppercase;
+
+      &.active {
+        color: $secondary;
+      }
+    }
+  }
+}

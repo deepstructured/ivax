@@ -6,7 +6,10 @@
   &::before,
   &::after {
     content: '';
-    width: 25%;
+    display: block;
+
+    width: 30%;
+    height: 200% !important;
 
     position: absolute;
     top: 0;
@@ -23,7 +26,7 @@
   }
 
   &::after {
-    right: 0;
+    right: -3px;
     rotate: -180deg;
   }
 
@@ -72,13 +75,23 @@
   span {
     font-weight: 800;
     font-size: 120px;
-    line-height: 110px;
+    line-height: 100%;
 
     white-space: nowrap;
 
     display: block;
 
     z-index: 1;
+
+    user-select: none;
+
+    @media (max-width: $laptop) {
+      font-size: 100px;
+    }
+
+    @media (max-width: $laptop_small) {
+      font-size: 80px;
+    }
   }
 }
 

@@ -12,13 +12,17 @@ body {
     background-color: $secondary;
     border-radius: 3px;
   }
+
+  @media (max-width: $laptop_big) {
+    font-size: 14px;
+  }
+
+  @media (max-width: $laptop) {
+    font-size: 12px;
+  }
 }
 
 main {
-  border-inline: 1px solid $border;
-
-  margin: 0 100px;
-
   position: relative;
 
   &::before {
@@ -39,12 +43,67 @@ main {
 }
 
 section {
-  padding-inline: 50px;
+  padding-inline: 100px;
+
+  @media (max-width: $laptop) {
+    padding-inline: 75px;
+  }
+
+  &.ticker {
+    .container {
+      padding-block: 80px 200px;
+      padding-inline: 0;
+
+      @media (max-width: $laptop) {
+        padding-block: 40px 150px;
+      }
+    }
+  }
 
   &.gray {
     background-color: $bg-1;
 
-    padding-block: 85px;
+    .container {
+      padding-block: 85px;
+    }
+  }
+}
+
+.container {
+  width: 100%;
+
+  &.space-top {
+    padding-top: 160px;
+
+    @media (max-width: $laptop_big) {
+      padding-top: 120px;
+    }
+
+    @media (max-width: $laptop) {
+      padding-top: 80px;
+    }
+  }
+
+  &.space-bottom {
+    padding-bottom: 160px;
+
+    @media (max-width: $laptop_big) {
+      padding-bottom: 120px;
+    }
+
+    @media (max-width: $laptop) {
+      padding-bottom: 80px;
+    }
+  }
+
+  border-inline: 1px solid #edeee9;
+
+  padding-inline: 50px;
+
+  @media (min-width: 1920px) {
+    max-width: 1920px;
+
+    margin: 0 auto;
   }
 }
 
@@ -64,24 +123,72 @@ h3 {
 
 h1 {
   font-size: 140px;
+
+  @media (max-width: $laptop_big) {
+    font-size: 110px;
+  }
+
+  @media (max-width: $laptop) {
+    font-size: 90px;
+  }
+
+  @media (max-width: $laptop_small) {
+    font-size: 80px;
+  }
 }
 
 h2 {
   font-size: 64px;
+
+  @media (max-width: $laptop) {
+    font-size: 54px;
+  }
+
+  @media (max-width: $laptop_small) {
+    font-size: 48px;
+  }
 }
 
 h3 {
   font-size: 32px;
+
+  @media (max-width: $laptop_big) {
+    font-size: 28px;
+  }
+
+  @media (max-width: $laptop) {
+    font-size: 24px;
+  }
+
+  @media (max-width: $laptop_small) {
+    font-size: 20px;
+  }
 }
 
 h4 {
   font-weight: 600;
   font-size: 24px;
+
+  @media (max-width: $laptop_small) {
+    font-size: 18px;
+  }
 }
 
 big {
   font-size: 160px;
   font-weight: 700;
+
+  @media (max-width: $laptop_big) {
+    font-size: 110px;
+  }
+
+  @media (max-width: $laptop) {
+    font-size: 90px;
+  }
+
+  @media (max-width: $laptop_small) {
+    font-size: 80px;
+  }
 }
 
 .yellow {
