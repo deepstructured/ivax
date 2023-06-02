@@ -1,6 +1,6 @@
 import { TeamSlider } from '../../../../features/TeamSlider/TeamSlider'
-import styles from './Team.module.scss'
 import { teamData } from './data'
+import styles from './Team.module.scss'
 
 export const Team = () => {
   return (

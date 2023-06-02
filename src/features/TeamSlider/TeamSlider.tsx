@@ -1,7 +1,6 @@
 import { FC, useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore, { EffectCoverflow } from 'swiper'
-import 'swiper/swiper.css'
 import './TeamSlider.scss'
 import { SliderArrow } from '../../shared/SliderArrow/SliderArrow'
 
@@ -18,30 +17,15 @@ export const TeamSlider: FC<IProps> = ({ data }) => {
   return (
     <div className="team-swiper">
       <Swiper
-        speed={500}
+        slidesPerView={3}
+        speed={750}
+        loop={true}
+        centeredSlides
         onSwiper={(swiper) => setSwiper(swiper)}
         onSlideChange={() => swiper && setActiveId(swiper.activeIndex)}
-        loop={true}
-        effect="coverflow"
-        coverflowEffect={{
-          rotate: 0,
-          stretch: 0,
-          depth: 50,
-          modifier: 5,
-          slideShadows: false,
-        }}
-        slidesPerView={'auto'}
-        centeredSlides
       >
-        {data.map((item) => (
-          <SwiperSlide key={item.photo}>
-            <img src={item.photo} alt="" className="photo" />
-            <h3>{item.name}</h3>
-            <p className="yellow position">{item.position}</p>
-          </SwiperSlide>
-        ))}
-        {data.map((item) => (
-          <SwiperSlide key={item.photo}>
+        {data.map((item, idx) => (
+          <SwiperSlide key={idx}>
             <img src={item.photo} alt="" className="photo" />
             <h3>{item.name}</h3>
             <p className="yellow position">{item.position}</p>
