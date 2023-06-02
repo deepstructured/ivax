@@ -5,7 +5,7 @@ import styles from './Contact.module.scss'
 export const Contact = () => {
   return (
     <section id="contact" className={styles.contact}>
-      <div className="container space-bottom">
+      <div className="container space-bottom space-top">
         <div className={styles.wrapper}>
           <div className={styles.contactForm}>
             <div className={styles.form}>

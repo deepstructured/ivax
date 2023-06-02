@@ -1,6 +1,13 @@
 .projectCard {
   flex: 1;
 
+  @media (max-width: $tablet) {
+    min-width: 90%;
+    max-width: 90%;
+    width: 100%;
+    flex: unset;
+  }
+
   .content {
     display: flex;
     flex-direction: column;
@@ -70,6 +77,11 @@
       @media (max-width: $laptop_small) {
         width: 75px;
         height: 75px;
+      }
+
+      @media (max-width: $tablet_big) {
+        width: 50px;
+        height: 50px;
       }
     }
 

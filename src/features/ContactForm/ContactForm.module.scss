@@ -5,6 +5,10 @@
     display: flex;
     flex-direction: column;
     gap: 32px;
+
+    @media (max-width: $tablet_big) {
+      gap: 15px;
+    }
   }
 
   .checkboxRow {
@@ -17,6 +21,15 @@
     @media (max-width: $laptop_small) {
       flex-wrap: wrap;
     }
+
+    @media (max-width: $tablet_big) {
+      margin-block: 40px;
+    }
+
+    @media (max-width: $tablet) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
   .inputRow {
@@ -25,9 +38,23 @@
     justify-content: space-between;
 
     gap: 32px;
+
+    @media (max-width: $tablet_big) {
+      flex-direction: column;
+      width: 100%;
+      gap: 15px;
+
+      > input {
+        width: 100%;
+      }
+    }
   }
 
   .submitRow {
     margin-top: 70px;
+
+    @media (max-width: $tablet_big) {
+      margin-top: 40px;
+    }
   }
 }

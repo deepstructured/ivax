@@ -2,6 +2,10 @@
   position: relative;
   user-select: none;
 
+  @media (max-width: $tablet) {
+    color: #fcfcfc;
+  }
+
   .activeLang {
     font-weight: 500;
 

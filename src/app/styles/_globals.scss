@@ -20,6 +20,14 @@ body {
   @media (max-width: $laptop) {
     font-size: 12px;
   }
+
+  @media (max-width: $tablet_big) {
+    font-size: 10px;
+  }
+
+  @media (max-width: $tablet) {
+    font-size: 16px;
+  }
 }
 
 main {
@@ -49,6 +57,11 @@ section {
     padding-inline: 75px;
   }
 
+  @media (max-width: $tablet) {
+    padding-inline: 16px;
+    overflow: hidden;
+  }
+
   &.ticker {
     .container {
       padding-block: 80px 200px;
@@ -56,6 +69,10 @@ section {
 
       @media (max-width: $laptop) {
         padding-block: 40px 150px;
+      }
+
+      @media (max-width: $tablet) {
+        padding-block: 64px;
       }
     }
   }
@@ -100,6 +117,10 @@ section {
 
   padding-inline: 50px;
 
+  @media (max-width: $tablet) {
+    padding-inline: 0;
+  }
+
   @media (min-width: 1920px) {
     max-width: 1920px;
 
@@ -135,6 +156,14 @@ h1 {
   @media (max-width: $laptop_small) {
     font-size: 80px;
   }
+
+  @media (max-width: $tablet_big) {
+    font-size: 60px;
+  }
+
+  @media (max-width: $tablet) {
+    font-size: 56px;
+  }
 }
 
 h2 {
@@ -145,6 +174,14 @@ h2 {
   }
 
   @media (max-width: $laptop_small) {
+    font-size: 48px;
+  }
+
+  @media (max-width: $tablet_big) {
+    font-size: 35px;
+  }
+
+  @media (max-width: $tablet) {
     font-size: 48px;
   }
 }
@@ -163,6 +200,14 @@ h3 {
   @media (max-width: $laptop_small) {
     font-size: 20px;
   }
+
+  @media (max-width: $tablet_big) {
+    font-size: 16px;
+  }
+
+  @media (max-width: $tablet) {
+    font-size: 32px;
+  }
 }
 
 h4 {
@@ -171,6 +216,14 @@ h4 {
 
   @media (max-width: $laptop_small) {
     font-size: 18px;
+  }
+
+  @media (max-width: $tablet_big) {
+    font-size: 16px;
+  }
+
+  @media (max-width: $tablet) {
+    font-size: 24px;
   }
 }
 
@@ -204,6 +257,14 @@ big {
 
   &.items-center {
     align-items: center;
+  }
+
+  &.items-start {
+    align-items: start;
+  }
+
+  &.items-end {
+    align-items: end;
   }
 
   &.justify-between {

@@ -1,11 +1,32 @@
 .benefit {
   position: relative;
 
-  max-width: 350px;
-  min-height: 120px;
-
   display: flex;
   align-items: center;
+
+  max-width: 300px;
+  width: 100%;
+  min-width: 300px;
+
+  @media (max-width: $laptop_big) {
+    max-width: 275px;
+    min-width: 275px;
+  }
+
+  @media (max-width: $laptop) {
+    max-width: 250px;
+    min-width: 250px;
+  }
+
+  @media (max-width: $tablet_big) {
+    max-width: 175px;
+    min-width: 175px;
+  }
+
+  @media (max-width: $tablet) {
+    max-width: 100%;
+    min-width: 100%;
+  }
 
   .content {
     background-color: $primary;
@@ -18,38 +39,67 @@
     padding: 16px 24px;
     border-radius: 20px;
 
-    min-height: 75px;
-
     display: flex;
     align-items: center;
+    justify-content: center;
 
-    @media (max-width: $laptop_big) {
-      font-size: 20px;
-    }
+    width: 100%;
 
     @media (max-width: $laptop) {
       font-size: 18px;
-
-      min-height: 70px;
     }
 
-    @media (max-width: $laptop_small) {
-      font-size: 16px;
-      min-height: 60px;
-
+    @media (max-width: $tablet_big) {
+      font-size: 14px;
       padding: 12px 20px;
+      border-radius: 14px;
+    }
+
+    @media (max-width: $tablet) {
+      padding: 16px 14px;
+      font-size: 16px;
+      border-radius: 20px;
+
+      max-width: 145px;
+      min-width: 145px;
     }
   }
 
   &.top {
+    .content {
+      @media (max-width: $laptop) {
+        margin-right: auto;
+      }
+    }
+
     .ellipse {
       bottom: -48px;
+
+      @media (max-width: $tablet) {
+        right: 0 !important;
+        bottom: unset !important;
+
+        left: unset;
+
+        translate: 50% -50% !important;
+      }
     }
   }
 
   &.bottom {
+    .content {
+      @media (max-width: $laptop) {
+        margin-left: auto;
+      }
+    }
+
     .ellipse {
       top: -47px;
+
+      @media (max-width: $tablet) {
+        left: 0;
+        translate: -50% -50% !important;
+      }
     }
   }
 
@@ -57,5 +107,13 @@
     position: absolute;
     left: 50%;
     translate: -50% 0;
+
+    @media (max-width: $tablet) {
+      width: fit-content;
+
+      left: 0;
+      right: 0;
+      top: 50% !important;
+    }
   }
 }

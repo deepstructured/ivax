@@ -11,6 +11,17 @@
 
   margin: 80px 0 0;
 
+  @media (max-width: $tablet_big) {
+    margin: 60px 0 0;
+
+    row-gap: 30px;
+    column-gap: 65px;
+  }
+
+  @media (max-width: $tablet) {
+    gap: 32px !important;
+  }
+
   img {
     max-width: 10%;
     min-width: 10%;
@@ -23,6 +34,12 @@
       height: 75px;
       max-width: 7.5%;
       min-width: 7.5%;
+    }
+
+    @media (max-width: $tablet) {
+      height: 48px;
+      max-width: 75px;
+      width: 100%;
     }
   }
 }

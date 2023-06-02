@@ -20,12 +20,16 @@ const Sidebar: FC<IProps> = ({ setMenu }) => {
           <div onClick={() => setMenu && setMenu(true)}>
             <Button type="circle">Menu</Button>
           </div>
-          <LangSelect langData={langData} />
+          <div className={styles.lang}>
+            <LangSelect langData={langData} />
+          </div>
         </div>
         <div onClick={() => useAnchor('#contact')} className={styles.vertical}>
           <Button type="circle">Get in touch</Button>
         </div>
-        <SocialLinks direction="column" type="primary" data={socialLinks} />
+        <div className={styles.socials}>
+          <SocialLinks direction="column" type="primary" data={socialLinks} />
+        </div>
       </nav>
     </aside>
   )

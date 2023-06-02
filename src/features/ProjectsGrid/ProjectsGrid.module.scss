@@ -3,6 +3,12 @@
   flex-direction: column;
   align-items: center;
 
+  button {
+    @media (max-width: $tablet) {
+      margin-right: auto;
+    }
+  }
+
   .grid {
     display: grid;
 
@@ -12,5 +18,16 @@
     column-gap: 40px;
 
     margin-block: 70px;
+
+    @media (max-width: $tablet) {
+      display: flex;
+      gap: 24px !important;
+
+      overflow-x: scroll;
+      overflow-y: hidden !important;
+
+      margin-block: 40px;
+      width: 100%;
+    }
   }
 }

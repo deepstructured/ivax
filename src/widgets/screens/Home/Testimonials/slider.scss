@@ -15,14 +15,23 @@
 
     transition: all 0.7s ease;
 
-    // animation: toBasic 2s forwards ease;
+    @media (max-width: $tablet) {
+      height: 100%;
+      min-width: 95% !important;
+      max-width: 95% !important;
+      width: 100% !important;
+    }
 
     &.swiper-slide-active {
-      height: 100%;
       min-width: 40% !important;
       width: 40% !important;
 
-      //   animation: toActive 2s forwards ease;
+      @media (max-width: $tablet) {
+        height: 100%;
+        min-width: 95% !important;
+        max-width: 95% !important;
+        width: 100% !important;
+      }
     }
 
     img {

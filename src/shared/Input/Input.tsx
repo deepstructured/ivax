@@ -20,6 +20,8 @@ export const Input: FC<IProps> = ({
 }) => {
   return (
     <input
+      name={type}
+      autoComplete={'on'}
       onChange={(e) => onChange && onChange(e, setValue)}
       value={value}
       className={styles.input}

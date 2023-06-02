@@ -25,6 +25,14 @@
     padding: 25px;
   }
 
+  @media (max-width: $tablet) {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+
+    padding: 32px 40px;
+  }
+
   .content {
     display: flex;
     flex-direction: column;
@@ -41,6 +49,16 @@
       @media (max-width: $laptop) {
         width: 40px;
         height: 40px;
+      }
+
+      @media (max-width: $tablet_big) {
+        width: 30px;
+        height: 30px;
+      }
+
+      @media (max-width: $tablet) {
+        width: 54px;
+        height: 54px;
       }
 
       img {
@@ -63,6 +81,15 @@
 
       @media (max-width: $laptop) {
         font-size: 16px;
+      }
+
+      @media (max-width: $tablet_big) {
+        font-size: 12px;
+      }
+
+      @media (max-width: $tablet) {
+        gap: 16px;
+        font-size: 24px;
       }
 
       li {

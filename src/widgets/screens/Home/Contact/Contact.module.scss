@@ -1,20 +1,64 @@
 .contact {
+  div[class*='container'] {
+    @media (max-width: $tablet) {
+      border-inline: none !important;
+    }
+  }
+
   .wrapper {
     display: flex;
     align-items: center;
 
+    @media (max-width: $tablet) {
+      flex-direction: column;
+      gap: 48px;
+    }
+
     > div {
       flex: 1;
+      max-width: 50% !important;
+
+      @media (max-width: $tablet) {
+        max-width: 100% !important;
+      }
     }
 
     .contactForm {
+      @media (max-width: $tablet) {
+        width: 100%;
+      }
       .form {
         padding-right: 130px;
+
+        @media (max-width: $laptop_small) {
+          padding-right: 35px;
+        }
+
+        @media (max-width: $tablet) {
+          padding-right: 0;
+        }
       }
     }
 
     .map {
       height: auto;
+      position: relative;
+      width: 100%;
+
+      &::before {
+        content: '';
+        display: block;
+
+        padding-top: 100%;
+      }
+
+      > div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
 
       img {
         width: 100%;

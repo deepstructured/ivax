@@ -8,16 +8,28 @@
 
   gap: 75px;
 
+  @media (max-width: $tablet) {
+    gap: 48px;
+  }
+
   .swiper-arrows {
     display: flex;
     align-items: center;
     gap: 16px;
+
+    @media (max-width: $tablet) {
+      gap: 40px;
+    }
   }
 
   .swiper {
     max-width: 100%;
     width: 100%;
     overflow: hidden;
+
+    @media (max-width: $tablet) {
+      height: 480px;
+    }
   }
 
   .swiper-container {
@@ -35,6 +47,11 @@
     flex-direction: column;
     align-items: start;
     justify-content: end;
+
+    @media (max-width: $tablet) {
+      width: 100% !important;
+      height: 100% !important;
+    }
 
     .photo {
       position: absolute;

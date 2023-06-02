@@ -1,4 +1,8 @@
 .statistic {
+  @media (max-width: $tablet) {
+    flex: 1;
+  }
+
   h3 {
     color: $text;
   }

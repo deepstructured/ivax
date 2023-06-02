@@ -30,7 +30,7 @@ export const TeamSlider: FC<IProps> = ({ data }) => {
           modifier: 5,
           slideShadows: false,
         }}
-        slidesPerView={3}
+        slidesPerView={'auto'}
         centeredSlides
       >
         {data.map((item) => (

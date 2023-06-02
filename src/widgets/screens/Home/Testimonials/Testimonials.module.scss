@@ -3,6 +3,12 @@
     padding-bottom: 40px !important;
   }
 
+  h2 {
+    @media (max-width: $tablet) {
+      text-align: center;
+    }
+  }
+
   .testimonialsSlider {
     min-height: 625px;
     height: 625px;
@@ -10,6 +16,32 @@
     flex: 1;
 
     overflow: hidden !important;
+
+    position: relative;
+
+    @media (max-width: $tablet) {
+      width: 100%;
+      min-height: unset;
+      height: unset;
+    }
+
+    > div {
+      @media (max-width: $tablet) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+      }
+    }
+
+    &::before {
+      @media (max-width: $tablet) {
+        content: '';
+        display: block;
+        padding-top: 100%;
+      }
+    }
 
     .slide {
       padding-right: 24px;
@@ -59,12 +91,21 @@
 
     position: relative;
 
+    @media (max-width: $tablet) {
+      flex-direction: column;
+      gap: 32px;
+    }
+
     .num {
       position: absolute;
       left: 0;
       top: -50px;
 
       z-index: 1;
+
+      @media (max-width: $tablet) {
+        display: none;
+      }
     }
 
     .content {
@@ -76,10 +117,20 @@
       flex-direction: column;
       justify-content: space-between;
 
+      @media (max-width: $tablet) {
+        padding-top: 0;
+      }
+
       .arrows {
         display: flex;
         gap: 16px;
         align-items: center;
+
+        @media (max-width: $tablet) {
+          gap: 40px;
+          margin-top: 24px;
+          justify-content: center;
+        }
       }
     }
   }

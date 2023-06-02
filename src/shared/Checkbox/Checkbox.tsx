@@ -23,11 +23,11 @@ export const Checkbox: FC<IProps> = ({ label, dataKey, onChange }) => {
           checked={checked}
           onChange={(e) => setCheked(e.target.checked)}
           type="checkbox"
-          name=""
-          id=""
+          id={label}
+          name={label}
         />
       </div>
-      <label>{label}</label>
+      <label htmlFor={label}>{label}</label>
     </div>
   )
 }

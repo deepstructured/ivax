@@ -14,6 +14,8 @@ import { SocialLinks } from '../../features/SocialLinks/SocialLinks'
 import { socialLinks } from '../../data'
 import { menuLinks } from './data'
 import { useAnchor } from '../../hooks/useAnchor'
+import { LangSelect } from '../../features/LangSelect/LangSelect'
+import { langData } from '../Sidebar/data'
 
 interface IProps {
   state: boolean
@@ -47,16 +49,23 @@ export const Menu: FC<IProps> = ({ state, setState }) => {
     >
       <div className={styles.content}>
         <div className="flex items-center justify-between">
-          <Logo type="secondary" />
-          <Button
-            onClick={() => {
-              setState(false)
-              setClosing(true)
-            }}
-            type="common"
-          >
-            Close
-          </Button>
+          <div className={styles.logo}>
+            <Logo type="secondary" />
+          </div>
+          <div className={clsx('flex items-center', styles.group)}>
+            <div className={styles.mobileLangSelect}>
+              <LangSelect langData={langData} />
+            </div>
+            <Button
+              onClick={() => {
+                setState(false)
+                setClosing(true)
+              }}
+              type="common"
+            >
+              Close
+            </Button>
+          </div>
         </div>
         <div className={styles.middle}>
           <div className={styles.list}>
@@ -79,6 +88,9 @@ export const Menu: FC<IProps> = ({ state, setState }) => {
               ))}
             </ul>
           </div>
+        </div>
+        <div className={styles.bottom}>
+          <SocialLinks direction="row" type="secondary" data={socialLinks} />
           <div className={styles.button}>
             <Button
               onClick={() => {
@@ -92,7 +104,6 @@ export const Menu: FC<IProps> = ({ state, setState }) => {
             </Button>
           </div>
         </div>
-        <SocialLinks direction="row" type="secondary" data={socialLinks} />
       </div>
       <div className={styles.curtains}>
         <div></div>

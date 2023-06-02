@@ -1,10 +1,26 @@
 .benefits {
+  h2 {
+    @media (max-width: $tablet) {
+      text-align: center;
+    }
+  }
+
   .wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 80px;
+
+    button {
+      @media (max-width: $tablet) {
+        display: none;
+      }
+    }
+
+    @media (max-width: $laptop_small) {
+      gap: 60px;
+    }
 
     .benefitsRow {
       display: flex;
@@ -13,24 +29,74 @@
 
       width: 100%;
 
+      @media (max-width: $tablet) {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 0;
+
+        position: relative;
+      }
+
       div[id='row-1'] {
-        gap: 100px;
+        gap: 200px;
+
+        @media (max-width: $laptop_big) {
+          gap: 100px;
+          translate: -45px 0;
+        }
 
         @media (max-width: $laptop) {
+          gap: 100px;
+        }
+
+        @media (max-width: $laptop_small) {
+          gap: 75px;
+          translate: 0;
+        }
+
+        @media (max-width: $tablet_big) {
           gap: 50px;
+        }
+
+        @media (max-width: $tablet) {
+          flex-direction: column;
+          gap: 140px;
+          padding-top: 140px;
+          width: 100%;
         }
       }
 
       div[id='row-2'] {
-        justify-content: space-evenly;
+        gap: 200px;
+
+        padding-left: 200px;
 
         @media (max-width: $laptop_big) {
-          gap: 100px;
-          justify-content: end;
+          padding-left: 100px;
+
+          gap: 150px;
         }
 
         @media (max-width: $laptop) {
+          gap: 125px;
+
+          padding-left: 125px;
+        }
+
+        @media (max-width: $laptop_small) {
           gap: 50px;
+        }
+
+        @media (max-width: $tablet_big) {
+          gap: 50px;
+          padding-left: 100px;
+        }
+
+        @media (max-width: $tablet) {
+          flex-direction: column;
+          padding-left: 0;
+          width: 100%;
+          gap: 140px;
         }
       }
 
@@ -45,6 +111,27 @@
           #484848 48.45%,
           rgba(72, 72, 72, 0) 100%
         );
+
+        @media (max-width: $tablet) {
+          width: 1px;
+          min-width: 1px;
+          height: 100%;
+
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 50%;
+
+          translate: -50% 0;
+
+          z-index: 5;
+
+          background: linear-gradient(
+            rgba(72, 72, 72, 0) 0.03%,
+            #484848 48.45%,
+            rgba(72, 72, 72, 0) 100%
+          );
+        }
       }
     }
   }

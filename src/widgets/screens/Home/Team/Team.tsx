@@ -5,7 +5,7 @@ import { teamData } from './data'
 export const Team = () => {
   return (
     <section id="team" className={styles.team}>
-      <div className="container space-bottom">
+      <div className="container">
         <div className={styles.wrapper}>
           <h2>
             <span className="yellow">Team</span> that Builds Ideas Driven by the

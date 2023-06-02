@@ -27,19 +27,19 @@ export const Testimonials = () => {
             </div>
             <div className={styles.testimonialsSlider}>
               <Swiper
-                slidesPerView={4}
+                slidesPerView={'auto'}
                 loop={true}
-                speed={1500}
+                speed={750}
                 className="testimonials-slider"
                 onSwiper={(swiper) => setSwiper(swiper)}
               >
                 {testimonialsData.map((item) => (
-                  <SwiperSlide>
+                  <SwiperSlide key={item.author}>
                     <img src={item.photo} alt="" />
                   </SwiperSlide>
                 ))}
                 {testimonialsData.map((item) => (
-                  <SwiperSlide>
+                  <SwiperSlide key={item.author}>
                     <img src={item.photo} alt="" />
                   </SwiperSlide>
                 ))}

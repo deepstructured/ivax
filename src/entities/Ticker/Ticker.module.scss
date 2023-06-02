@@ -3,6 +3,10 @@
 
   position: relative;
 
+  @media (max-width: $tablet) {
+    overflow: unset;
+  }
+
   &::before,
   &::after {
     content: '';
@@ -23,6 +27,10 @@
       rgba(255, 255, 255, 0) 21.99%,
       rgba(255, 255, 255, 0) 75.73%
     );
+
+    @media (max-width: $tablet) {
+      display: none;
+    }
   }
 
   &::after {
@@ -91,6 +99,14 @@
 
     @media (max-width: $laptop_small) {
       font-size: 80px;
+    }
+
+    @media (max-width: $tablet_big) {
+      font-size: 60px;
+    }
+
+    @media (max-width: $tablet) {
+      font-size: 48px;
     }
   }
 }

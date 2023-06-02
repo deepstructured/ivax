@@ -14,16 +14,22 @@ export const Benefits = () => {
             We promise <span className="yellow">six things</span>
           </h2>
           <div className={styles.benefitsRow}>
-            <div id="row-1" className="flex items-center justify-start">
-              {benefitsData.slice(0, 3).map((b) => (
-                <Benefit key={b} position="top" text={b} />
-              ))}
+            <div className="flex items-end" id="row-1">
+              {benefitsData.map(
+                (benefit, idx) =>
+                  (idx + 1) % 2 !== 0 && (
+                    <Benefit key={benefit} position={'top'} text={benefit} />
+                  )
+              )}
             </div>
             <div className={styles.line}></div>
-            <div id="row-2" className="flex items-center justify-end">
-              {benefitsData.slice(3).map((b) => (
-                <Benefit key={b} position="bottom" text={b} />
-              ))}
+            <div className="flex items-start" id="row-2">
+              {benefitsData.map(
+                (benefit, idx) =>
+                  (idx + 1) % 2 === 0 && (
+                    <Benefit key={benefit} position={'bottom'} text={benefit} />
+                  )
+              )}
             </div>
           </div>
           <Button onClick={() => useAnchor('#contact')} type="circle">

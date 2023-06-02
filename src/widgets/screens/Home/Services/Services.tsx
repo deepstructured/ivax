@@ -10,8 +10,10 @@ export const Services = () => {
           <h2>
             We <span className="yellow">delivery</span>
           </h2>
+          <div className={styles.bulb}>
+            <img src="/images/bulb.png" alt="" />
+          </div>
           <ServicesGroup data={servicesData} />
-          <img src="/images/bulb.png" alt="" className={styles.bulb} />
         </div>
       </div>
     </section>

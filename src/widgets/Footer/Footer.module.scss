@@ -1,8 +1,20 @@
 .footer {
   padding: 0 100px;
 
+  @media (max-width: $laptop) {
+    padding: 0 75px;
+  }
+
+  @media (max-width: $tablet) {
+    padding: 0 16px;
+  }
+
   div[class='container'] {
     padding-bottom: 85px;
+
+    @media (max-width: $tablet_big) {
+      padding-bottom: 50px;
+    }
   }
 
   .body {
@@ -10,6 +22,19 @@
     gap: 146px;
 
     padding-bottom: 70px;
+
+    @media (max-width: $tablet) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+
+      text-align: center;
+
+      font-size: 20px !important;
+
+      padding-bottom: 48px;
+    }
   }
 
   .down {
@@ -19,15 +44,36 @@
 
     font-weight: 200;
 
+    @media (max-width: $tablet) {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    }
+
     .logo {
       width: 84px;
       height: 28px;
+
+      @media (max-width: $tablet) {
+        order: 1;
+      }
     }
 
     ul {
       display: flex;
       align-items: center;
       gap: 40px;
+
+      @media (max-width: $tablet) {
+        order: 2;
+      }
+    }
+
+    span {
+      @media (max-width: $tablet) {
+        order: 3;
+      }
     }
   }
 
@@ -43,6 +89,10 @@
 
       list-style: none !important;
 
+      @media (max-width: $tablet_big) {
+        gap: 8px;
+      }
+
       li {
         font-weight: 300;
         font-size: 20px;
@@ -53,6 +103,14 @@
 
         @media (max-width: $laptop_small) {
           font-size: 14px;
+        }
+
+        @media (max-width: $tablet_big) {
+          font-size: 12px;
+        }
+
+        @media (max-width: $tablet) {
+          font-size: 20px;
         }
       }
     }

@@ -18,6 +18,12 @@
     padding: 35px 40px;
   }
 
+  @media (max-width: $tablet) {
+    padding: 24px 16px;
+    height: 100%;
+    z-index: 7;
+  }
+
   &.hidden {
     pointer-events: none;
 
@@ -100,15 +106,56 @@
       transition-property: opacity, translate;
     }
 
+    .logo {
+      width: 110px;
+      height: 36px;
+
+      @media (max-width: $tablet) {
+        width: 80px;
+        height: 26px;
+      }
+    }
+
+    .group {
+      gap: 48px;
+
+      .mobileLangSelect {
+        display: none;
+
+        @media (max-width: $tablet) {
+          display: unset;
+        }
+      }
+    }
+
     .middle {
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
-    .button {
-      margin-right: 25%;
-      translate: 50% 0;
+    .bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      z-index: 6;
+
+      .button {
+        position: absolute;
+        top: 50%;
+        left: 75%;
+        translate: 0 -50%;
+
+        @media (max-width: $laptop_small) {
+          left: 60%;
+        }
+
+        @media (max-width: $tablet) {
+          position: static;
+          translate: 0;
+        }
+      }
     }
 
     .list {
@@ -127,6 +174,13 @@
       @media (max-width: $laptop_small) {
         height: 275px;
         max-height: 275px;
+      }
+
+      @media (max-width: $tablet) {
+        height: 350px;
+        max-height: 350px;
+
+        width: 100%;
       }
 
       &::after,
@@ -180,6 +234,10 @@
           gap: 25px;
         }
 
+        @media (max-width: $tablet) {
+          padding-left: 25px;
+        }
+
         &::-webkit-scrollbar {
           appearance: none;
           background-color: #fcfcfc;
@@ -188,7 +246,10 @@
 
         &::-webkit-scrollbar-thumb {
           background-color: $secondary;
-          border-radius: 0.5px;
+        }
+
+        &::-webkit-scrollbar-track {
+          background-color: #fcfcfc;
         }
       }
 
@@ -213,6 +274,10 @@
 
         @media (max-width: $laptop_small) {
           font-size: 45px;
+        }
+
+        @media (max-width: $tablet) {
+          font-size: 40px;
         }
 
         &:hover {

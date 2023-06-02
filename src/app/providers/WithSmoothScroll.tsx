@@ -13,7 +13,7 @@ export const WithSmoothScroll: React.FC<IProps> = ({ children }) => {
       ScrollSmoother.create({
         wrapper: '#smooth-wrapper',
         content: '#smooth-content',
-        smooth: 2,
+        smooth: 1.5,
       })
     }
   }, [])
