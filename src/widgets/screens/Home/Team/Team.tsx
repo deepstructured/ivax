@@ -7,7 +7,7 @@ export const Team = () => {
     <section id="team" className={styles.team}>
       <div className="container">
         <div className={styles.wrapper}>
-          <h2>
+          <h2 className="reveal left">
             <span className="yellow">Team</span> that Builds Ideas Driven by the
             Future
           </h2>

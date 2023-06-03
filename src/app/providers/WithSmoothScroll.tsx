@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react'
 import { gsap } from 'gsap'
+import { useReveal } from '../../hooks/useReveal'
+import { CursorFollower } from '../../shared/CursorFollower/CursorFollower'
 
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger)
 
@@ -19,8 +21,11 @@ export const WithSmoothScroll: React.FC<IProps> = ({ children }) => {
   }, [])
 
   return (
-    <div id="smooth-wrapper">
-      <div id="smooth-content">{children}</div>
-    </div>
+    <>
+      <CursorFollower />
+      <div id="smooth-wrapper">
+        <div id="smooth-content">{children}</div>
+      </div>
+    </>
   )
 }

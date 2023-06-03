@@ -30,7 +30,6 @@
 
   .content {
     background-color: $primary;
-    color: #fff;
 
     font-size: 24px;
     line-height: 100%;
@@ -44,6 +43,10 @@
     justify-content: center;
 
     width: 100%;
+
+    p {
+      color: #fff;
+    }
 
     @media (max-width: $laptop) {
       font-size: 18px;
@@ -76,10 +79,10 @@
       bottom: -48px;
 
       @media (max-width: $tablet) {
-        right: 0 !important;
+        right: 4% !important;
         bottom: unset !important;
 
-        left: unset;
+        left: unset !important;
 
         translate: 50% -50% !important;
       }
@@ -97,7 +100,7 @@
       top: -47px;
 
       @media (max-width: $tablet) {
-        left: 0;
+        left: 4% !important;
         translate: -50% -50% !important;
       }
     }
@@ -111,8 +114,8 @@
     @media (max-width: $tablet) {
       width: fit-content;
 
-      left: 0;
-      right: 0;
+      left: 0 !important;
+      right: 0 !important;
       top: 50% !important;
     }
   }

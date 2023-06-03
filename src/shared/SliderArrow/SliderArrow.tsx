@@ -10,8 +10,12 @@ interface IProps {
 export const SliderArrow: FC<IProps> = ({ direction, onClick }) => {
   return (
     <div
+      data-start="100%"
       onClick={() => onClick && onClick()}
-      className={clsx(styles.sliderArrow)}
+      className={clsx(
+        styles.sliderArrow,
+        direction === 'left' ? 'reveal left' : 'reveal right'
+      )}
     >
       {direction === 'left' && (
         <svg

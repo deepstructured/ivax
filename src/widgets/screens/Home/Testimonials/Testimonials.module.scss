@@ -19,6 +19,16 @@
 
     position: relative;
 
+    @media (max-width: $laptop_big) {
+      min-height: 500px;
+      height: 500px;
+    }
+
+    @media (max-width: $laptop_small) {
+      min-height: 400px;
+      height: 400px;
+    }
+
     @media (max-width: $tablet) {
       width: 100%;
       min-height: unset;
@@ -116,6 +126,10 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+
+      @media (max-width: $laptop) {
+        padding-top: 100px;
+      }
 
       @media (max-width: $tablet) {
         padding-top: 0;

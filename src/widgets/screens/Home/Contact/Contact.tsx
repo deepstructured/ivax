@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import { ContactForm } from '../../../../features/ContactForm/ContactForm'
 import MapLocation from '../../../../features/GoogleMap/GoogleMap'
 import styles from './Contact.module.scss'
@@ -8,11 +9,11 @@ export const Contact = () => {
       <div className="container space-bottom space-top">
         <div className={styles.wrapper}>
           <div className={styles.contactForm}>
-            <div className={styles.form}>
+            <div className={clsx(styles.form, 'reveal left')}>
               <ContactForm />
             </div>
           </div>
-          <div className={styles.map}>
+          <div className={clsx(styles.map, 'reveal right')}>
             <MapLocation />
           </div>
         </div>

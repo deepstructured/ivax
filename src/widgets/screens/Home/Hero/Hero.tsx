@@ -10,15 +10,15 @@ export const Hero = () => {
   return (
     <section className={styles.hero}>
       <div className="container">
-        <div className={styles.logo}>
+        <div className={clsx(styles.logo, 'reveal right')}>
           <Logo type="primary" />
         </div>
         <div className={styles.wrapper}>
           <div className={styles.text}>
             <div className={styles.title}>
-              <h1>Paint</h1>
-              <h1>your thoughts</h1>
-              <h1>
+              <h1 className="reveal left">Paint</h1>
+              <h1 className="reveal left">your thoughts</h1>
+              <h1 className="reveal right">
                 with <span className="yellow">IVAX</span>
               </h1>
             </div>
@@ -28,12 +28,16 @@ export const Hero = () => {
                 styles.buttons
               )}
             >
-              <Button onClick={() => useAnchor('#portfolio')} type="common">
-                Portfolio
-              </Button>
-              <Button onClick={() => useAnchor('#contact')} type="circle">
-                Check with us
-              </Button>
+              <div data-start="100%" className="reveal left">
+                <Button onClick={() => useAnchor('#portfolio')} type="common">
+                  Portfolio
+                </Button>
+              </div>
+              <div data-start="100%" className="reveal right">
+                <Button onClick={() => useAnchor('#contact')} type="circle">
+                  Check with us
+                </Button>
+              </div>
             </div>
           </div>
           <div className={styles.picture}></div>

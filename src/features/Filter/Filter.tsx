@@ -23,13 +23,15 @@ export const Filter: FC<IProps> = ({
   const filterData = (slug: string, idx: number) => {
     const data = originalData
 
+    console.log(slug, idx)
+
     setFilteredData(
       data.filter(
         (item) => item[filterKey].toLowerCase() === slug.toLowerCase()
       )
     )
 
-    setActiveOption(idx)
+    // setActiveOption(idx)
   }
 
   return (

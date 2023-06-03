@@ -1,4 +1,5 @@
-import { FC, useState } from 'react'
+import { FC, useState, useEffect } from 'react'
+import { animation } from './animation'
 import styles from './ProjectsGrid.module.scss'
 import { Button } from '../../shared/Button/Button'
 import { ProjectCard } from '../../entities/ProjectCard/ProjectCard'
@@ -9,6 +10,14 @@ interface IProps {
 
 export const ProjectsGrid: FC<IProps> = ({ data }) => {
   const [projectsPerView, setProjectsPerView] = useState<number>(8)
+
+  useEffect(() => {
+    const elements = document.querySelectorAll<HTMLDivElement>(
+      `.${styles.grid} > div`
+    )
+
+    animation(elements)
+  }, [])
 
   return (
     <div className={styles.projectsGrid}>
@@ -22,7 +31,9 @@ export const ProjectsGrid: FC<IProps> = ({ data }) => {
           />
         ))}
       </div>
-      <Button type="circle">Load more projects</Button>
+      <div className="reveal bottom">
+        <Button type="circle">Load more projects</Button>
+      </div>
     </div>
   )
 }

@@ -11,9 +11,11 @@ interface IProps {
 export const Testimonial: FC<IProps> = ({ author, position, text }) => {
   return (
     <div className={styles.testimonial}>
-      <h3>{author}</h3>
-      <span className={clsx(styles.position, 'yellow')}>{position}</span>
-      <p>{text}</p>
+      <h3 className="reveal right">{author}</h3>
+      <span className={clsx(styles.position, 'yellow reveal right')}>
+        {position}
+      </span>
+      <p className="reveal right">{text}</p>
     </div>
   )
 }

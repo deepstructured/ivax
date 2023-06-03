@@ -6,6 +6,7 @@ import { SliderArrow } from '../../../../shared/SliderArrow/SliderArrow'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import './slider.scss'
 import 'swiper/css'
+import clsx from 'clsx'
 
 export const Testimonials = () => {
   const [data, setData] = useState<any[]>(testimonialsData)
@@ -37,18 +38,17 @@ export const Testimonials = () => {
     <section id="testimonials" className={styles.testimonials}>
       <div className="container space-top">
         <div className={styles.wrapper}>
-          <h2>
+          <h2 className="reveal left">
             What our clients <span className="yellow">say about us</span>
           </h2>
           <div className={styles.info}>
             <div className={styles.num}>
               <span className="yellow">{activeId + 1}</span>/{data.length / 2}
             </div>
-            <div className={styles.testimonialsSlider}>
+            <div className={clsx(styles.testimonialsSlider, 'reveal left')}>
               <Swiper
-                spaceBetween={24}
                 allowTouchMove={window.innerWidth > 768 ? false : true}
-                slidesPerView={window.innerWidth > 768 ? 3 : 'auto'}
+                slidesPerView={window.innerWidth > 768 ? 4 : 'auto'}
                 speed={750}
                 loop={true}
                 className="testimonials-slider"

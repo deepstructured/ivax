@@ -1,5 +1,6 @@
 import { Dispatch, FC, SetStateAction } from 'react'
 import styles from './Input.module.scss'
+import clsx from 'clsx'
 
 interface IProps {
   placeholder: string
@@ -24,7 +25,7 @@ export const Input: FC<IProps> = ({
       autoComplete={'on'}
       onChange={(e) => onChange && onChange(e, setValue)}
       value={value}
-      className={styles.input}
+      className={clsx(styles.input, 'reveal bottom')}
       type={type}
       placeholder={required ? placeholder + '*' : placeholder}
       required={required}

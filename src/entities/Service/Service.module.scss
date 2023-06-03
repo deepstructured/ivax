@@ -1,36 +1,105 @@
 .service {
-  padding: 32px 56px;
-
-  border-radius: 40px;
-  border: 1px solid $primary;
-
   min-width: 370px;
   max-width: 370px;
 
   min-height: 338px;
+
+  position: relative;
+
+  .ellipse {
+    user-select: none;
+  }
+
+  &:first-child {
+    .line {
+      right: 0;
+      rotate: -60deg;
+      translate: 50% 0;
+    }
+
+    .content {
+      rotate: -45deg;
+    }
+  }
+
+  &:nth-child(2) {
+    .line {
+      left: 0;
+      translate: -50% 0;
+      rotate: 60deg;
+    }
+
+    .content {
+      rotate: 45deg;
+    }
+  }
+
+  &:nth-child(3) {
+    .line {
+      right: 0;
+      translate: 50% 0;
+      rotate: -120deg;
+    }
+
+    .content {
+      rotate: 45deg;
+
+      transform-origin: left bottom;
+    }
+  }
+
+  &:last-child {
+    .line {
+      left: 0;
+      translate: -50% 0;
+      rotate: 120deg;
+    }
+
+    .content {
+      rotate: -45deg;
+      transform-origin: right bottom;
+    }
+  }
+
+  .line {
+    position: absolute;
+    top: 100px;
+
+    transform-origin: top center;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    @media (max-width: $tablet) {
+      display: none;
+    }
+
+    svg {
+      transform-origin: bottom bottom;
+    }
+  }
 
   @media (max-width: $laptop_big) {
     min-width: 300px;
     max-width: 300px;
     min-height: 270px;
 
-    padding: 25px 35px;
+    .content {
+      padding: 25px 30px;
+    }
   }
 
   @media (max-width: $laptop) {
     min-width: 250px;
     max-width: 250px;
     min-height: 220px;
-
-    padding: 25px;
   }
 
   @media (max-width: $tablet) {
     width: 100%;
     max-width: 100%;
     min-width: 100%;
-
-    padding: 32px 40px;
   }
 
   .content {
@@ -38,8 +107,25 @@
     flex-direction: column;
     gap: 16px;
 
+    padding: 32px 56px;
+
+    border-radius: 40px;
+    border: 1px solid $primary;
+
+    width: 100%;
+    height: 100%;
+
+    @media (max-width: $laptop_big) {
+      padding: 25px 30px;
+    }
+
     @media (max-width: $laptop) {
+      padding: 25px;
       gap: 12px;
+    }
+
+    @media (max-width: $tablet) {
+      padding: 32px 40px;
     }
 
     .icon {

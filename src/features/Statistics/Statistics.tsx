@@ -9,8 +9,8 @@ interface IProps {
 export const Statistics: FC<IProps> = ({ data }) => {
   return (
     <div className={styles.statistics}>
-      {data.map((item) => (
-        <Statistic key={item.value} value={item.value} num={item.num} />
+      {data.map((item, idx) => (
+        <Statistic id={idx} key={item.value} value={item.value} num={item.num} />
       ))}
     </div>
   )

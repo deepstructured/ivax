@@ -855,6 +855,11 @@ mime-types@^2.1.12:
   dependencies:
     mime-db "1.52.0"
 
+mouse-follower@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/mouse-follower/-/mouse-follower-1.1.2.tgz#1ec0bba53adb4aa7563a5c619992f58695403cd4"
+  integrity sha512-Wa/3MKMNWW1qy7XuG34NMRAm504p0PckJU4yTyXCoNYFaaIcZi+bpnTg0L2u8QuGBYgs2ue84wGCPIaQQzRV3Q==
+
 ms@2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"

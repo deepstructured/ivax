@@ -109,10 +109,14 @@ export const ContactForm = () => {
       <div
         className={clsx('flex items-center justify-between', styles.submitRow)}
       >
-        <Button htmlType="submit" type="circle">
-          Send
-        </Button>
-        <FileInput setFileData={setFile} />
+        <div className="reveal bottom" data-start="100%">
+          <Button htmlType="submit" type="circle">
+            Send
+          </Button>
+        </div>
+        <div data-start="100%" className="reveal bottom">
+          <FileInput setFileData={setFile} />
+        </div>
       </div>
     </form>
   )

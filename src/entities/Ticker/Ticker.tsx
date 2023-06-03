@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react'
+import { FC, ReactNode, useEffect } from 'react'
 import styles from './Ticker.module.scss'
 import clsx from 'clsx'
 

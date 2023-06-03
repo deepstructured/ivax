@@ -1,5 +1,6 @@
 import { FC, useEffect, useState } from 'react'
 import styles from './Checkbox.module.scss'
+import clsx from 'clsx'
 
 interface IProps {
   label: string
@@ -17,7 +18,7 @@ export const Checkbox: FC<IProps> = ({ label, dataKey, onChange }) => {
   }, [checked])
 
   return (
-    <div className={styles.checkbox}>
+    <div className={clsx(styles.checkbox, 'reveal bottom')}>
       <div className={styles.input}>
         <input
           checked={checked}

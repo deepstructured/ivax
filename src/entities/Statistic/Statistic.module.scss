@@ -3,6 +3,16 @@
     flex: 1;
   }
 
+  big {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    span {
+      transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+  }
+
   h3 {
     color: $text;
   }

@@ -5,8 +5,11 @@
     align-items: center;
     gap: 80px;
 
+    @media (max-width: $laptop) {
+      gap: 45px;
+    }
+
     @media (max-width: $tablet) {
-      gap: 48px;
       text-align: center;
     }
   }

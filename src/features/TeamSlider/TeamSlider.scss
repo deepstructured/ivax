@@ -49,6 +49,14 @@
     align-items: start;
     justify-content: end;
 
+    @media (max-width: $laptop_big) {
+      height: 550px !important;
+    }
+
+    @media (max-width: $laptop) {
+      height: 450px !important;
+    }
+
     @media (max-width: $tablet) {
       width: 100% !important;
       height: 100% !important;

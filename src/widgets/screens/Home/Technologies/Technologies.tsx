@@ -5,7 +5,7 @@ export const Technologies = () => {
   return (
     <section id="our-technologies" className="gray">
       <div className="container">
-        <h2>
+        <h2 className="reveal left">
           Our <span className="yellow">technologies</span>
         </h2>
         <LogosGrid data={technologiesData} />

@@ -11,15 +11,17 @@ export const Projects = () => {
     <section id="portfolio" className={styles.projects}>
       <div className="container space-top space-bottom">
         <div className="flex items-center justify-between">
-          <h2>
+          <h2 className="reveal left">
             Latest <span className="yellow">Projects</span>
           </h2>
-          <Filter
-            filteredData={data}
-            setFilteredData={setData}
-            filterKey="category"
-            optionsData={categoriesData}
-          />
+          <div className="reveal right">
+            <Filter
+              filteredData={data}
+              setFilteredData={setData}
+              filterKey="category"
+              optionsData={categoriesData}
+            />
+          </div>
         </div>
         <ProjectsGrid data={data} />
       </div>

@@ -19,15 +19,14 @@
     }
   }
 
-  h3 {
-    animation: fadeIn 2s forwards ease;
-    opacity: 0;
-  }
-
   p {
     font-size: 18px;
 
     margin-top: 90px;
+
+    @media (max-width: $laptop_small) {
+      margin-top: 45px;
+    }
 
     @media (max-width: $tablet) {
       margin: 0;
