@@ -43,7 +43,8 @@ export const Testimonials = () => {
           </h2>
           <div className={styles.info}>
             <div className={styles.num}>
-              <span className="yellow">{activeId + 1}</span>/{data.length / 2}
+              <span className="yellow">{activeTestimonial.id}</span>/
+              {data.length / 2}
             </div>
             <div className={clsx(styles.testimonialsSlider, 'reveal left')}>
               <Swiper

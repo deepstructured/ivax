@@ -3,6 +3,9 @@ import { ServicesGroup } from '../../../../features/ServicesGroup/ServicesGroup'
 import styles from './Services.module.scss'
 import { servicesData } from './data'
 import { gsap } from 'gsap'
+import MouseFollower from 'mouse-follower'
+
+gsap.registerPlugin(MouseFollower)
 
 export const Services = () => {
   const refBulb = useRef<HTMLImageElement>(null)
