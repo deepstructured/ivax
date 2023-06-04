@@ -45,6 +45,9 @@
       position: relative;
       width: 100%;
 
+      opacity: 0;
+      translate: 25% 0;
+
       &::before {
         content: '';
         display: block;

@@ -1,6 +1,7 @@
-import { FC, useEffect, useState } from 'react'
+import { FC, useEffect, useRef, useState } from 'react'
 import styles from './Checkbox.module.scss'
 import clsx from 'clsx'
+import { useReveal } from '../../hooks/useReveal'
 
 interface IProps {
   label: string
@@ -10,6 +11,7 @@ interface IProps {
 
 export const Checkbox: FC<IProps> = ({ label, dataKey, onChange }) => {
   const [checked, setCheked] = useState<boolean>(false)
+  const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (onChange && dataKey) {
@@ -17,8 +19,24 @@ export const Checkbox: FC<IProps> = ({ label, dataKey, onChange }) => {
     }
   }, [checked])
 
+  useEffect(() => {
+    if (ref.current) {
+      useReveal(
+        ref.current,
+        {
+          opacity: 1,
+          x: 0,
+          y: 0,
+          duration: 1,
+        },
+        false,
+        ref.current.closest('form')
+      )
+    }
+  }, [])
+
   return (
-    <div className={clsx(styles.checkbox, 'reveal bottom')}>
+    <div ref={ref} className={clsx(styles.checkbox, 'reveal bottom')}>
       <div className={styles.input}>
         <input
           checked={checked}

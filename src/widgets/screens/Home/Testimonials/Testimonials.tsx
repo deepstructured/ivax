@@ -1,5 +1,5 @@
 import { Testimonial } from '../../../../entities/Testimonial/Testimonial'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { testimonialsData } from '../../../../entities/Testimonial/data'
 import styles from './Testimonials.module.scss'
 import { SliderArrow } from '../../../../shared/SliderArrow/SliderArrow'
@@ -7,12 +7,29 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import './slider.scss'
 import 'swiper/css'
 import clsx from 'clsx'
+import { useReveal } from '../../../../hooks/useReveal'
 
 export const Testimonials = () => {
   const [data, setData] = useState<any[]>(testimonialsData)
   const [activeId, setActiveId] = useState<number>(0)
   const [activeTestimonial, setActiveTestimonial] = useState(data[activeId])
   const [swiper, setSwiper] = useState<any>()
+  const refSection = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (refSection.current) {
+      useReveal(
+        Array.from(
+          refSection.current.querySelectorAll<HTMLElement>('h2 > span')
+        ),
+        {
+          opacity: 1,
+          x: 0,
+          duration: 1,
+        }
+      )
+    }
+  }, [])
 
   const handleSlide = (direction: 'prev' | 'next') => {
     if (direction === 'prev') {
@@ -35,11 +52,12 @@ export const Testimonials = () => {
   useEffect(() => console.log(activeId), [activeId])
 
   return (
-    <section id="testimonials" className={styles.testimonials}>
+    <section ref={refSection} id="testimonials" className={styles.testimonials}>
       <div className="container space-top">
         <div className={styles.wrapper}>
-          <h2 className="reveal left">
-            What our clients <span className="yellow">say about us</span>
+          <h2>
+            <span className="reveal left">What our clients</span>{' '}
+            <span className="yellow reveal right">say about us</span>
           </h2>
           <div className={styles.info}>
             <div className={styles.num}>

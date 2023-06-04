@@ -2,6 +2,7 @@ import { gsap } from 'gsap'
 import { FC, useEffect, useRef } from 'react'
 import styles from './Service.module.scss'
 import { Ellipse } from '../../shared/Ellipse/Ellipse'
+import { useReveal } from '../../hooks/useReveal'
 
 interface IProps {
   title: string
@@ -15,7 +16,9 @@ export const Service: FC<IProps> = ({ title, categories, icon, id }) => {
 
   useEffect(() => {
     if (ref.current) {
-      const content = ref.current.querySelector(`.${styles.content}`)
+      const content = ref.current.querySelector(
+        `.${styles.content}`
+      ) as HTMLElement
       const icon = ref.current.querySelector(`.${styles.icon}`)
       const number = ref.current.querySelector('p')
       const title = ref.current.querySelector('h3')
@@ -23,7 +26,6 @@ export const Service: FC<IProps> = ({ title, categories, icon, id }) => {
       const ellipse = ref.current.querySelector(`.${styles.ellipse}`)
       const svgLine = ref.current.querySelector('svg')
 
-      gsap.set(content, { opacity: 0, scale: 0.5 })
       gsap.set(icon, { opacity: 0, x: `100%` })
       gsap.set(number, { opacity: 0, x: `-25%` })
       gsap.set(title, { opacity: 0, x: `25%` })
@@ -47,19 +49,40 @@ export const Service: FC<IProps> = ({ title, categories, icon, id }) => {
         })
       })
 
-      ScrollTrigger.create({
-        trigger: ref.current.parentElement,
-        start: 'top 80%',
-        onEnter: () =>
-          gsap.to(content, {
-            opacity: 1,
-            scale: 1,
-            rotate: 0,
-            duration: 1,
-            delay: 0.5 * (id + 1),
-            ease: 'cubic-bezier(0.22, 1, 0.36, 1)',
-          }),
-      })
+      useReveal(
+        content,
+        {
+          opacity: 1,
+          scale: 1,
+          rotate: 0,
+          borderWidth: 1,
+          duration: 1,
+          delay: 0.5 * (id + 1),
+        },
+        {
+          opacity: 0,
+          scale: 0.5,
+          borderWidth: 0,
+          rotate: 45,
+          duration: 1,
+        },
+        ref.current.parentElement
+      )
+
+      // ScrollTrigger.create({
+      //   trigger: ref.current.parentElement,
+      //   start: 'top 80%',
+      //   onEnter: () =>
+      //     gsap.to(content, {
+      //       opacity: 1,
+      //       scale: 1,
+      //       rotate: 0,
+      //       duration: 1,
+      //       delay: 0.5 * (id + 1),
+      //       ease: 'cubic-bezier(0.22, 1, 0.36, 1)',
+      //     }),
+      //   onLeave: () => gsap.to(content, { clearProps: true }),
+      // })
 
       ScrollTrigger.create({
         trigger: ref.current.parentElement,

@@ -3,10 +3,13 @@
     flex: 1;
   }
 
-  big {
+  .num {
     display: flex;
     align-items: center;
     gap: 6px;
+
+    translate: 0 -25%;
+    opacity: 0;
 
     span {
       transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1);

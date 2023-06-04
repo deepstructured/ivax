@@ -3,10 +3,20 @@ import { Button } from '../../shared/Button/Button'
 import { Input } from '../../shared/Input/Input'
 import styles from './ContactForm.module.scss'
 import { Checkbox } from '../../shared/Checkbox/Checkbox'
-import { ChangeEvent, Dispatch, SetStateAction, useState } from 'react'
+import {
+  ChangeEvent,
+  Dispatch,
+  SetStateAction,
+  useRef,
+  useState,
+  useEffect,
+} from 'react'
 import { FileInput } from '../../shared/FileInput/FileInput'
+import { useReveal } from '../../hooks/useReveal'
 
 export const ContactForm = () => {
+  const refForm = useRef<HTMLFormElement>(null)
+
   const [name, setName] = useState<string>('')
   const [email, setEmail] = useState<string>('')
   const [phone, setPhone] = useState<string>('')
@@ -43,10 +53,44 @@ export const ContactForm = () => {
     setState(value)
   }
 
+  useEffect(() => {
+    if (refForm.current) {
+      useReveal(
+        Array.from(
+          refForm.current.querySelectorAll<HTMLElement>(
+            `.${styles.submitRow} > div`
+          )
+        ),
+        {
+          opacity: 1,
+          x: 0,
+          y: 0,
+          duration: 1,
+        },
+        false,
+        refForm.current,
+        true
+      )
+
+      useReveal(
+        Array.from(refForm.current.querySelectorAll<HTMLElement>('h2 > span')),
+        {
+          opacity: 1,
+          x: 0,
+          y: 0,
+          duration: 1,
+        },
+        false,
+        refForm.current
+      )
+    }
+  }, [])
+
   return (
-    <form action="" className={styles.contactForm}>
+    <form ref={refForm} action="" className={styles.contactForm}>
       <h2>
-        <span className="yellow">Tell us</span> more
+        <span className="yellow reveal left">Tell us</span>{' '}
+        <span className="reveal right">more</span>
       </h2>
       <div className={styles.checkboxRow}>
         <Checkbox
@@ -109,12 +153,12 @@ export const ContactForm = () => {
       <div
         className={clsx('flex items-center justify-between', styles.submitRow)}
       >
-        <div className="reveal bottom" data-start="100%">
+        <div className="reveal bottom">
           <Button htmlType="submit" type="circle">
             Send
           </Button>
         </div>
-        <div data-start="100%" className="reveal bottom">
+        <div className="reveal bottom">
           <FileInput setFileData={setFile} />
         </div>
       </div>

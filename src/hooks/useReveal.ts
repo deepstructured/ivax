@@ -1,27 +1,58 @@
 import { gsap } from 'gsap'
 
-export const useReveal = () => {
-  const elements = document.querySelectorAll<HTMLDataElement>('.reveal')
-
-  Array.from(elements).map((el: HTMLDataElement) => {
-    const anim = gsap.to(el, {
-      opacity: 1,
-      x: 0,
-      y: 0,
-      scale: 1,
-      rotate: 0,
-      duration: 1,
+export const useReveal = (
+  selector: HTMLElement | HTMLElement[],
+  enterParams: { [key: string]: any },
+  leaveParams?: { [key: string]: any } | false,
+  trigger?: HTMLElement | null,
+  paused: boolean = true,
+  animEnd: string = `bottom 20%`,
+  animStart: string = `top 75%`
+) => {
+  function registerAnim(element: HTMLElement) {
+    const animEnter = gsap.to(element, {
+      ...enterParams,
       ease: 'cubic-bezier(0.22, 1, 0.36, 1)',
-      paused: true,
-      delay: el.dataset.delay ?? 0,
+      paused: paused,
+      delay: Object.keys(enterParams).includes('delay')
+        ? enterParams['delay']
+        : 0,
     })
 
-    ScrollTrigger.create({
-      trigger: el,
-      start: `top ${el.dataset.start ?? '75%'}`,
-      end: `bottom 80%`,
-      onEnter: () => anim.play(),
-      once: true,
-    })
-  })
+    if (leaveParams) {
+      const animLeave = gsap.to(element, {
+        ...leaveParams,
+        ease: 'cubic-bezier(0.22, 1, 0.36, 1)',
+        paused: paused,
+        delay: Object.keys(leaveParams).includes('delay')
+          ? leaveParams['delay']
+          : 0,
+      })
+
+      ScrollTrigger.create({
+        trigger: trigger ? trigger : element,
+        start: animStart,
+        end: animEnd,
+        onEnter: () => animEnter.play(),
+        onLeave: () => animLeave.play(),
+        onEnterBack: () => animEnter.play(),
+        onLeaveBack: () => animLeave.play(),
+        once: false,
+      })
+    } else {
+      ScrollTrigger.create({
+        trigger: element,
+        start: animStart,
+        end: animEnd,
+        onEnter: () => animEnter.play(),
+        onEnterBack: () => animEnter.play(),
+      })
+    }
+  }
+
+  if (!Array.isArray(selector)) {
+    registerAnim(selector)
+  } else {
+    selector.map((el) => registerAnim(el))
+  }
 }

@@ -146,6 +146,13 @@ h1,
 h2,
 h3 {
   z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  > span {
+    display: block;
+  }
 }
 
 h1 {
@@ -306,10 +313,10 @@ big {
   }
 
   &.top {
-    translate: 0 -50%;
+    translate: 0 -25%;
   }
 
   &.bottom {
-    translate: 0 50%;
+    translate: 0 25%;
   }
 }

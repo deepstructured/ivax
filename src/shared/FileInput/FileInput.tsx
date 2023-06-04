@@ -7,7 +7,6 @@ import {
   useState,
 } from 'react'
 import styles from './FileInput.module.scss'
-import clsx from 'clsx'
 
 interface IProps {
   setFileData?: Dispatch<SetStateAction<File | undefined>>
@@ -29,7 +28,7 @@ export const FileInput: FC<IProps> = ({ setFileData }) => {
   }
 
   return (
-    <div className={clsx(styles.fileInput, 'reveal bottom')}>
+    <div className={styles.fileInput}>
       <input
         onChange={(e) => {
           handleFileChange(e)

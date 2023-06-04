@@ -4,40 +4,54 @@ import styles from './Services.module.scss'
 import { servicesData } from './data'
 import { gsap } from 'gsap'
 import MouseFollower from 'mouse-follower'
+import { useReveal } from '../../../../hooks/useReveal'
 
 gsap.registerPlugin(MouseFollower)
 
 export const Services = () => {
-  const refBulb = useRef<HTMLImageElement>(null)
+  const refBulb = useRef<HTMLDivElement>(null)
+  const refSection = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (refBulb.current) {
-      gsap.set(refBulb.current, { opacity: 0, y: `100%`, scale: 0.8 })
+    if (refBulb.current && refSection.current) {
+      useReveal(
+        refBulb.current,
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 1.5,
+        },
+        {
+          opacity: 0,
+          scale: 0.5,
+          duration: 1,
+        },
+        refBulb.current
+      )
 
-      ScrollTrigger.create({
-        trigger: refBulb.current,
-        start: 'top 150%',
-        onEnter: () =>
-          gsap.to(refBulb.current, {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 1,
-            ease: 'cubic-bezier(0.85, 0, 0.15, 1)',
-          }),
-      })
+      useReveal(
+        Array.from(
+          refSection.current.querySelectorAll<HTMLElement>('h2 > span')
+        ),
+        {
+          opacity: 1,
+          x: 0,
+          duration: 1,
+        }
+      )
     }
   }, [])
 
   return (
-    <section id="services" className={styles.services}>
+    <section ref={refSection} id="services" className={styles.services}>
       <div className="container space-top space-bottom">
         <div className={styles.wrapper}>
-          <h2 className="reveal left">
-            We <span className="yellow">delivery</span>
+          <h2>
+            <span className="reveal left">We</span>{' '}
+            <span className="yellow reveal right">delivery</span>
           </h2>
-          <div className={styles.bulb}>
-            <img ref={refBulb} src="/images/bulb.png" alt="" />
+          <div ref={refBulb} className={styles.bulb}>
+            <img src="/images/bulb.png" alt="" />
           </div>
           <ServicesGroup data={servicesData} />
         </div>
