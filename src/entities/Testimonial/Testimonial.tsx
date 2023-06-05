@@ -31,7 +31,7 @@ export const Testimonial: FC<IProps> = ({ author, position, text }) => {
 
       gsap.set(text, {
         opacity: 0,
-        y: `25%`,
+        y: `50%`,
       })
 
       useReveal(
@@ -42,7 +42,10 @@ export const Testimonial: FC<IProps> = ({ author, position, text }) => {
           duration: 0.5,
         },
         false,
-        ref.current.closest('section')
+        ref.current.closest('section'),
+        true,
+        'bottom 80%',
+        'top 80%'
       )
 
       useReveal(
@@ -54,7 +57,10 @@ export const Testimonial: FC<IProps> = ({ author, position, text }) => {
           duration: 0.5,
         },
         false,
-        ref.current.closest('section')
+        ref.current.closest('section'),
+        true,
+        'bottom 80%',
+        'top 80%'
       )
 
       useReveal(
@@ -62,10 +68,13 @@ export const Testimonial: FC<IProps> = ({ author, position, text }) => {
         {
           opacity: 1,
           y: 0,
-          duration: 0.5,
+          duration: 0.55,
         },
         false,
-        ref.current.closest('section')
+        ref.current.closest('section'),
+        true,
+        'bottom 80%',
+        'top 80%'
       )
     }
   }, [author, text, position])

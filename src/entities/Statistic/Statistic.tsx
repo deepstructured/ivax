@@ -23,6 +23,11 @@ export const Statistic: FC<IProps> = ({ num, value, id }) => {
       const numNode = ref.current.querySelector<HTMLElement>(`.${styles.num}`)
       const labelNode = ref.current.querySelector<HTMLElement>(`h3`)
 
+      gsap.set(numNode, {
+        opacity: 0,
+        y: `-50%`,
+      })
+
       ScrollTrigger.create({
         trigger: ref.current.parentElement,
         start: `top 80%`,
@@ -37,17 +42,17 @@ export const Statistic: FC<IProps> = ({ num, value, id }) => {
           {
             y: 0,
             opacity: 1,
-            duration: 1,
+            duration: 1.25,
           },
           {
-            y: `-25%`,
+            y: `-50%`,
             opacity: 0,
-            duration: 1,
+            duration: 1.25,
           },
           ref.current.parentElement,
           true,
           'bottom 35%',
-          'top 80%'
+          'top 60%'
         )
 
         useReveal(
@@ -55,17 +60,17 @@ export const Statistic: FC<IProps> = ({ num, value, id }) => {
           {
             y: 0,
             opacity: 1,
-            duration: 1,
+            duration: 1.25,
           },
           {
-            y: `25%`,
+            y: `50%`,
             opacity: 0,
-            duration: 1,
+            duration: 1.25,
           },
           ref.current.parentElement,
           true,
           'bottom 35%',
-          'top 80%'
+          'top 60%'
         )
       }
     }

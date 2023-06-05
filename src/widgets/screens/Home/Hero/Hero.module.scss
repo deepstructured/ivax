@@ -55,6 +55,12 @@
       }
 
       .title {
+        @media (max-width: $tablet) {
+          display: flex;
+          flex-wrap: wrap;
+          flex-direction: column;
+        }
+
         h1 {
           &:nth-child(2) {
             margin: 24px 0 44px;

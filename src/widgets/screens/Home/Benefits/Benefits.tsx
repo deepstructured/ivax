@@ -33,10 +33,15 @@ export const Benefits = () => {
 
       useReveal(
         refLine.current,
-        {
-          width: `100%`,
-          duration: 5,
-        },
+        window.innerWidth > 565
+          ? {
+              width: `100%`,
+              duration: 5,
+            }
+          : {
+              height: `100%`,
+              duration: 5,
+            },
         {
           width: 0,
           duration: 1,
