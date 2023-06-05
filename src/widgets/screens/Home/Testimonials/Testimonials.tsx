@@ -15,6 +15,7 @@ export const Testimonials = () => {
   const [activeTestimonial, setActiveTestimonial] = useState(data[activeId])
   const [swiper, setSwiper] = useState<any>()
   const refSection = useRef<HTMLDivElement>(null)
+  const [delay, setDelay] = useState<boolean>(false)
 
   useEffect(() => {
     if (refSection.current) {
@@ -31,20 +32,28 @@ export const Testimonials = () => {
     }
   }, [])
 
-  const handleSlide = (direction: 'prev' | 'next') => {
-    if (direction === 'prev') {
-      if (window.innerWidth > 768) {
-        swiper.slideNext()
-      } else {
-        swiper.slidePrev()
-      }
-    }
+  const toggleDelay = () => {
+    setDelay(true)
 
-    if (direction === 'next') {
-      if (window.innerWidth > 768) {
-        swiper.slidePrev()
-      } else {
-        swiper.slideNext()
+    setTimeout(() => setDelay(false), 1250)
+  }
+
+  const handleSlide = (direction: 'prev' | 'next') => {
+    if (!delay) {
+      if (direction === 'prev') {
+        if (window.innerWidth > 768) {
+          swiper.slideNext()
+        } else {
+          swiper.slidePrev()
+        }
+      }
+
+      if (direction === 'next') {
+        if (window.innerWidth > 768) {
+          swiper.slidePrev()
+        } else {
+          swiper.slideNext()
+        }
       }
     }
   }
@@ -64,7 +73,7 @@ export const Testimonials = () => {
               <span className="yellow">{activeTestimonial.id}</span>/
               {data.length / 2}
             </div>
-            <div className={clsx(styles.testimonialsSlider, 'reveal left')}>
+            <div className={styles.testimonialsSlider}>
               <Swiper
                 allowTouchMove={window.innerWidth > 768 ? false : true}
                 slidesPerView={window.innerWidth > 768 ? 4 : 'auto'}
@@ -96,12 +105,14 @@ export const Testimonials = () => {
                   direction="left"
                   onClick={() => {
                     handleSlide('prev')
+                    toggleDelay()
                   }}
                 />
                 <SliderArrow
                   direction="right"
                   onClick={() => {
                     handleSlide('next')
+                    toggleDelay()
                   }}
                 />
               </div>

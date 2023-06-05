@@ -1,6 +1,15 @@
-import { Dispatch, FC, SetStateAction, useState } from 'react'
+import {
+  Dispatch,
+  FC,
+  SetStateAction,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
 import styles from './Filter.module.scss'
 import clsx from 'clsx'
+import { useReveal } from '../../hooks/useReveal'
+import { gsap } from 'gsap'
 
 interface IProps {
   filteredData: any[]
@@ -15,6 +24,8 @@ export const Filter: FC<IProps> = ({
   optionsData,
   filterKey,
 }) => {
+  const ref = useRef<HTMLDivElement>(null)
+
   const [activeOption, setActiveOption] = useState<number | string>('all')
   const [originalData, setOriginalData] = useState<any[]>(filteredData)
 
@@ -31,11 +42,40 @@ export const Filter: FC<IProps> = ({
       )
     )
 
-    // setActiveOption(idx)
+    setActiveOption(idx)
   }
 
+  useEffect(() => {
+    if (ref.current) {
+      const desktopFilterOptions = Array.from(
+        ref.current.querySelectorAll<HTMLElement>(`.${styles.desktop} > li`)
+      )
+
+      desktopFilterOptions.map((option, idx) => {
+        gsap.set(option, {
+          opacity: 0,
+          x: `-50%`,
+          y: `25%`,
+        })
+
+        useReveal(
+          option,
+          {
+            opacity: 1,
+            x: 0,
+            y: 0,
+            duration: 0.7,
+            delay: (idx + 1) * 0.15,
+          },
+          false,
+          ref.current?.closest('section')
+        )
+      })
+    }
+  }, [])
+
   return (
-    <div className={styles.filter}>
+    <div ref={ref} className={styles.filter}>
       <ul className={styles.desktop}>
         <li
           onClick={() => {
@@ -50,8 +90,8 @@ export const Filter: FC<IProps> = ({
         {optionsData.map((option, idx) => (
           <li
             key={idx}
-            onClick={() => filterData(option, idx + 1)}
-            className={activeOption === idx + 1 ? styles.active : ''}
+            onClick={() => filterData(option, idx)}
+            className={activeOption === idx ? styles.active : ''}
           >
             {option + ' '}
             <sup>

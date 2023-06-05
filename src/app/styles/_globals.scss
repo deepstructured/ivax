@@ -150,8 +150,16 @@ h3 {
   align-items: center;
   gap: 16px;
 
+  @media (max-width: $tablet) {
+    display: inline;
+  }
+
   > span {
     display: block;
+
+    @media (max-width: $tablet) {
+      display: inline;
+    }
   }
 }
 

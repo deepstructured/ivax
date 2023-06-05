@@ -69,7 +69,9 @@ export const ContactForm = () => {
         },
         false,
         refForm.current,
-        true
+        true,
+        'bottom 80%',
+        'start 90%'
       )
 
       useReveal(

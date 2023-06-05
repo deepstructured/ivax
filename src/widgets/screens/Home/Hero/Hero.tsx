@@ -13,15 +13,69 @@ export const Hero = () => {
 
   useEffect(() => {
     if (refSection.current) {
-      const elements =
-        refSection.current?.querySelectorAll<HTMLElement>('.reveal')
+      const logo = refSection.current.querySelector<HTMLElement>(
+        `.${styles.logo}`
+      ) as HTMLElement
 
-      useReveal(Array.from(elements), {
-        x: 0,
-        y: 0,
-        opacity: 1,
-        duration: 1,
-      })
+      useReveal(
+        logo,
+        {
+          opacity: 1,
+          x: 0,
+          duration: 1.25,
+        },
+        {
+          opacity: 0,
+          x: `25%`,
+          duration: 1.25,
+        },
+        refSection.current,
+        true,
+        'bottom 50%',
+        'top 100%'
+      )
+
+      useReveal(
+        refSection.current.querySelector<HTMLDivElement>(
+          `.${styles.buttons} > div:first-child`
+        ) as HTMLDivElement,
+        {
+          opacity: 1,
+          x: 0,
+          y: 0,
+          duration: 1,
+        },
+        {
+          opacity: 0,
+          x: `-25%`,
+          duration: 1,
+        },
+        refSection.current,
+        true,
+        'bottom 50%',
+        'top 100%'
+      )
+
+      useReveal(
+        refSection.current.querySelector<HTMLDivElement>(
+          `.${styles.buttons} > div:last-child`
+        ) as HTMLDivElement,
+        {
+          opacity: 1,
+          x: 0,
+          y: 0,
+          duration: 1,
+        },
+        {
+          opacity: 0,
+          x: `25%`,
+          duration: 1,
+        },
+        refSection.current,
+        true,
+        'bottom 50%',
+        'top 100%'
+      )
     }
   }, [])
 
@@ -46,12 +100,12 @@ export const Hero = () => {
                 styles.buttons
               )}
             >
-              <div data-start="100%" className="reveal left">
+              <div className="reveal left">
                 <Button onClick={() => useAnchor('#portfolio')} type="common">
                   Portfolio
                 </Button>
               </div>
-              <div data-start="100%" className="reveal right">
+              <div className="reveal right">
                 <Button onClick={() => useAnchor('#contact')} type="circle">
                   Check with us
                 </Button>

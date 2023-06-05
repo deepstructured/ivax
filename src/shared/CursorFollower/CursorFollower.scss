@@ -1,0 +1,49 @@
+.cursor {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #fff;
+  mix-blend-mode: difference;
+  position: fixed;
+  z-index: 10;
+  top: -12px;
+  left: -12px;
+  pointer-events: none;
+
+  @media (max-width: $mobile) {
+    display: none;
+  }
+
+  &.scale {
+    width: 48px;
+    height: 48px;
+
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  &.common-btn-cursor {
+    width: 48px;
+    height: 48px;
+
+    background-color: yellow;
+
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+
+    mix-blend-mode: color;
+  }
+
+  &.circle-btn-cursor {
+    width: 48px;
+    height: 48px;
+
+    border: 1px solid $secondary;
+
+    mix-blend-mode: normal;
+
+    border-radius: 24px;
+
+    background-color: transparent;
+
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}

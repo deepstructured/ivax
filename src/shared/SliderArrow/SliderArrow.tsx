@@ -1,6 +1,7 @@
-import { FC } from 'react'
+import { FC, useRef, useEffect } from 'react'
 import styles from './SliderArrow.module.scss'
 import clsx from 'clsx'
+import { useReveal } from '../../hooks/useReveal'
 
 interface IProps {
   direction: 'left' | 'right'
@@ -8,8 +9,30 @@ interface IProps {
 }
 
 export const SliderArrow: FC<IProps> = ({ direction, onClick }) => {
+  const ref = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (ref.current) {
+      useReveal(
+        ref.current,
+        {
+          opacity: 1,
+          x: 0,
+          duration: 1.25,
+        },
+        {
+          opacity: 0,
+          x: direction === 'left' ? `-25%` : `25%`,
+          duration: 1,
+        },
+        ref.current.closest('section')
+      )
+    }
+  }, [])
+
   return (
     <div
+      ref={ref}
       data-start="100%"
       onClick={() => onClick && onClick()}
       className={clsx(

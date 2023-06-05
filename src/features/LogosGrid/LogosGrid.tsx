@@ -39,7 +39,8 @@ export const LogosGrid: FC<IProps> = ({ data }) => {
           },
           el.parentElement,
           true,
-          'bottom 50%'
+          'bottom 40%',
+          'top 80%'
         )
       })
     }

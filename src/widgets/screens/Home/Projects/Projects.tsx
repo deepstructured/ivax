@@ -32,14 +32,12 @@ export const Projects = () => {
             <span className="reveal left">Latest</span>{' '}
             <span className="yellow reveal right">Projects</span>
           </h2>
-          <div className="reveal right">
-            <Filter
-              filteredData={data}
-              setFilteredData={setData}
-              filterKey="category"
-              optionsData={categoriesData}
-            />
-          </div>
+          <Filter
+            filteredData={data}
+            setFilteredData={setData}
+            filterKey="category"
+            optionsData={categoriesData}
+          />
         </div>
         <ProjectsGrid data={data} />
       </div>

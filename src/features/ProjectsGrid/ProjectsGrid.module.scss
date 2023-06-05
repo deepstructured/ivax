@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
 
-  button {
+  .button {
     @media (max-width: $tablet) {
       margin-right: auto;
     }

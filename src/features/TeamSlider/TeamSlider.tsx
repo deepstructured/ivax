@@ -17,10 +17,20 @@ export const TeamSlider: FC<IProps> = ({ data }) => {
   return (
     <div className="team-swiper">
       <Swiper
-        slidesPerView={3}
-        speed={750}
+        effect="coverflow"
+        coverflowEffect={{
+          rotate: 0,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: false,
+        }}
+        speed={500}
+        centeredSlides={window.innerWidth > 565 ? false : true}
+        slidesPerView={window.innerWidth > 565 ? 3 : 1}
         loop={true}
-        centeredSlides
+        loopedSlides={2}
+        allowTouchMove={window.innerWidth > 565 ? false : true}
         onSwiper={(swiper) => setSwiper(swiper)}
         onSlideChange={() => swiper && setActiveId(swiper.activeIndex)}
       >
@@ -33,8 +43,18 @@ export const TeamSlider: FC<IProps> = ({ data }) => {
         ))}
       </Swiper>
       <div className="swiper-arrows">
-        <SliderArrow onClick={() => swiper.slidePrev()} direction="left" />
-        <SliderArrow onClick={() => swiper.slideNext()} direction="right" />
+        <SliderArrow
+          onClick={() => {
+            swiper.slidePrev()
+          }}
+          direction="left"
+        />
+        <SliderArrow
+          onClick={() => {
+            swiper.slideNext()
+          }}
+          direction="right"
+        />
       </div>
     </div>
   )

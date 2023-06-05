@@ -31,23 +31,18 @@ export const Benefits = () => {
         }
       )
 
-      ScrollTrigger.create({
-        trigger: refLine.current,
-        start: 'top 80%',
-        onEnter: () =>
-          window.innerWidth > 565
-            ? gsap.to(refLine.current, {
-                width: `100%`,
-                duration: 1,
-                ease: 'cubic-bezier(0.22, 1, 0.36, 1)',
-              })
-            : gsap.to(refLine.current, {
-                height: `100%`,
-                duration: 1,
-                ease: 'cubic-bezier(0.22, 1, 0.36, 1)',
-              }),
-        once: true,
-      })
+      useReveal(
+        refLine.current,
+        {
+          width: `100%`,
+          duration: 5,
+        },
+        {
+          width: 0,
+          duration: 1,
+        },
+        refSection.current
+      )
     }
   }, [])
 

@@ -1,7 +1,7 @@
 import { gsap } from 'gsap'
 import MouseFollower from 'mouse-follower'
 import { useRef, useEffect } from 'react'
-import styles from './CursorFollower.module.scss'
+import './CursorFollower.scss'
 
 MouseFollower.registerGSAP(gsap)
 
@@ -23,5 +23,5 @@ export const CursorFollower = () => {
     }
   }, [])
 
-  return <div ref={refCursor} className={styles.cursor}></div>
+  return <div ref={refCursor} className="cursor"></div>
 }

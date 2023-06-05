@@ -19,135 +19,241 @@ export const Service: FC<IProps> = ({ title, categories, icon, id }) => {
       const content = ref.current.querySelector(
         `.${styles.content}`
       ) as HTMLElement
-      const icon = ref.current.querySelector(`.${styles.icon}`)
-      const number = ref.current.querySelector('p')
-      const title = ref.current.querySelector('h3')
-      const listItems = ref.current.querySelectorAll(`.${styles.list} > li`)
-      const ellipse = ref.current.querySelector(`.${styles.ellipse}`)
-      const svgLine = ref.current.querySelector('svg')
+      const icon = ref.current.querySelector<HTMLElement>(
+        `.${styles.icon}`
+      ) as HTMLElement
+      const number = ref.current.querySelector<HTMLElement>('p') as HTMLElement
+      const title = ref.current.querySelector<HTMLElement>('h3') as HTMLElement
+      const listItems = ref.current.querySelectorAll<HTMLElement>(
+        `.${styles.list} > li`
+      )
+      const ellipse = ref.current.querySelector<HTMLElement>(
+        `.${styles.ellipse}`
+      ) as HTMLElement
+      const svgLine = ref.current.querySelector<HTMLElement>(
+        'svg'
+      ) as HTMLElement
 
-      gsap.set(icon, { opacity: 0, x: `100%` })
+      gsap.set(icon, { opacity: 0, x: `50%` })
       gsap.set(number, { opacity: 0, x: `-25%` })
-      gsap.set(title, { opacity: 0, x: `25%` })
+      gsap.set(title, { opacity: 0, x: `10%` })
       gsap.set(ellipse, { opacity: 0, scale: 0 })
       gsap.set(svgLine, { opacity: 0, width: 0 })
 
-      Array.from(listItems).map((item, idx) => {
-        gsap.set(item, { opacity: 0, y: `100%` })
+      switch (id) {
+        case 1:
+          gsap.set(content, {
+            opacity: 0,
+            rotate: 45,
+            scale: 0.5,
+            x: `125%`,
+            y: `75%`,
+          })
+          break
+        case 2:
+          gsap.set(content, {
+            opacity: 0,
+            rotate: `-45`,
+            x: `-125%`,
+            y: `75%`,
+            scale: 0.5,
+          })
+          break
+        case 3:
+          gsap.set(content, {
+            opacity: 0,
+            rotate: 45,
+            scale: 0.5,
+            x: `125%`,
+            y: `-150%`,
+          })
+          break
+        case 4:
+          gsap.set(content, {
+            opacity: 0,
+            rotate: `-45`,
+            scale: 0.5,
+            x: `-125%`,
+            y: `-150%`,
+          })
+          break
+      }
 
-        ScrollTrigger.create({
-          trigger: ref.current?.parentElement,
-          start: 'top 80%',
-          onEnter: () =>
-            gsap.to(item, {
-              opacity: 1,
-              y: 0,
-              duration: 1,
-              delay: 0.65 * (id + 1),
-              ease: 'cubic-bezier(0.22, 1, 0.36, 1)',
-            }),
-        })
-      })
+      let leaveAnim
+
+      switch (id) {
+        case 1:
+          leaveAnim = {
+            opacity: 0,
+            rotate: 45,
+            scale: 0.5,
+            x: `125%`,
+            y: `75%`,
+            duration: 1,
+          }
+          break
+        case 2:
+          leaveAnim = {
+            opacity: 0,
+            rotate: `-45`,
+            x: `-125%`,
+            y: `75%`,
+            duration: 1,
+            scale: 0.5,
+          }
+          break
+        case 3:
+          leaveAnim = {
+            opacity: 0,
+            rotate: 45,
+            scale: 0.5,
+            x: `125%`,
+            y: `-150%`,
+            duration: 1,
+          }
+          break
+        case 4:
+          leaveAnim = {
+            opacity: 0,
+            rotate: `-45`,
+            scale: 0.5,
+            x: `-125%`,
+            y: `-150%`,
+            duration: 1,
+          }
+          break
+      }
 
       useReveal(
         content,
         {
           opacity: 1,
+          x: 0,
+          y: 0,
           scale: 1,
           rotate: 0,
-          borderWidth: 1,
           duration: 1,
-          delay: 0.5 * (id + 1),
+          delay: 0.6 * id,
+        },
+        {
+          ...leaveAnim,
+        },
+        ref.current.parentElement,
+        true,
+        'bottom 50%'
+      )
+
+      useReveal(
+        svgLine,
+        {
+          opacity: 1,
+          width: `100%`,
+          duration: 1.5,
+          delay: 0.9 * id,
         },
         {
           opacity: 0,
-          scale: 0.5,
-          borderWidth: 0,
-          rotate: 45,
+          width: 0,
           duration: 1,
         },
-        ref.current.parentElement
+        ref.current.parentElement,
+        true,
+        'bottom 50%'
       )
 
-      // ScrollTrigger.create({
-      //   trigger: ref.current.parentElement,
-      //   start: 'top 80%',
-      //   onEnter: () =>
-      //     gsap.to(content, {
-      //       opacity: 1,
-      //       scale: 1,
-      //       rotate: 0,
-      //       duration: 1,
-      //       delay: 0.5 * (id + 1),
-      //       ease: 'cubic-bezier(0.22, 1, 0.36, 1)',
-      //     }),
-      //   onLeave: () => gsap.to(content, { clearProps: true }),
-      // })
+      useReveal(
+        ellipse,
+        {
+          opacity: 1,
+          scale: 1,
+          duration: 1.5,
+          delay: 0.9 * id,
+        },
+        {
+          opacity: 0,
+          scale: 0,
+          duration: 1,
+        },
+        ref.current.parentElement,
+        true,
+        'bottom 50%'
+      )
 
-      ScrollTrigger.create({
-        trigger: ref.current.parentElement,
-        start: 'top 80%',
-        onEnter: () =>
-          gsap.to(svgLine, {
-            opacity: 1,
-            width: `100%`,
-            duration: 0.7,
-            delay: 0.5 * (id + 1),
-            ease: 'cubic-bezier(0.22, 1, 0.36, 1)',
-          }),
-      })
+      useReveal(
+        icon,
+        {
+          opacity: 1,
+          x: 0,
+          duration: 1,
+          delay: id === 1 ? 0.8 * id + 0.45 : 0.8 * id,
+        },
+        {
+          opacity: 0,
+          x: `25%`,
+          duration: 1,
+        },
+        ref.current.parentElement,
+        true,
+        'bottom 50%'
+      )
 
-      ScrollTrigger.create({
-        trigger: ref.current.parentElement,
-        start: 'top 80%',
-        onEnter: () =>
-          gsap.to(ellipse, {
-            opacity: 1,
-            scale: 1,
-            duration: 1.5,
-            delay: 0.6 * (id + 1),
-            ease: 'cubic-bezier(0.22, 1, 0.36, 1)',
-          }),
-      })
+      useReveal(
+        number,
+        {
+          opacity: 1,
+          x: 0,
+          duration: 1,
+          delay: id === 1 ? 0.9 * id + 0.45 : 0.9 * id,
+        },
+        {
+          opacity: 0,
+          x: `-25%`,
+          duration: 1,
+        },
+        ref.current.parentElement,
+        true,
+        'bottom 50%'
+      )
 
-      ScrollTrigger.create({
-        trigger: ref.current.parentElement,
-        start: 'top 80%',
-        onEnter: () =>
-          gsap.to(icon, {
+      Array.from(listItems).map((item, idx) => {
+        gsap.set(item, { opacity: 0, y: `100%` })
+
+        useReveal(
+          item,
+          {
             opacity: 1,
-            x: 0,
+            y: 0,
             duration: 1,
-            delay: 0.6 * (id + 1),
-            ease: 'cubic-bezier(0.22, 1, 0.36, 1)',
-          }),
+            delay: id === 1 ? 0.9 * id + 0.45 : 0.9 * id,
+          },
+          {
+            opacity: 0,
+            y: `50%`,
+            duration: 1,
+          },
+          ref.current?.parentElement,
+          true,
+          'bottom 50%'
+        )
       })
 
-      ScrollTrigger.create({
-        trigger: ref.current.parentElement,
-        start: 'top 80%',
-        onEnter: () =>
-          gsap.to(number, {
-            opacity: 1,
-            x: 0,
-            duration: 1,
-            delay: 0.75 * (id + 1),
-            ease: 'cubic-bezier(0.22, 1, 0.36, 1)',
-          }),
-      })
-
-      ScrollTrigger.create({
-        trigger: ref.current.parentElement,
-        start: 'top 80%',
-        onEnter: () =>
-          gsap.to(title, {
-            opacity: 1,
-            x: 0,
-            duration: 1,
-            delay: 0.5 * (id + 1),
-            ease: 'cubic-bezier(0.22, 1, 0.36, 1)',
-          }),
-      })
+      useReveal(
+        title,
+        {
+          opacity: 1,
+          x: 0,
+          duration: 1,
+          delay: id === 1 ? 0.85 * id + 0.45 : 0.85 * id,
+        },
+        {
+          opacity: 0,
+          x: `25%`,
+          duration: 1,
+        },
+        ref.current.parentElement,
+        true,
+        'bottom 50%'
+      )
     }
   }, [])
 
@@ -167,7 +273,7 @@ export const Service: FC<IProps> = ({ title, categories, icon, id }) => {
           <path
             d="M1.17383 311.521L1.33807 -1.43051e-05"
             stroke="url(#paint0_linear_60_1504)"
-            stroke-dasharray="4 4"
+            strokeDasharray="4 4"
           />
           <defs>
             <linearGradient
@@ -178,9 +284,9 @@ export const Service: FC<IProps> = ({ title, categories, icon, id }) => {
               y2="134.164"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stop-color="#FED761" stop-opacity="0" />
-              <stop offset="0.484375" stop-color="#FED55B" />
-              <stop offset="1" stop-color="#FED659" stop-opacity="0" />
+              <stop stopColor="#FED761" stopOpacity="0" />
+              <stop offset="0.484375" stopColor="#FED55B" />
+              <stop offset="1" stopColor="#FED659" stopOpacity="0" />
             </linearGradient>
           </defs>
         </svg>

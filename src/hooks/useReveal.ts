@@ -22,22 +22,28 @@ export const useReveal = (
     if (leaveParams) {
       const animLeave = gsap.to(element, {
         ...leaveParams,
-        ease: 'cubic-bezier(0.22, 1, 0.36, 1)',
         paused: paused,
+        ease: 'cubic-bezier(0.22, 1, 0.36, 1)',
         delay: Object.keys(leaveParams).includes('delay')
           ? leaveParams['delay']
           : 0,
       })
 
       ScrollTrigger.create({
-        trigger: trigger ? trigger : element,
+        trigger: trigger ?? element,
         start: animStart,
         end: animEnd,
         onEnter: () => animEnter.play(),
-        onLeave: () => animLeave.play(),
-        onEnterBack: () => animEnter.play(),
-        onLeaveBack: () => animLeave.play(),
-        once: false,
+        // onLeave: () => animLeave.play(),
+        // onEnterBack: () =>
+        //   gsap.to(element, {
+        //     ...enterParams,
+        //     ease: 'cubic-bezier(0.22, 1, 0.36, 1)',
+        //     delay: Object.keys(enterParams).includes('delay')
+        //       ? enterParams['delay']
+        //       : 0,
+        //     paused: false,
+        //   }),
       })
     } else {
       ScrollTrigger.create({
@@ -45,7 +51,6 @@ export const useReveal = (
         start: animStart,
         end: animEnd,
         onEnter: () => animEnter.play(),
-        onEnterBack: () => animEnter.play(),
       })
     }
   }

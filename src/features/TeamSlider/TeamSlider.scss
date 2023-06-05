@@ -25,24 +25,47 @@
   .swiper {
     max-width: 100%;
     width: 100%;
-    overflow: hidden;
+    translate: -2.5% 0;
 
     @media (max-width: $tablet) {
       height: 480px;
+      translate: 0;
     }
   }
 
   .swiper-container {
     width: 100%;
   }
-  .swiper-slide {
+
+  .swiper-slide-next {
+    opacity: 1 !important;
+  }
+
+  .swiper-slide-visible {
     width: 35% !important;
     min-width: 35% !important;
+    height: 700px !important;
+
+    opacity: 1 !important;
+  }
+
+  .swiper-slide-prev {
+    opacity: 0 !important;
+
+    @media (max-width: $tablet) {
+      opacity: 1 !important;
+    }
+  }
+
+  .swiper-slide {
+    opacity: 0;
     height: 700px !important;
 
     position: relative;
 
     padding: 44px 64px;
+
+    transition: all 0.5s ease !important;
 
     display: flex;
     flex-direction: column;
@@ -60,6 +83,7 @@
     @media (max-width: $tablet) {
       width: 100% !important;
       height: 100% !important;
+      opacity: 1;
     }
 
     .photo {
