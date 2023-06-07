@@ -88,7 +88,7 @@ export const Testimonials = () => {
                 onSwiper={(swiper) => setSwiper(swiper)}
               >
                 {testimonialsData.map((item, idx) => (
-                  <SwiperSlide key={idx}>
+                  <SwiperSlide className="cursor-scale" key={idx}>
                     <img src={item.photo} alt="" />
                   </SwiperSlide>
                 ))}

@@ -37,7 +37,7 @@ export const Checkbox: FC<IProps> = ({ label, dataKey, onChange }) => {
 
   return (
     <div ref={ref} className={clsx(styles.checkbox, 'reveal bottom')}>
-      <div className={styles.input}>
+      <div className={clsx(styles.input, 'cursor-scale')}>
         <input
           checked={checked}
           onChange={(e) => setCheked(e.target.checked)}

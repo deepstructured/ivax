@@ -33,8 +33,28 @@ export const useReveal = (
         trigger: trigger ?? element,
         start: animStart,
         end: animEnd,
-        onEnter: () => animEnter.play(),
+        onLeave: () =>
+          gsap.to(element, {
+            opacity: 0,
+            duration: 2,
+          }),
+        onEnter: () =>
+          gsap.to(element, {
+            opacity: 1,
+            duration: 2,
+          }),
+        onEnterBack: () =>
+          gsap.to(element, {
+            opacity: 1,
+            duration: 2,
+          }),
+        onLeaveBack: () =>
+          gsap.to(element, {
+            opacity: 0,
+            duration: 2,
+          }),
         // onLeave: () => animLeave.play(),
+        // onEnter: () => animEnter.play(),
         // onEnterBack: () =>
         //   gsap.to(element, {
         //     ...enterParams,
@@ -42,7 +62,15 @@ export const useReveal = (
         //     delay: Object.keys(enterParams).includes('delay')
         //       ? enterParams['delay']
         //       : 0,
-        //     paused: false,
+        //   }),
+        // onLeaveBack: () =>
+        //   gsap.to(element, {
+        //     ...leaveParams,
+        //     ...enterParams,
+        //     ease: 'cubic-bezier(0.22, 1, 0.36, 1)',
+        //     delay: Object.keys(enterParams).includes('delay')
+        //       ? enterParams['delay']
+        //       : 0,
         //   }),
       })
     } else {

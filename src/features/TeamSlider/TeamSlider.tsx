@@ -14,6 +14,12 @@ export const TeamSlider: FC<IProps> = ({ data }) => {
   const [swiper, setSwiper] = useState<any>(null)
   const [activeId, setActiveId] = useState<number>(0)
 
+  useEffect(() => {
+    if (swiper) {
+      swiper.slideNext()
+    }
+  }, [])
+
   return (
     <div className="team-swiper">
       <Swiper
@@ -35,10 +41,12 @@ export const TeamSlider: FC<IProps> = ({ data }) => {
         onSlideChange={() => swiper && setActiveId(swiper.activeIndex)}
       >
         {data.map((item, idx) => (
-          <SwiperSlide key={idx}>
-            <img src={item.photo} alt="" className="photo" />
-            <h3>{item.name}</h3>
-            <p className="yellow position">{item.position}</p>
+          <SwiperSlide className="cursor-scale" key={idx}>
+            <div>
+              <img src={item.photo} alt="" className="photo" />
+              <h3>{item.name}</h3>
+              <p className="yellow position">{item.position}</p>
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>

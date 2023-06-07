@@ -59,6 +59,8 @@
       content: '';
       display: block;
 
+      pointer-events: none;
+
       width: 226px;
       height: 226px;
 
@@ -126,6 +128,12 @@
 
     color: #fff;
 
+    &:active {
+      .text {
+        background-color: $btn-active;
+      }
+    }
+
     .text {
       display: block;
       transition: translate 0.7s cubic-bezier(0.5, 2.5, 0.7, 0.7);
@@ -168,10 +176,6 @@
       .text {
         translate: 0 -20%;
       }
-    }
-
-    &:active {
-      background-color: $btn-active;
     }
   }
 }

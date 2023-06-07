@@ -7,6 +7,7 @@ import {
   useState,
 } from 'react'
 import styles from './FileInput.module.scss'
+import clsx from 'clsx'
 
 interface IProps {
   setFileData?: Dispatch<SetStateAction<File | undefined>>
@@ -28,7 +29,7 @@ export const FileInput: FC<IProps> = ({ setFileData }) => {
   }
 
   return (
-    <div className={styles.fileInput}>
+    <div className={clsx(styles.fileInput, 'cursor-scale')}>
       <input
         onChange={(e) => {
           handleFileChange(e)

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { TeamSlider } from '../../../../features/TeamSlider/TeamSlider'
+import { gsap } from 'gsap'
 import { teamData } from './data'
 import styles from './Team.module.scss'
 import { useReveal } from '../../../../hooks/useReveal'
@@ -19,6 +20,52 @@ export const Team = () => {
           duration: 1,
         }
       )
+
+      const swiperItems = Array.from(
+        refSection.current.querySelectorAll('.swiper-slide > div')
+      )
+
+      swiperItems.map((item, idx) => {
+        gsap.set(item, {
+          opacity: 0,
+        })
+
+        if (refSection.current) {
+          ScrollTrigger.create({
+            trigger: refSection.current.closest('section'),
+            start: `top 80%`,
+            end: `bottom 20%`,
+            // onLeave: () =>
+            //   gsap.to(item, {
+            //     delay: idx * 0.225,
+            //     opacity: 0,
+            //     duration: 1,
+            //   }),
+            onEnter: () =>
+              gsap.to(item, {
+                delay: idx * 0.225,
+                opacity: 1,
+                x: 0,
+                y: 0,
+                duration: 1,
+              }),
+            // onEnterBack: () =>
+            //   gsap.to(item, {
+            //     delay: idx * 0.225,
+            //     opacity: 1,
+            //     x: 0,
+            //     y: 0,
+            //     duration: 1,
+            //   }),
+            // onLeaveBack: () =>
+            //   gsap.to(item, {
+            //     delay: idx * 0.225,
+            //     opacity: 0,
+            //     duration: 1,
+            //   }),
+          })
+        }
+      })
     }
   }, [])
 

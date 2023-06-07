@@ -2,6 +2,8 @@
   width: 20px;
   height: 20px;
 
+  cursor: pointer;
+
   &.primary path {
     fill: $primary !important;
   }

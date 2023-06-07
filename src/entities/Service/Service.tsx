@@ -79,7 +79,9 @@ export const Service: FC<IProps> = ({ title, categories, icon, id }) => {
           break
       }
 
-      let leaveAnim
+      let leaveAnim: {
+        [key: string]: any
+      }
 
       switch (id) {
         case 1:
@@ -89,7 +91,7 @@ export const Service: FC<IProps> = ({ title, categories, icon, id }) => {
             scale: 0.5,
             x: `125%`,
             y: `75%`,
-            duration: 1,
+            duration: 1.5,
           }
           break
         case 2:
@@ -98,7 +100,7 @@ export const Service: FC<IProps> = ({ title, categories, icon, id }) => {
             rotate: `-45`,
             x: `-125%`,
             y: `75%`,
-            duration: 1,
+            duration: 1.5,
             scale: 0.5,
           }
           break
@@ -109,7 +111,7 @@ export const Service: FC<IProps> = ({ title, categories, icon, id }) => {
             scale: 0.5,
             x: `125%`,
             y: `-150%`,
-            duration: 1,
+            duration: 1.5,
           }
           break
         case 4:
@@ -119,141 +121,240 @@ export const Service: FC<IProps> = ({ title, categories, icon, id }) => {
             scale: 0.5,
             x: `-125%`,
             y: `-150%`,
-            duration: 1,
+            duration: 1.5,
           }
           break
       }
 
-      useReveal(
-        content,
-        {
-          opacity: 1,
-          x: 0,
-          y: 0,
-          scale: 1,
-          rotate: 0,
-          duration: 1,
-          delay: 0.6 * id,
-        },
-        {
-          ...leaveAnim,
-        },
-        ref.current.parentElement,
-        true,
-        'bottom 50%'
-      )
+      ScrollTrigger.create({
+        trigger: ref.current.closest('#services-wrapper'),
+        start: `top 60%`,
+        end: `bottom 50%`,
+        onLeave: () =>
+          gsap.to(content, {
+            ...leaveAnim,
+          }),
+        onEnter: () =>
+          gsap.to(content, {
+            opacity: 1,
+            x: 0,
+            y: 0,
+            scale: 1,
+            rotate: 0,
+            duration: 1,
+            delay: 0.6 * id,
+          }),
+        onEnterBack: () =>
+          gsap.to(content, {
+            opacity: 1,
+            x: 0,
+            y: 0,
+            scale: 1,
+            rotate: 0,
+            duration: 1,
+            delay: 0.6 * id,
+          }),
+        onLeaveBack: () =>
+          gsap.to(content, {
+            ...leaveAnim,
+          }),
+      })
 
-      useReveal(
-        svgLine,
-        {
-          opacity: 1,
-          width: `100%`,
-          duration: 1.5,
-          delay: 0.9 * id,
-        },
-        {
-          opacity: 0,
-          width: 0,
-          duration: 1,
-        },
-        ref.current.parentElement,
-        true,
-        'bottom 50%'
-      )
+      ScrollTrigger.create({
+        trigger: ref.current.closest('#services-wrapper'),
+        start: `top 60%`,
+        end: `bottom 50%`,
+        onLeave: () =>
+          gsap.to(svgLine, {
+            opacity: 0,
+            width: 0,
+            duration: 1,
+          }),
+        onEnter: () =>
+          gsap.to(svgLine, {
+            opacity: 1,
+            width: `100%`,
+            duration: 1.5,
+            delay: 0.9 * id,
+          }),
+        onEnterBack: () =>
+          gsap.to(svgLine, {
+            opacity: 1,
+            width: `100%`,
+            duration: 1.5,
+            delay: 0.9 * id,
+          }),
+        onLeaveBack: () =>
+          gsap.to(svgLine, {
+            opacity: 0,
+            width: 0,
+            duration: 1,
+          }),
+      })
 
-      useReveal(
-        ellipse,
-        {
-          opacity: 1,
-          scale: 1,
-          duration: 1.5,
-          delay: 0.9 * id,
-        },
-        {
-          opacity: 0,
-          scale: 0,
-          duration: 1,
-        },
-        ref.current.parentElement,
-        true,
-        'bottom 50%'
-      )
+      ScrollTrigger.create({
+        trigger: ref.current.closest('#services-wrapper'),
+        start: `top 60%`,
+        end: `bottom 50%`,
+        onLeave: () =>
+          gsap.to(ellipse, {
+            opacity: 0,
+            scale: 0,
+            duration: 1,
+          }),
+        onEnter: () =>
+          gsap.to(ellipse, {
+            opacity: 1,
+            scale: 1,
+            duration: 1.5,
+            delay: 0.9 * id,
+          }),
+        onEnterBack: () =>
+          gsap.to(ellipse, {
+            opacity: 1,
+            scale: 1,
+            duration: 1.5,
+            delay: 0.9 * id,
+          }),
+        onLeaveBack: () =>
+          gsap.to(ellipse, {
+            opacity: 0,
+            scale: 0,
+            duration: 1,
+          }),
+      })
 
-      useReveal(
-        icon,
-        {
-          opacity: 1,
-          x: 0,
-          duration: 1,
-          delay: id === 1 ? 0.8 * id + 0.45 : 0.8 * id,
-        },
-        {
-          opacity: 0,
-          x: `25%`,
-          duration: 1,
-        },
-        ref.current.parentElement,
-        true,
-        'bottom 50%'
-      )
+      ScrollTrigger.create({
+        trigger: ref.current.closest('#services-wrapper'),
+        start: `top 60%`,
+        end: `bottom 50%`,
+        onLeave: () =>
+          gsap.to(icon, {
+            opacity: 0,
+            x: `25%`,
+            duration: 1,
+          }),
+        onEnter: () =>
+          gsap.to(icon, {
+            opacity: 1,
+            x: 0,
+            duration: 1,
+            delay: id === 1 ? 0.8 * id + 0.45 : 0.8 * id,
+          }),
+        onEnterBack: () =>
+          gsap.to(icon, {
+            opacity: 1,
+            x: 0,
+            duration: 1,
+            delay: id === 1 ? 0.8 * id + 0.45 : 0.8 * id,
+          }),
+        onLeaveBack: () =>
+          gsap.to(icon, {
+            opacity: 0,
+            x: `25%`,
+            duration: 1,
+          }),
+      })
 
-      useReveal(
-        number,
-        {
-          opacity: 1,
-          x: 0,
-          duration: 1,
-          delay: id === 1 ? 0.9 * id + 0.45 : 0.9 * id,
-        },
-        {
-          opacity: 0,
-          x: `-25%`,
-          duration: 1,
-        },
-        ref.current.parentElement,
-        true,
-        'bottom 50%'
-      )
+      ScrollTrigger.create({
+        trigger: ref.current.closest('#services-wrapper'),
+        start: `top 60%`,
+        end: `bottom 50%`,
+        onLeave: () =>
+          gsap.to(number, {
+            opacity: 0,
+            x: `-25%`,
+            duration: 1,
+          }),
+        onEnter: () =>
+          gsap.to(number, {
+            opacity: 1,
+            x: 0,
+            duration: 1,
+            delay: id === 1 ? 0.9 * id + 0.45 : 0.9 * id,
+          }),
+        onEnterBack: () =>
+          gsap.to(number, {
+            opacity: 1,
+            x: 0,
+            duration: 1,
+            delay: id === 1 ? 0.9 * id + 0.45 : 0.9 * id,
+          }),
+        onLeaveBack: () =>
+          gsap.to(number, {
+            opacity: 0,
+            x: `-25%`,
+            duration: 1,
+          }),
+      })
 
       Array.from(listItems).map((item, idx) => {
         gsap.set(item, { opacity: 0, y: `100%` })
 
-        useReveal(
-          item,
-          {
-            opacity: 1,
-            y: 0,
-            duration: 1,
-            delay: id === 1 ? 0.9 * id + 0.45 : 0.9 * id,
-          },
-          {
-            opacity: 0,
-            y: `50%`,
-            duration: 1,
-          },
-          ref.current?.parentElement,
-          true,
-          'bottom 50%'
-        )
+        ScrollTrigger.create({
+          trigger: ref.current?.closest('#services-wrapper'),
+          start: `top 60%`,
+          end: `bottom 50%`,
+          onLeave: () =>
+            gsap.to(item, {
+              opacity: 0,
+              y: `50%`,
+              duration: 1,
+            }),
+          onEnter: () =>
+            gsap.to(item, {
+              opacity: 1,
+              y: 0,
+              duration: 1,
+              delay: id === 1 ? 0.9 * id + 0.45 : 0.9 * id,
+            }),
+          onEnterBack: () =>
+            gsap.to(item, {
+              opacity: 1,
+              y: 0,
+              duration: 1,
+              delay: id === 1 ? 0.9 * id + 0.45 : 0.9 * id,
+            }),
+          onLeaveBack: () =>
+            gsap.to(item, {
+              opacity: 0,
+              y: `50%`,
+              duration: 1,
+            }),
+        })
       })
 
-      useReveal(
-        title,
-        {
-          opacity: 1,
-          x: 0,
-          duration: 1,
-          delay: id === 1 ? 0.85 * id + 0.45 : 0.85 * id,
-        },
-        {
-          opacity: 0,
-          x: `25%`,
-          duration: 1,
-        },
-        ref.current.parentElement,
-        true,
-        'bottom 50%'
-      )
+      ScrollTrigger.create({
+        trigger: ref.current.closest('#services-wrapper'),
+        start: `top 60%`,
+        end: `bottom 50%`,
+        onLeave: () =>
+          gsap.to(title, {
+            opacity: 0,
+            x: `25%`,
+            duration: 1,
+          }),
+        onEnter: () =>
+          gsap.to(title, {
+            opacity: 1,
+            x: 0,
+            duration: 1,
+            delay: id === 1 ? 0.85 * id + 0.45 : 0.85 * id,
+          }),
+        onEnterBack: () =>
+          gsap.to(title, {
+            opacity: 1,
+            x: 0,
+            duration: 1,
+            delay: id === 1 ? 0.85 * id + 0.45 : 0.85 * id,
+          }),
+        onLeaveBack: () =>
+          gsap.to(title, {
+            opacity: 0,
+            x: `25%`,
+            duration: 1,
+          }),
+      })
     }
   }, [])
 

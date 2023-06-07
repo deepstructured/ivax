@@ -10,7 +10,10 @@ interface IProps {
 
 export const SocialLink: FC<IProps> = ({ href, type, icon }) => {
   return (
-    <a href={href} className={clsx(styles.socialLink, styles[type])}>
+    <a
+      href={href}
+      className={clsx(styles.socialLink, styles[type], 'cursor-scale')}
+    >
       {icon}
     </a>
   )

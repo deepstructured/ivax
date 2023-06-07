@@ -8,6 +8,8 @@
   width: 100%;
   min-width: 300px;
 
+  cursor: pointer;
+
   @media (max-width: $laptop_big) {
     max-width: 275px;
     min-width: 275px;

@@ -10,6 +10,18 @@
   align-items: center;
   justify-content: center;
 
+  cursor: pointer;
+
+  transition: scale 0.7s cubic-bezier(0.5, 2.5, 0.7, 0.7);
+
+  &:hover {
+    scale: 1.6;
+
+    > div {
+      scale: 1.2;
+    }
+  }
+
   > div {
     width: 8px;
     height: 8px;
@@ -17,5 +29,7 @@
     background-color: $secondary;
 
     border-radius: inherit;
+
+    transition: scale 0.7s cubic-bezier(0.5, 2.5, 0.7, 0.7);
   }
 }

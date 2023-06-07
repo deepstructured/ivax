@@ -6,22 +6,26 @@
   mix-blend-mode: difference;
   position: fixed;
   z-index: 10;
-  top: -12px;
-  left: -12px;
+  top: -8px;
+  left: -8px;
   pointer-events: none;
 
   @media (max-width: $mobile) {
     display: none;
   }
 
-  &.scale {
+  &.cursor-scale {
+    top: -14px;
+    left: -14px;
     width: 48px;
     height: 48px;
 
     transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
-  &.common-btn-cursor {
+  &.cursor-common {
+    top: -14px;
+    left: -14px;
     width: 48px;
     height: 48px;
 
@@ -32,9 +36,20 @@
     mix-blend-mode: color;
   }
 
-  &.circle-btn-cursor {
+  &.cursor-radio {
+    top: -16px;
+    left: -16px;
+    width: 48px !important;
+    height: 48px !important;
+  }
+
+  &.cursor-circle {
+    top: -16px;
+    left: -16px;
     width: 48px;
     height: 48px;
+
+    background-color: transparent;
 
     border: 1px solid $secondary;
 

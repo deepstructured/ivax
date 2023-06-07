@@ -21,23 +21,40 @@ export const ProjectsGrid: FC<IProps> = ({ data }) => {
 
       gsap.set(button, {
         opacity: 0,
-        y: `50%`,
+        y: `100%`,
       })
 
-      useReveal(
-        button,
-        {
-          opacity: 1,
-          y: 0,
-          x: 0,
-          duration: 1,
-        },
-        {
-          opacity: 0,
-          y: `50%`,
-          duration: 1,
-        }
-      )
+      ScrollTrigger.create({
+        trigger: button,
+        start: `top 80%`,
+        end: `bottom 20%`,
+        onLeave: () =>
+          gsap.to(button, {
+            opacity: 0,
+            y: `100%`,
+            duration: 1,
+          }),
+        onEnter: () =>
+          gsap.to(button, {
+            opacity: 1,
+            y: 0,
+            x: 0,
+            duration: 1,
+          }),
+        onEnterBack: () =>
+          gsap.to(button, {
+            opacity: 1,
+            y: 0,
+            x: 0,
+            duration: 1,
+          }),
+        onLeaveBack: () =>
+          gsap.to(button, {
+            opacity: 0,
+            y: `100%`,
+            duration: 1,
+          }),
+      })
     }
   }, [])
 

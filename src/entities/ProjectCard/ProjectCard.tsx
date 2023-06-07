@@ -2,6 +2,7 @@ import { FC, useEffect, useRef } from 'react'
 import styles from './ProjectCard.module.scss'
 import { gsap } from 'gsap'
 import { useReveal } from '../../hooks/useReveal'
+import clsx from 'clsx'
 
 interface IProps {
   title: string
@@ -21,31 +22,49 @@ export const ProjectCard: FC<IProps> = ({ title, category, thumbnail, id }) => {
         x: `-10%`,
       })
 
-      useReveal(
-        ref.current,
-        {
-          opacity: 1,
-          x: 0,
-          y: 0,
-          duration: 0.7,
-          delay: (id + 1) * 0.1125,
-        },
-        {
-          opacity: 0,
-          y: `10%`,
-          x: `-10%`,
-          duration: 0.7,
-          delay: (id + 1) * 0.1125,
-        },
-        ref.current,
-        true,
-        'bottom 50%'
-      )
+      ScrollTrigger.create({
+        trigger: ref.current,
+        start: `top 90%`,
+        end: `bottom 35%`,
+        markers: true,
+        onLeave: () =>
+          gsap.to(ref.current, {
+            opacity: 0,
+            x: `-10%`,
+            y: `10%`,
+            duration: 1,
+            delay: (id + 1) * 0.1125,
+          }),
+        onEnter: () =>
+          gsap.to(ref.current, {
+            opacity: 1,
+            x: 0,
+            y: 0,
+            duration: 1,
+            delay: (id + 1) * 0.1125,
+          }),
+        onEnterBack: () =>
+          gsap.to(ref.current, {
+            opacity: 1,
+            x: 0,
+            y: 0,
+            duration: 1,
+            delay: (id + 1) * 0.1125,
+          }),
+        onLeaveBack: () =>
+          gsap.to(ref.current, {
+            opacity: 0,
+            x: `-10%`,
+            y: `10%`,
+            duration: 1,
+            delay: (id + 1) * 0.1125,
+          }),
+      })
     }
   }, [])
 
   return (
-    <div ref={ref} className={styles.projectCard}>
+    <div ref={ref} className={clsx(styles.projectCard, 'cursor-scale')}>
       <div className={styles.content}>
         <a href="" className={styles.thumbnail}>
           <img

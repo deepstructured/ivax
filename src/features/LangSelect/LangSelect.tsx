@@ -16,7 +16,7 @@ export const LangSelect: FC<IProps> = ({ langData }) => {
         onClick={() =>
           selectActive ? setSelectActive(false) : setSelectActive(true)
         }
-        className={styles.activeLang}
+        className={clsx(styles.activeLang, 'cursor-scale')}
       >
         {activeLang}
       </div>
@@ -28,7 +28,11 @@ export const LangSelect: FC<IProps> = ({ langData }) => {
               setSelectActive(false)
               setActiveLang(lang)
             }}
-            className={clsx(styles.item, activeLang === lang && styles.active)}
+            className={clsx(
+              styles.item,
+              activeLang === lang && styles.active,
+              'cursor-scale'
+            )}
           >
             {lang}
           </li>

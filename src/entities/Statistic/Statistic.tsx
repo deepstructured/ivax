@@ -1,7 +1,6 @@
 import { FC, useEffect, useRef, useState } from 'react'
 import styles from './Statistic.module.scss'
 import { gsap } from 'gsap'
-import { useReveal } from '../../hooks/useReveal'
 
 interface IProps {
   num: number
@@ -30,48 +29,72 @@ export const Statistic: FC<IProps> = ({ num, value, id }) => {
 
       ScrollTrigger.create({
         trigger: ref.current.parentElement,
-        start: `top 80%`,
+        start: `top 90%`,
         end: `bottom 0%`,
         onEnter: () => !counterRunned && runCounter(),
         once: true,
       })
 
       if (numNode && labelNode) {
-        useReveal(
-          numNode,
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1.25,
-          },
-          {
-            y: `-50%`,
-            opacity: 0,
-            duration: 1.25,
-          },
-          ref.current.parentElement,
-          true,
-          'bottom 35%',
-          'top 60%'
-        )
+        ScrollTrigger.create({
+          trigger: ref.current,
+          start: `top 90%`,
+          end: `bottom 35%`,
+          onLeave: () =>
+            gsap.to(numNode, {
+              opacity: 0,
+              y: `-50%`,
+              duration: 1.25,
+            }),
+          onEnter: () =>
+            gsap.to(numNode, {
+              opacity: 1,
+              y: 0,
+              duration: 1.25,
+            }),
+          onEnterBack: () =>
+            gsap.to(numNode, {
+              opacity: 1,
+              y: 0,
+              duration: 1.25,
+            }),
+          onLeaveBack: () =>
+            gsap.to(numNode, {
+              opacity: 0,
+              y: `-50%`,
+              duration: 1.25,
+            }),
+        })
 
-        useReveal(
-          labelNode,
-          {
-            y: 0,
-            opacity: 1,
-            duration: 1.25,
-          },
-          {
-            y: `50%`,
-            opacity: 0,
-            duration: 1.25,
-          },
-          ref.current.parentElement,
-          true,
-          'bottom 35%',
-          'top 60%'
-        )
+        ScrollTrigger.create({
+          trigger: ref.current,
+          start: `top 90%`,
+          end: `bottom 35%`,
+          onLeave: () =>
+            gsap.to(labelNode, {
+              opacity: 0,
+              y: `50%`,
+              duration: 1.25,
+            }),
+          onEnter: () =>
+            gsap.to(labelNode, {
+              opacity: 1,
+              y: 0,
+              duration: 1.25,
+            }),
+          onEnterBack: () =>
+            gsap.to(labelNode, {
+              opacity: 1,
+              y: 0,
+              duration: 1.25,
+            }),
+          onLeaveBack: () =>
+            gsap.to(labelNode, {
+              opacity: 0,
+              y: `50%`,
+              duration: 1.25,
+            }),
+        })
       }
     }
   }, [])

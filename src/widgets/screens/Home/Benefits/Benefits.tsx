@@ -31,23 +31,47 @@ export const Benefits = () => {
         }
       )
 
-      useReveal(
-        refLine.current,
-        window.innerWidth > 565
-          ? {
-              width: `100%`,
-              duration: 5,
-            }
-          : {
-              height: `100%`,
-              duration: 5,
-            },
-        {
-          width: 0,
-          duration: 1,
-        },
-        refSection.current
-      )
+      ScrollTrigger.create({
+        trigger: refSection.current,
+        start: `top 80%`,
+        end: `bottom 50%`,
+        onLeave: () =>
+          gsap.to(refLine.current, {
+            width: 0,
+            duration: 1,
+          }),
+        onEnter: () =>
+          gsap.to(
+            refLine.current,
+            window.innerWidth > 565
+              ? {
+                  width: `100%`,
+                  duration: 5,
+                }
+              : {
+                  height: `100%`,
+                  duration: 5,
+                }
+          ),
+        onEnterBack: () =>
+          gsap.to(
+            refLine.current,
+            window.innerWidth > 565
+              ? {
+                  width: `100%`,
+                  duration: 5,
+                }
+              : {
+                  height: `100%`,
+                  duration: 5,
+                }
+          ),
+        onLeaveBack: () =>
+          gsap.to(refLine.current, {
+            width: 0,
+            duration: 1,
+          }),
+      })
     }
   }, [])
 

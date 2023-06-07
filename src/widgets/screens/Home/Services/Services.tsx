@@ -7,8 +7,8 @@ import MouseFollower from 'mouse-follower'
 import { useReveal } from '../../../../hooks/useReveal'
 
 const MAX_DEGREE = 0
-const MAX_OFFSET_X = 50
-const MAX_OFFSET_Y = 50
+const MAX_OFFSET_X = 20
+const MAX_OFFSET_Y = 20
 
 gsap.registerPlugin(MouseFollower)
 
@@ -20,20 +20,35 @@ export const Services = () => {
 
   useEffect(() => {
     if (refBulb.current && refSection.current) {
-      useReveal(
-        refBulb.current,
-        {
-          opacity: 1,
-          scale: 1,
-          duration: 1.5,
-        },
-        {
-          opacity: 0,
-          scale: 0.5,
-          duration: 1,
-        },
-        refBulb.current
-      )
+      ScrollTrigger.create({
+        trigger: refBulb.current.closest('#services-wrapper'),
+        start: `top 60%`,
+        end: `bottom 50%`,
+        onLeave: () =>
+          gsap.to(refBulb.current, {
+            opacity: 0,
+            scale: 0.5,
+            duration: 1,
+          }),
+        onEnter: () =>
+          gsap.to(refBulb.current, {
+            opacity: 1,
+            scale: 1,
+            duration: 1.5,
+          }),
+        onEnterBack: () =>
+          gsap.to(refBulb.current, {
+            opacity: 1,
+            scale: 1,
+            duration: 1.5,
+          }),
+        onLeaveBack: () =>
+          gsap.to(refBulb.current, {
+            opacity: 0,
+            scale: 0.5,
+            duration: 1,
+          }),
+      })
 
       useReveal(
         Array.from(
@@ -87,6 +102,7 @@ export const Services = () => {
         <div
           onMouseMove={(ev) => mouseMove(ev)}
           ref={refWrapper}
+          id="services-wrapper"
           className={styles.wrapper}
         >
           <h2>

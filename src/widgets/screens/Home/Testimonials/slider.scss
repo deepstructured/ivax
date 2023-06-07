@@ -24,6 +24,8 @@
     transition: 0.7s cubic-bezier(0.65, 0, 0.35, 1);
     transition-property: height, width, min-width, max-width;
 
+    cursor: pointer;
+
     @media (max-width: $laptop_big) {
       height: 225px;
     }
