@@ -5,6 +5,7 @@ import { servicesData } from './data'
 import { gsap } from 'gsap'
 import MouseFollower from 'mouse-follower'
 import { useReveal } from '../../../../hooks/useReveal'
+import clsx from 'clsx'
 
 const MAX_DEGREE = 0
 const MAX_OFFSET_X = 20
@@ -58,7 +59,12 @@ export const Services = () => {
           opacity: 1,
           x: 0,
           duration: 1,
-        }
+        },
+        false,
+        refBulb.current.closest<HTMLDivElement>('#services-wrapper'),
+        true,
+        'bottom 50%',
+        `top 60%`
       )
     }
   }, [])
@@ -109,7 +115,7 @@ export const Services = () => {
             <span className="reveal left">We</span>{' '}
             <span className="yellow reveal right">delivery</span>
           </h2>
-          <div ref={refBulb} className={styles.bulb}>
+          <div ref={refBulb} className={clsx(styles.bulb, 'cursor-common')}>
             <img src="/images/bulb.png" alt="" />
           </div>
           <ServicesGroup data={servicesData} />

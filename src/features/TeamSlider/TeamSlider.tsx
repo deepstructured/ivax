@@ -15,10 +15,14 @@ export const TeamSlider: FC<IProps> = ({ data }) => {
   const [activeId, setActiveId] = useState<number>(0)
 
   useEffect(() => {
-    if (swiper) {
-      swiper.slideNext()
+    if (typeof swiper === 'object' && !!swiper) {
+      console.log(swiper)
+
+      if (swiper.destroyed !== true) {
+        swiper.slideNext()
+      }
     }
-  }, [])
+  }, [swiper])
 
   return (
     <div className="team-swiper">

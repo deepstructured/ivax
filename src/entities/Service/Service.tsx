@@ -3,6 +3,7 @@ import { FC, useEffect, useRef } from 'react'
 import styles from './Service.module.scss'
 import { Ellipse } from '../../shared/Ellipse/Ellipse'
 import { useReveal } from '../../hooks/useReveal'
+import clsx from 'clsx'
 
 interface IProps {
   title: string
@@ -392,7 +393,7 @@ export const Service: FC<IProps> = ({ title, categories, icon, id }) => {
           </defs>
         </svg>
       </div>
-      <div className={styles.content}>
+      <div className={clsx(styles.content, 'cursor-scale')}>
         <div className="flex items-center justify-between">
           <div className={styles.icon}>
             <img src={icon} alt="" />

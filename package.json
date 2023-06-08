@@ -10,6 +10,7 @@
     "host": "vite --host"
   },
   "dependencies": {
+    "@lottiefiles/react-lottie-player": "^3.5.3",
     "@react-google-maps/api": "^2.18.1",
     "gsap": "^3.11.5",
     "mouse-follower": "^1.1.2",

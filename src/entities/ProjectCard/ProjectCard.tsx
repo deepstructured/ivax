@@ -26,7 +26,6 @@ export const ProjectCard: FC<IProps> = ({ title, category, thumbnail, id }) => {
         trigger: ref.current,
         start: `top 90%`,
         end: `bottom 35%`,
-        markers: true,
         onLeave: () =>
           gsap.to(ref.current, {
             opacity: 0,
