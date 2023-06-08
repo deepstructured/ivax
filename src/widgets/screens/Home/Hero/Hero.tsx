@@ -6,15 +6,17 @@ import { Logo } from '../../../../shared/Logo/Logo'
 import { Statistics } from '../../../../features/Statistics/Statistics'
 import { statisticsData } from './data'
 import { useAnchor } from '../../../../hooks/useAnchor'
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useContext } from 'react'
 import styles from './Hero.module.scss'
+import { Store } from '../../../../app/providers/store'
 
 export const Hero = () => {
   const refSection = useRef<HTMLElement>(null)
   const refBulb = useRef<HTMLImageElement>(null)
+  const { pageLoaded } = useContext(Store)
 
   useEffect(() => {
-    if (refSection.current && refBulb.current) {
+    if (refSection.current && refBulb.current && pageLoaded) {
       const logo = refSection.current.querySelector<HTMLElement>(
         `.${styles.logo}`
       ) as HTMLElement
@@ -201,7 +203,7 @@ export const Hero = () => {
           }),
       })
     }
-  }, [])
+  }, [pageLoaded])
 
   return (
     <section ref={refSection} className={styles.hero}>

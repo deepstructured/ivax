@@ -4,6 +4,8 @@ import Footer from '../Footer/Footer'
 import { Preloader } from '../Preloader/Preloader'
 import { Menu } from '../Menu/Menu'
 import { WithSmoothScroll } from '../../app/providers/WithSmoothScroll'
+import React from 'react'
+import { Store } from '../../app/providers/store'
 
 interface IProps {
   children: ReactNode
@@ -20,8 +22,15 @@ export const Layout: FC<IProps> = ({ children }) => {
   }, [pageLoaded])
 
   return (
-    <>
-      <Preloader pageLoaded={pageLoaded} setPageLoaded={setPageLoaded} />
+    <Store.Provider
+      value={{
+        pageLoaded: pageLoaded,
+        setPageLoaded: setPageLoaded,
+        menuActive: activeMenu,
+        setActiveMenu: setActiveMenu,
+      }}
+    >
+      <Preloader />
       <WithSmoothScroll>
         <main>
           {children}
@@ -30,6 +39,6 @@ export const Layout: FC<IProps> = ({ children }) => {
       </WithSmoothScroll>
       <Menu state={activeMenu} setState={setActiveMenu} />
       <Sidebar setMenu={setActiveMenu} />
-    </>
+    </Store.Provider>
   )
 }

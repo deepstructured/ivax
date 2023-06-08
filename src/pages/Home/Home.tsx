@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { homeScreens } from '../../widgets/screens/Home'
 
-export const Home = () => {
+export const Home: FC = () => {
   return (
     <>
       {homeScreens.map((screen) => (

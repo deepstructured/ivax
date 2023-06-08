@@ -1,17 +1,16 @@
 import { Player } from '@lottiefiles/react-lottie-player'
 import { Logo } from '../../shared/Logo/Logo'
 import styles from './Preloader.module.scss'
-import { Dispatch, SetStateAction, FC, useRef } from 'react'
+import { useContext, useState } from 'react'
 import clsx from 'clsx'
+import { Store } from '../../app/providers/store'
 
-interface IProps {
-  pageLoaded: boolean
-  setPageLoaded: Dispatch<SetStateAction<boolean>>
-}
+export const Preloader = () => {
+  const { pageLoaded, setPageLoaded } = useContext(Store)
+  const [active, setActive] = useState<boolean>(true)
 
-export const Preloader: FC<IProps> = ({ setPageLoaded, pageLoaded }) => {
   return (
-    <div className={clsx(styles.preloader, pageLoaded && styles.hidden)}>
+    <div className={clsx(styles.preloader, !active && styles.hidden)}>
       <div className={styles.logo}>
         <Logo type="secondary" />
       </div>
@@ -24,7 +23,8 @@ export const Preloader: FC<IProps> = ({ setPageLoaded, pageLoaded }) => {
             speed={1.25}
             onEvent={(event) => {
               if (event === 'complete') {
-                setPageLoaded(true)
+                setActive(false)
+                setTimeout(() => setPageLoaded(true), 1250)
               }
             }}
             src="/animations/preloader-bubbles.json"
