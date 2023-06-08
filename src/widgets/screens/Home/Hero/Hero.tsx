@@ -25,7 +25,7 @@ export const Hero = () => {
         `.${styles.buttons} > button:last-child`
       ) as HTMLDivElement
       const bulbShadow = refSection.current.querySelector<HTMLDivElement>(
-        `.${styles.shadow}`
+        `.shadow`
       ) as HTMLDivElement
 
       gsap.set(refBulb.current, {
@@ -232,29 +232,29 @@ export const Hero = () => {
               </Button>
             </div>
           </div>
-          <div className={styles.bulbWrapper}>
-            <div className={styles.shadow}></div>
-            <div ref={refBulb} className={styles.content}>
+          <div className="bulbWrapper">
+            <div className="shadow"></div>
+            <div ref={refBulb} className="content">
               <Player
-                className={styles.wavingBubbles}
+                className="wavingBubbles"
                 autoplay
                 loop
                 src="/animations/waving-bubbles.json"
               ></Player>
 
               <Player
-                className={styles.innerBubbles}
+                className="innerBubbles"
                 autoplay
                 loop
                 src="/animations/inner-bubbles.json"
               ></Player>
               <Player
-                className={clsx(styles.innerBubbles, styles.bubblesCopy)}
+                className="innerBubbles bubblesCopy"
                 autoplay
                 loop
                 src="/animations/inner-bubbles.json"
               ></Player>
-              <img className={styles.bulb} src="/images/bulb-hero.png" alt="" />
+              <img className="bulb" src="/images/bulb-hero.png" alt="" />
             </div>
           </div>
         </div>

@@ -16,10 +16,8 @@ export const TeamSlider: FC<IProps> = ({ data }) => {
 
   useEffect(() => {
     if (typeof swiper === 'object' && !!swiper) {
-      console.log(swiper)
-
       if (swiper.destroyed !== true) {
-        swiper.slideNext()
+        swiper.slideTo(3)
       }
     }
   }, [swiper])

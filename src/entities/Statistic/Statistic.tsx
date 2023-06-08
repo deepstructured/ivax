@@ -16,9 +16,6 @@ export const Statistic: FC<IProps> = ({ num, value, id }) => {
 
   useEffect(() => {
     if (ref.current) {
-      if (scrollY + window.outerHeight / 1.5 >= ref.current.offsetTop) {
-      }
-
       const numNode = ref.current.querySelector<HTMLElement>(`.${styles.num}`)
       const labelNode = ref.current.querySelector<HTMLElement>(`h3`)
 
@@ -101,7 +98,7 @@ export const Statistic: FC<IProps> = ({ num, value, id }) => {
 
   useEffect(() => {
     if (count < num && counterRunned) {
-      setTimeout(() => runCounter(), 25)
+      setTimeout(() => runCounter(), num >= 50 ? 15 : 25)
     } else if (count === num) {
       setCounterRunned(false)
     }
@@ -116,10 +113,6 @@ export const Statistic: FC<IProps> = ({ num, value, id }) => {
       }
     }
   }
-
-  // useEffect(() => {
-  //   document.addEventListener('scroll', () => setScrollY(window.pageYOffset))
-  // }, [])
 
   return (
     <div ref={ref} className={styles.statistic}>

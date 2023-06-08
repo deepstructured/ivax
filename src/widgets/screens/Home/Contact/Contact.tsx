@@ -3,6 +3,7 @@ import { ContactForm } from '../../../../features/ContactForm/ContactForm'
 import MapLocation from '../../../../features/GoogleMap/GoogleMap'
 import styles from './Contact.module.scss'
 import { useReveal } from '../../../../hooks/useReveal'
+import clsx from 'clsx'
 
 export const Contact = () => {
   const refSection = useRef<HTMLDivElement>(null)
@@ -30,7 +31,7 @@ export const Contact = () => {
               <ContactForm />
             </div>
           </div>
-          <div className={styles.map}>
+          <div className={clsx(styles.map, 'cursor-common')}>
             <MapLocation />
           </div>
         </div>
