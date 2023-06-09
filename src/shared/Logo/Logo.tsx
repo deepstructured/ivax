@@ -15,7 +15,7 @@ export const Logo: FC<IProps> = ({ type }) => {
           onClick={() => useAnchor('0')}
           className={clsx(styles.logo, 'cursor-scale')}
         >
-          {/* <img src="/images/" alt="" /> */}
+          <img src="/images/logo.png" alt="" />
         </div>
       )
     case 'secondary':
@@ -24,7 +24,7 @@ export const Logo: FC<IProps> = ({ type }) => {
           onClick={() => useAnchor('0')}
           className={clsx(styles.logo, 'cursor-scale')}
         >
-          {/* <img src="/images/logo-secondary.png" alt="" /> */}
+          <img src="/images/logo-secondary.png" alt="" />
         </div>
       )
   }

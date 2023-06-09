@@ -8,8 +8,8 @@ import { useReveal } from '../../../../hooks/useReveal'
 import clsx from 'clsx'
 
 const MAX_DEGREE = 0
-const MAX_OFFSET_X = 20
-const MAX_OFFSET_Y = 20
+const MAX_OFFSET_X = 10
+const MAX_OFFSET_Y = 10
 
 gsap.registerPlugin(MouseFollower)
 
@@ -77,25 +77,14 @@ export const Services = () => {
       bulb.style.transform = `translate(${x}px, ${y}px) rotate(${degrees}deg)`
     }
 
-    const backTransform = () => {
-      const bulb = refBulb.current?.querySelector('img')
-      if (!bulb) return
-
-      bulb.style.transition = `transform .5s ease-in-out`
-      bulb.style.transform = `translate(0) rotate(0}deg)`
-    }
-
     const target = ev.currentTarget as HTMLDivElement
 
     const center = { x: target.offsetWidth / 2, y: target.offsetHeight / 2 }
     const point = { x: ev.clientX, y: ev.clientY }
-    // Point
     const xPoint = point.x - center.x
     const yPoint = point.y - center.y
-    // X & Y
     const x = (xPoint / center.x) * MAX_OFFSET_X
     const y = (yPoint / center.y) * MAX_OFFSET_Y
-    // Angle
     const angle = ((-xPoint + yPoint * 2) / (center.x + center.y)) * MAX_DEGREE
 
     transform(x, y, angle)

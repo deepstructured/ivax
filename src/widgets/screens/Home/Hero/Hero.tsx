@@ -29,6 +29,73 @@ export const Hero = () => {
       const bulbShadow = refSection.current.querySelector<HTMLDivElement>(
         `.shadow`
       ) as HTMLDivElement
+      const title1 = refSection.current.querySelector(
+        `.${styles.title} > h1:first-child`
+      )
+      const title2 = refSection.current.querySelector(
+        `.${styles.title} > h1:nth-child(2)`
+      )
+      const title3 = refSection.current.querySelector(
+        `.${styles.title} > h1:last-child`
+      )
+      const title4 = refSection.current.querySelector<HTMLSpanElement>(
+        `.${styles.title} > h1:last-child > span`
+      ) as HTMLSpanElement
+
+      const title4Letters = Array.from(
+        title4?.querySelectorAll<HTMLSpanElement>('span > div')
+      )
+
+      title4Letters.map((letter, idx) => {
+        ScrollTrigger.create({
+          trigger: title1,
+          start: `top 100%`,
+          end: `bottom 30%`,
+          onLeave: () =>
+            gsap.to(letter, {
+              ease: `cubic-bezier(0.33, 1, 0.68, 1);`,
+              height: 0,
+              duration: 1.25,
+            }),
+          onEnter: () =>
+            gsap.to(letter, {
+              ease: `cubic-bezier(0.33, 1, 0.68, 1);`,
+              height: `100%`,
+              duration: 1,
+              delay: idx * 0.125,
+            }),
+          onEnterBack: () =>
+            gsap.to(letter, {
+              ease: `cubic-bezier(0.33, 1, 0.68, 1);`,
+              height: `100%`,
+              duration: 1,
+              delay: idx * 0.125,
+            }),
+          onLeaveBack: () =>
+            gsap.to(letter, {
+              ease: `cubic-bezier(0.33, 1, 0.68, 1);`,
+              height: 0,
+              duration: 1.25,
+            }),
+        })
+      })
+
+      gsap.set(title1, {
+        opacity: 0,
+        x: `-25%`,
+      })
+      gsap.set(title2, {
+        opacity: 0,
+        x: `25%`,
+      })
+      gsap.set(title3, {
+        opacity: 0,
+        x: `-25%`,
+      })
+      gsap.set(title4, {
+        opacity: 0,
+        x: `100%`,
+      })
 
       gsap.set(refBulb.current, {
         opacity: 0,
@@ -37,6 +104,148 @@ export const Hero = () => {
 
       gsap.set(bulbShadow, {
         opacity: 0,
+      })
+
+      ScrollTrigger.create({
+        trigger: title1,
+        start: `top 100%`,
+        end: `bottom 5%`,
+        onLeave: () =>
+          gsap.to(title1, {
+            ease: `cubic-bezier(0.83, 0, 0.17, 1)`,
+            opacity: 0,
+            x: `-25%`,
+            duration: 1.25,
+          }),
+        onEnter: () =>
+          gsap.to(title1, {
+            ease: `cubic-bezier(0.83, 0, 0.17, 1)`,
+            opacity: 1,
+            x: 0,
+            duration: 1,
+          }),
+        onEnterBack: () =>
+          gsap.to(title1, {
+            ease: `cubic-bezier(0.83, 0, 0.17, 1)`,
+            opacity: 1,
+            x: 0,
+            duration: 1,
+          }),
+        onLeaveBack: () =>
+          gsap.to(title1, {
+            ease: `cubic-bezier(0.83, 0, 0.17, 1)`,
+            opacity: 0,
+            x: `-25%`,
+            duration: 1.25,
+          }),
+      })
+
+      ScrollTrigger.create({
+        trigger: title1,
+        start: `top 100%`,
+        end: `bottom 5%`,
+        onLeave: () =>
+          gsap.to(title2, {
+            ease: `cubic-bezier(0.83, 0, 0.17, 1)`,
+            opacity: 0,
+            x: `25%`,
+            duration: 1.25,
+          }),
+        onEnter: () =>
+          gsap.to(title2, {
+            ease: `cubic-bezier(0.83, 0, 0.17, 1)`,
+            opacity: 1,
+            x: 0,
+            duration: 1,
+            delay: 0.25,
+          }),
+        onEnterBack: () =>
+          gsap.to(title2, {
+            ease: `cubic-bezier(0.83, 0, 0.17, 1)`,
+            opacity: 1,
+            x: 0,
+            duration: 1,
+            delay: 0.25,
+          }),
+        onLeaveBack: () =>
+          gsap.to(title2, {
+            ease: `cubic-bezier(0.83, 0, 0.17, 1)`,
+            opacity: 0,
+            x: `25%`,
+            duration: 1.25,
+          }),
+      })
+
+      ScrollTrigger.create({
+        trigger: title1,
+        start: `top 100%`,
+        end: `bottom 5%`,
+        onLeave: () =>
+          gsap.to(title3, {
+            ease: `cubic-bezier(0.83, 0, 0.17, 1)`,
+            opacity: 0,
+            x: `-25%`,
+            duration: 1.25,
+          }),
+        onEnter: () =>
+          gsap.to(title3, {
+            ease: `cubic-bezier(0.83, 0, 0.17, 1)`,
+            opacity: 1,
+            x: 0,
+            duration: 1,
+            delay: 0.5,
+          }),
+        onEnterBack: () =>
+          gsap.to(title3, {
+            ease: `cubic-bezier(0.83, 0, 0.17, 1)`,
+            opacity: 1,
+            x: 0,
+            duration: 1,
+            delay: 0.5,
+          }),
+        onLeaveBack: () =>
+          gsap.to(title3, {
+            ease: `cubic-bezier(0.83, 0, 0.17, 1)`,
+            opacity: 0,
+            x: `-25%`,
+            duration: 1.25,
+          }),
+      })
+
+      ScrollTrigger.create({
+        trigger: title1,
+        start: `top 100%`,
+        end: `bottom 5%`,
+        onLeave: () =>
+          gsap.to(title4, {
+            ease: `cubic-bezier(0.83, 0, 0.17, 1)`,
+            opacity: 0,
+            x: `100%`,
+            duration: 1.25,
+          }),
+        onEnter: () =>
+          gsap.to(title4, {
+            ease: `cubic-bezier(0.83, 0, 0.17, 1)`,
+            opacity: 1,
+            x: 0,
+            duration: 1,
+            delay: 0.75,
+          }),
+        onEnterBack: () =>
+          gsap.to(title4, {
+            ease: `cubic-bezier(0.83, 0, 0.17, 1)`,
+            opacity: 1,
+            x: 0,
+            duration: 1,
+            delay: 0.75,
+          }),
+        onLeaveBack: () =>
+          gsap.to(title4, {
+            ease: `cubic-bezier(0.83, 0, 0.17, 1)`,
+            opacity: 0,
+            x: `100%`,
+            duration: 1.25,
+          }),
       })
 
       ScrollTrigger.create({
@@ -50,13 +259,13 @@ export const Hero = () => {
           }),
         onEnter: () =>
           gsap.to(bulbShadow, {
-            opacity: 1,
+            opacity: window.innerWidth > 768 ? 1 : 0.3,
             duration: 1.5,
             delay: 0.5,
           }),
         onEnterBack: () =>
           gsap.to(bulbShadow, {
-            opacity: 1,
+            opacity: window.innerWidth > 768 ? 1 : 0.3,
             duration: 1.5,
             delay: 0.5,
           }),
@@ -117,6 +326,7 @@ export const Hero = () => {
             x: 0,
             y: 0,
             duration: 1,
+            delay: 0.75,
           }),
         onEnterBack: () =>
           gsap.to(button1, {
@@ -124,6 +334,7 @@ export const Hero = () => {
             x: 0,
             y: 0,
             duration: 1,
+            delay: 0.75,
           }),
         onLeaveBack: () =>
           gsap.to(button1, {
@@ -142,7 +353,6 @@ export const Hero = () => {
             opacity: 0,
             x: `25%`,
             duration: 1,
-            delay: 0.5,
           }),
         onEnter: () =>
           gsap.to(button2, {
@@ -150,7 +360,7 @@ export const Hero = () => {
             x: 0,
             y: 0,
             duration: 1,
-            delay: 0.5,
+            delay: 1.25,
           }),
         onEnterBack: () =>
           gsap.to(button2, {
@@ -158,14 +368,13 @@ export const Hero = () => {
             x: 0,
             y: 0,
             duration: 1,
-            delay: 0.5,
+            delay: 1.25,
           }),
         onLeaveBack: () =>
           gsap.to(button2, {
             opacity: 0,
             x: `25%`,
             duration: 1,
-            delay: 0.5,
           }),
       })
 
@@ -217,7 +426,21 @@ export const Hero = () => {
               <h1>Paint</h1>
               <h1>your thoughts</h1>
               <h1>
-                with <span className="yellow">IVAX</span>
+                with{' '}
+                <span className="yellow">
+                  <span data-fill-text="I">
+                    I<div>I</div>
+                  </span>
+                  <span data-fill-text="V">
+                    V<div>V</div>
+                  </span>
+                  <span data-fill-text="A">
+                    A<div>A</div>
+                  </span>
+                  <span data-fill-text="X">
+                    X<div>X</div>
+                  </span>
+                </span>
               </h1>
             </div>
             <div

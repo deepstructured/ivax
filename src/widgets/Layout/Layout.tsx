@@ -26,7 +26,7 @@ export const Layout: FC<IProps> = ({ children }) => {
       value={{
         pageLoaded: pageLoaded,
         setPageLoaded: setPageLoaded,
-        menuActive: activeMenu,
+        activeMenu: activeMenu,
         setActiveMenu: setActiveMenu,
       }}
     >
@@ -37,8 +37,8 @@ export const Layout: FC<IProps> = ({ children }) => {
           <Footer />
         </main>
       </WithSmoothScroll>
-      <Menu state={activeMenu} setState={setActiveMenu} />
-      <Sidebar setMenu={setActiveMenu} />
+      <Menu />
+      <Sidebar />
     </Store.Provider>
   )
 }

@@ -1,11 +1,4 @@
-import {
-  Dispatch,
-  FC,
-  SetStateAction,
-  useEffect,
-  useRef,
-  useState,
-} from 'react'
+import { useEffect, useRef, useState, useContext } from 'react'
 import styles from './Menu.module.scss'
 import clsx from 'clsx'
 import { Logo } from '../../shared/Logo/Logo'
@@ -16,23 +9,21 @@ import { menuLinks } from './data'
 import { useAnchor } from '../../hooks/useAnchor'
 import { LangSelect } from '../../features/LangSelect/LangSelect'
 import { langData } from '../Sidebar/data'
+import { Store } from '../../app/providers/store'
 
-interface IProps {
-  state: boolean
-  setState: Dispatch<SetStateAction<boolean>>
-}
-
-export const Menu: FC<IProps> = ({ state, setState }) => {
+export const Menu = () => {
   const refMenu = useRef<HTMLMenuElement>(null)
   const [closing, setClosing] = useState<boolean>(false)
 
+  const { activeMenu, setActiveMenu } = useContext(Store)
+
   useEffect(() => {
-    if (state) {
+    if (activeMenu === true) {
       document.body.style.overflow = `hidden`
     } else {
       document.body.style.overflow = `auto`
     }
-  }, [state, refMenu])
+  }, [activeMenu, refMenu])
 
   useEffect(() => {
     closing && setTimeout(() => setClosing(false), 1500)
@@ -43,13 +34,20 @@ export const Menu: FC<IProps> = ({ state, setState }) => {
       ref={refMenu}
       className={clsx(
         styles.menu,
-        state && styles.active,
+        activeMenu === true && styles.active,
         closing && styles.hidden
       )}
     >
       <div className={styles.content}>
         <div className="flex items-center justify-between">
-          <div className={styles.logo}>
+          <div
+            onClick={() => {
+              useAnchor('0')
+              setActiveMenu(false)
+              setClosing(true)
+            }}
+            className={styles.logo}
+          >
             <Logo type="secondary" />
           </div>
           <div className={clsx('flex items-center', styles.group)}>
@@ -58,7 +56,7 @@ export const Menu: FC<IProps> = ({ state, setState }) => {
             </div>
             <Button
               onClick={() => {
-                setState(false)
+                setActiveMenu(false)
                 setClosing(true)
               }}
               type="common"
@@ -75,7 +73,7 @@ export const Menu: FC<IProps> = ({ state, setState }) => {
                   key={idx}
                   onClick={() => {
                     useAnchor(link.href)
-                    setState(false)
+                    setActiveMenu(false)
                     setClosing(true)
                   }}
                   style={{ animationDelay: `${0.1 * idx}s` }}
@@ -95,7 +93,7 @@ export const Menu: FC<IProps> = ({ state, setState }) => {
             <Button
               onClick={() => {
                 useAnchor('#contact')
-                setState(false)
+                setActiveMenu(false)
                 setClosing(true)
               }}
               type="radio"
