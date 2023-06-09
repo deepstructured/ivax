@@ -5,7 +5,7 @@
     align-items: center;
     gap: 80px;
 
-    @media (max-width: $laptop) {
+    @media (max-width: $laptop_big) {
       gap: 45px;
     }
 

@@ -58,25 +58,25 @@
 
   &.left {
     .main {
-      animation: toLeft 15s linear infinite;
-      animation-delay: -15s;
+      animation: toLeft 20s linear infinite;
+      animation-delay: -20s;
     }
 
     .copied {
-      animation: toLeft2 15s linear infinite;
-      animation-delay: -7.5s;
+      animation: toLeft2 20s linear infinite;
+      animation-delay: -10s;
     }
   }
 
   &.right {
     .main {
-      animation: toRight 15s linear infinite;
-      animation-delay: -15s;
+      animation: toRight 20s linear infinite;
+      animation-delay: -20s;
     }
 
     .copied {
-      animation: toRight2 15s linear infinite;
-      animation-delay: -7.5s;
+      animation: toRight2 20s linear infinite;
+      animation-delay: -10s;
     }
   }
 

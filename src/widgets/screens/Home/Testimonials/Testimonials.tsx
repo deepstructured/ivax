@@ -58,8 +58,6 @@ export const Testimonials = () => {
     }
   }
 
-  useEffect(() => console.log(activeId), [activeId])
-
   return (
     <section ref={refSection} id="testimonials" className={styles.testimonials}>
       <div className="container space-top">
@@ -76,13 +74,12 @@ export const Testimonials = () => {
             <div className={styles.testimonialsSlider}>
               <Swiper
                 allowTouchMove={window.innerWidth > 768 ? false : true}
-                slidesPerView={window.innerWidth > 768 ? 4 : 'auto'}
+                slidesPerView={window.innerWidth > 768 ? 3 : 'auto'}
                 speed={750}
                 loop={true}
                 className="testimonials-slider"
                 onSlideChange={() => {
                   setActiveId(swiper.realIndex)
-                  console.log(swiper)
                   setActiveTestimonial(data[swiper.realIndex])
                 }}
                 onSwiper={(swiper) => setSwiper(swiper)}

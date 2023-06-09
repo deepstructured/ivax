@@ -1,9 +1,9 @@
 .hero {
   div[class='container'] {
-    padding-block: 50px 35px;
+    padding-block: 50px 0;
 
     @media (max-width: $laptop_small) {
-      padding-block: 35px;
+      padding-block: 35px 0;
     }
 
     @media (max-width: $tablet) {
@@ -35,7 +35,7 @@
   .wrapper {
     display: flex;
 
-    padding-top: 150px;
+    padding-top: 100px;
 
     @media (max-width: $tablet) {
       flex-direction: column-reverse;

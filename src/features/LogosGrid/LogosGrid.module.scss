@@ -23,19 +23,17 @@
   }
 
   .logo {
-    max-width: 10%;
-    min-width: 10%;
-    height: 100px;
+    width: 175px;
+    height: 75px;
 
     object-fit: contain;
     object-position: center;
 
     cursor: pointer;
 
-    @media (max-width: $laptop) {
-      height: 75px;
-      max-width: 7.5%;
-      min-width: 7.5%;
+    @media (max-width: $laptop_big) {
+      height: 50px;
+      width: 100px;
     }
 
     @media (max-width: $tablet) {

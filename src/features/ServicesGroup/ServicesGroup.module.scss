@@ -5,14 +5,10 @@
 
   grid-template-columns: repeat(2, auto);
   justify-content: space-between;
-  row-gap: 140px;
+  row-gap: 70px;
 
   @media (max-width: $laptop_big) {
-    row-gap: 100px;
-  }
-
-  @media (max-width: $laptop) {
-    row-gap: 70px;
+    gap: 40px;
   }
 
   @media (max-width: $tablet) {

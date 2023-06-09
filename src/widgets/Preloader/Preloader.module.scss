@@ -76,6 +76,16 @@
 
     animation: bulb 1s forwards cubic-bezier(0.22, 1, 0.36, 1);
 
+    @media (max-width: $laptop_big) {
+      width: 350px;
+      height: 570px;
+    }
+
+    @media (max-width: $laptop) {
+      width: 300px;
+      height: 520px;
+    }
+
     @media (max-width: $tablet) {
       width: 100%;
       height: auto;
@@ -87,6 +97,26 @@
 
     div[class='innerBubbles'] {
       scale: 0.6;
+
+      svg {
+        > g {
+          > g {
+            opacity: 1;
+
+            &:nth-child(even) {
+              path {
+                fill: #e0e63c;
+              }
+            }
+
+            &:nth-child(odd) {
+              path {
+                fill: #0066ff;
+              }
+            }
+          }
+        }
+      }
     }
 
     div[class='shadow'] {

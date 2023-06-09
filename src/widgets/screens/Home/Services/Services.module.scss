@@ -26,6 +26,11 @@
       width: 515px;
       height: 640px;
 
+      @media (max-width: $laptop_big) {
+        width: 450px;
+        height: 575px;
+      }
+
       &::before {
         @media (max-width: $tablet) {
           content: '';

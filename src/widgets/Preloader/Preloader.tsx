@@ -34,14 +34,14 @@ export const Preloader = () => {
             className="innerBubbles"
             autoplay
             loop
-            src="/animations/inner-bubbles.json"
+            src="/animations/preloader-inner-bubbles.json"
           ></Player>
           {window.innerWidth > 565 && (
             <Player
               className="innerBubbles bubblesCopy"
               autoplay
               loop
-              src="/animations/inner-bubbles.json"
+              src="/animations/preloader-inner-bubbles.json"
             ></Player>
           )}
           <img className="bulb" src="/images/bulb-hero.png" alt="" />

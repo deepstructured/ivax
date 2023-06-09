@@ -1,47 +1,55 @@
 const partnersData = [
   {
     id: 1,
-    img: '/images/technologies/css.svg',
+    img: '/images/partners/1.png',
   },
   {
     id: 2,
-    img: '/images/technologies/java.svg',
+    img: '/images/partners/2.png',
   },
   {
     id: 3,
-    img: '/images/technologies/js.svg',
+    img: '/images/partners/3.png',
   },
   {
     id: 4,
-    img: '/images/technologies/company.svg',
+    img: '/images/partners/4.png',
   },
   {
     id: 5,
-    img: '/images/technologies/company-2.svg',
+    img: '/images/partners/5.png',
   },
   {
     id: 6,
-    img: '/images/technologies/company-3.svg',
+    img: '/images/partners/6.png',
   },
   {
     id: 7,
-    img: '/images/technologies/company-4.svg',
+    img: '/images/partners/7.png',
   },
   {
     id: 8,
-    img: '/images/technologies/company.svg',
+    img: '/images/partners/8.png',
   },
   {
     id: 9,
-    img: '/images/technologies/company-2.svg',
+    img: '/images/partners/9.png',
   },
   {
     id: 10,
-    img: '/images/technologies/company-3.svg',
+    img: '/images/partners/10.png',
   },
   {
     id: 11,
-    img: '/images/technologies/company-4.svg',
+    img: '/images/partners/11.png',
+  },
+  {
+    id: 12,
+    img: '/images/partners/12.png',
+  },
+  {
+    id: 13,
+    img: '/images/partners/13.png',
   },
 ]
 

@@ -6,7 +6,17 @@
   align-items: center;
   justify-content: center;
 
-  gap: 75px;
+  gap: 45px;
+
+  .swiper-box {
+    width: 100%;
+
+    translate: 4% 0;
+
+    @media (max-width: $tablet) {
+      translate: 0;
+    }
+  }
 
   @media (max-width: $tablet) {
     gap: 48px;
@@ -25,11 +35,9 @@
   .swiper {
     max-width: 100%;
     width: 100%;
-    translate: -2.5% 0;
 
     @media (max-width: $tablet) {
       height: 480px;
-      translate: 0;
     }
   }
 
@@ -42,8 +50,8 @@
   }
 
   .swiper-slide-visible {
-    width: 35% !important;
-    min-width: 35% !important;
+    width: 30% !important;
+    min-width: 30% !important;
     height: 700px !important;
 
     opacity: 1 !important;
@@ -59,13 +67,14 @@
 
   .swiper-slide {
     opacity: 0;
-    height: 700px !important;
+    height: 550px !important;
 
     position: relative;
 
     transition: all 0.5s ease !important;
 
     cursor: pointer;
+    user-select: none;
 
     > div {
       display: flex;
@@ -82,11 +91,15 @@
     }
 
     @media (max-width: $laptop_big) {
-      height: 550px !important;
+      height: 500px !important;
     }
 
     @media (max-width: $laptop) {
       height: 450px !important;
+    }
+
+    @media (max-width: $laptop_small) {
+      height: 400px !important;
     }
 
     @media (max-width: $tablet) {

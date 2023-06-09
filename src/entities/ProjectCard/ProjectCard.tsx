@@ -1,7 +1,6 @@
 import { FC, useEffect, useRef } from 'react'
 import styles from './ProjectCard.module.scss'
 import { gsap } from 'gsap'
-import { useReveal } from '../../hooks/useReveal'
 import clsx from 'clsx'
 
 interface IProps {

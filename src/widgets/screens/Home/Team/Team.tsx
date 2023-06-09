@@ -35,12 +35,7 @@ export const Team = () => {
             trigger: refSection.current.closest('section'),
             start: `top 80%`,
             end: `bottom 20%`,
-            // onLeave: () =>
-            //   gsap.to(item, {
-            //     delay: idx * 0.225,
-            //     opacity: 0,
-            //     duration: 1,
-            //   }),
+
             onEnter: () =>
               gsap.to(item, {
                 delay: idx * 0.225,
@@ -49,20 +44,6 @@ export const Team = () => {
                 y: 0,
                 duration: 1,
               }),
-            // onEnterBack: () =>
-            //   gsap.to(item, {
-            //     delay: idx * 0.225,
-            //     opacity: 1,
-            //     x: 0,
-            //     y: 0,
-            //     duration: 1,
-            //   }),
-            // onLeaveBack: () =>
-            //   gsap.to(item, {
-            //     delay: idx * 0.225,
-            //     opacity: 0,
-            //     duration: 1,
-            //   }),
           })
         }
       })
