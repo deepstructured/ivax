@@ -150,6 +150,11 @@
     transition-property: opacity, translate;
 
     animation: logo 1.5s forwards cubic-bezier(0.83, 0, 0.17, 1);
+
+    @media (max-width: $tablet) {
+      width: 130px;
+      height: 56px;
+    }
   }
 }
 

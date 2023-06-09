@@ -36,6 +36,8 @@
       height: 72px;
 
       @media (max-width: $tablet) {
+        width: 130px;
+        height: 56px;
         order: 1;
       }
     }

@@ -27,8 +27,8 @@
     }
 
     @media (max-width: $tablet) {
-      width: 80px;
-      height: 26px;
+      width: 130px;
+      height: 56px;
     }
   }
 
@@ -109,6 +109,10 @@
                   -webkit-text-stroke: 0px transparent;
                   overflow: hidden;
                   transition: height 1.25s cubic-bezier(0.65, 0, 0.35, 1);
+
+                  @media (max-width: $tablet) {
+                    width: 100%;
+                  }
                 }
               }
             }

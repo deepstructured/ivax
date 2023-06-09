@@ -40,7 +40,8 @@ export const Menu = () => {
     >
       <div className={styles.content}>
         <div className="flex items-center justify-between">
-          <div
+          <a
+            href="#"
             onClick={() => {
               useAnchor('0')
               setActiveMenu(false)
@@ -49,7 +50,7 @@ export const Menu = () => {
             className={styles.logo}
           >
             <Logo type="secondary" />
-          </div>
+          </a>
           <div className={clsx('flex items-center', styles.group)}>
             <div className={styles.mobileLangSelect}>
               <LangSelect langData={langData} />
