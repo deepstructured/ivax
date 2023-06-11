@@ -13,10 +13,12 @@
 
   div[class='bulbWrapper'] {
     @media (max-width: $tablet) {
-      width: 255px;
-      height: 328px;
+      width: 205px;
+      height: 278px;
 
       margin: 0 auto;
+
+      padding-top: 75%;
     }
   }
 
@@ -26,6 +28,14 @@
 
     translate: 200% 0;
     opacity: 0;
+
+    img {
+      translate: -25% 0;
+
+      @media (max-width: $tablet) {
+        translate: 0;
+      }
+    }
 
     @media (max-width: $laptop_small) {
       width: 90px;
@@ -38,6 +48,8 @@
     @media (max-width: $tablet) {
       width: 130px;
       height: 56px;
+
+      translate: 100% 0;
     }
   }
 
@@ -58,7 +70,7 @@
       flex-direction: column-reverse;
       padding-top: 0;
 
-      gap: 35px;
+      gap: 0;
     }
 
     .text {

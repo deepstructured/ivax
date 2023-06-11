@@ -24,7 +24,10 @@ export const Preloader = () => {
             onEvent={(event) => {
               if (event === 'complete') {
                 setActive(false)
-                setTimeout(() => setPageLoaded(true), 1250)
+                setTimeout(
+                  () => setPageLoaded(true),
+                  window.innerWidth > 768 ? 1250 : 1050
+                )
               }
             }}
             src="/animations/preloader-bubbles.json"
