@@ -38,6 +38,10 @@
 
     &::before {
       translate: 0 100%;
+
+      @media (max-width: $tablet) {
+        translate: 0 110%;
+      }
     }
 
     .logo {

@@ -7,7 +7,16 @@
     }
 
     @media (max-width: $tablet) {
-      padding-block: 24px 0;
+      padding-block: 5px 0;
+    }
+  }
+
+  div[class='bulbWrapper'] {
+    @media (max-width: $tablet) {
+      width: 255px;
+      height: 328px;
+
+      margin: 0 auto;
     }
   }
 
@@ -37,19 +46,19 @@
 
     padding-top: 100px;
 
-    @media (max-width: $tablet) {
-      flex-direction: column-reverse;
-      padding-top: 25px;
-
-      gap: 35px;
-    }
-
     @media (max-width: $laptop_big) {
       padding-top: 100px;
     }
 
     @media (max-width: $laptop_small) {
       padding-top: 50px;
+    }
+
+    @media (max-width: $tablet) {
+      flex-direction: column-reverse;
+      padding-top: 0;
+
+      gap: 35px;
     }
 
     .text {
