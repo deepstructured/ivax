@@ -1,33 +1,43 @@
 const teamData = [
   {
     photo: '/images/team/1.jpg',
-    name: 'Katty Williams',
-    position: 'UI/UX Designer',
+    name: 'Ivan Kalashnuk',
+    position: 'Vice President of Sales',
   },
   {
     photo: '/images/team/2.jpg',
-    name: 'Harry Newman',
-    position: 'Frontend Developer',
+    name: 'Mariia Klymenko',
+    position: 'Head of Design',
   },
   {
     photo: '/images/team/3.jpg',
-    name: 'Carl Gallagher',
-    position: 'Backend Developer',
+    name: 'Andrii Poberezhnyk',
+    position: 'Project Manager',
+  },
+  {
+    photo: '/images/team/4.jpg',
+    name: 'Maksym Sokolovskyi',
+    position: 'CMO',
   },
   {
     photo: '/images/team/1.jpg',
-    name: 'Katty Williams',
-    position: 'UI/UX Designer',
+    name: 'Ivan Kalashnuk',
+    position: 'Vice President of Sales',
   },
   {
     photo: '/images/team/2.jpg',
-    name: 'Harry Newman',
-    position: 'Frontend Developer',
+    name: 'Mariia Klymenko',
+    position: 'Head of Design',
   },
   {
     photo: '/images/team/3.jpg',
-    name: 'Carl Gallagher',
-    position: 'Backend Developer',
+    name: 'Andrii Poberezhnyk',
+    position: 'Project Manager',
+  },
+  {
+    photo: '/images/team/4.jpg',
+    name: 'Maksym Sokolovskyi',
+    position: 'CMO',
   },
 ]
 

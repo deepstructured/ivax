@@ -25,14 +25,14 @@ export const ProjectCard: FC<IProps> = ({ title, category, thumbnail, id }) => {
         trigger: ref.current,
         start: `top 90%`,
         end: `bottom 35%`,
-        onLeave: () =>
-          gsap.to(ref.current, {
-            opacity: 0,
-            x: `-10%`,
-            y: `10%`,
-            duration: 1,
-            delay: (id + 1) * 0.1125,
-          }),
+        // onLeave: () =>
+        //   gsap.to(ref.current, {
+        //     opacity: 0,
+        //     x: `-10%`,
+        //     y: `10%`,
+        //     duration: 1,
+        //     delay: (id + 1) * 0.1125,
+        //   }),
         onEnter: () =>
           gsap.to(ref.current, {
             opacity: 1,
@@ -41,22 +41,22 @@ export const ProjectCard: FC<IProps> = ({ title, category, thumbnail, id }) => {
             duration: 1,
             delay: (id + 1) * 0.1125,
           }),
-        onEnterBack: () =>
-          gsap.to(ref.current, {
-            opacity: 1,
-            x: 0,
-            y: 0,
-            duration: 1,
-            delay: (id + 1) * 0.1125,
-          }),
-        onLeaveBack: () =>
-          gsap.to(ref.current, {
-            opacity: 0,
-            x: `-10%`,
-            y: `10%`,
-            duration: 1,
-            delay: (id + 1) * 0.1125,
-          }),
+        // onEnterBack: () =>
+        //   gsap.to(ref.current, {
+        //     opacityч: 1,
+        //     x: 0,
+        //     y: 0,
+        //     duration: 1,
+        //     delay: (id + 1) * 0.1125,
+        //   }),
+        // onLeaveBack: () =>
+        //   gsap.to(ref.current, {
+        //     opacity: 0,
+        //     x: `-10%`,
+        //     y: `10%`,
+        //     duration: 1,
+        //     delay: (id + 1) * 0.1125,
+        //   }),
       })
     }
   }, [])

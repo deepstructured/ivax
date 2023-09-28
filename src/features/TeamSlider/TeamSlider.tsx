@@ -17,7 +17,7 @@ export const TeamSlider: FC<IProps> = ({ data }) => {
   useEffect(() => {
     if (typeof swiper === 'object' && !!swiper) {
       if (swiper.destroyed !== true) {
-        swiper.slideTo(3)
+        swiper.slideTo(1)
       }
     }
   }, [swiper])
@@ -32,10 +32,11 @@ export const TeamSlider: FC<IProps> = ({ data }) => {
             stretch: 0,
             depth: 100,
             modifier: 1,
+
             slideShadows: false,
           }}
           speed={500}
-          centeredSlides={window.innerWidth > 565 ? false : true}
+          centeredSlides={window.innerWidth > 565 ? true : true}
           slidesPerView={window.innerWidth > 565 ? 3 : 1}
           loop={true}
           loopedSlides={2}

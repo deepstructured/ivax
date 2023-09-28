@@ -423,22 +423,27 @@ export const Hero = () => {
         <div className={styles.wrapper}>
           <div className={styles.text}>
             <div className={styles.title}>
-              <h1>Paint</h1>
-              <h1>your thoughts</h1>
+              <h1>From Ideas to Light,</h1>
+              <h1>Your Design Take</h1>
               <h1>
-                with{' '}
                 <span className="yellow">
+                  <span data-fill-text="F">
+                    F<div>F</div>
+                  </span>
+                  <span data-fill-text="L">
+                    L<div>L</div>
+                  </span>
                   <span data-fill-text="I">
                     I<div>I</div>
                   </span>
-                  <span data-fill-text="V">
-                    V<div>V</div>
+                  <span data-fill-text="G">
+                    G<div>G</div>
                   </span>
-                  <span data-fill-text="A">
-                    A<div>A</div>
+                  <span data-fill-text="H">
+                    H<div>H</div>
                   </span>
-                  <span data-fill-text="X">
-                    X<div>X</div>
+                  <span data-fill-text="T">
+                    T<div>T</div>
                   </span>
                 </span>
               </h1>

@@ -2,42 +2,57 @@ const projectsData = [
   {
     category: 'design',
     title: 'Unique Product Design',
-    thumbnail: '/images/projects/1.jpg',
+    thumbnail: '/images/projects/nft1.jpg',
   },
   {
     category: 'DEVELOPMENT',
     title: 'Development Software',
-    thumbnail: '/images/projects/2.jpg',
+    thumbnail: '/images/projects/nft2.jpg',
   },
   {
     category: 'design',
     title: 'Technology Process',
-    thumbnail: '/images/projects/3.jpg',
+    thumbnail: '/images/projects/nft3.jpg',
   },
   {
     category: 'marketing',
     title: 'Unique Product Design',
-    thumbnail: '/images/projects/4.jpg',
+    thumbnail: '/images/projects/nft5.jpg',
   },
   {
     category: 'DEVELOPMENT',
     title: 'Unique Product Design',
-    thumbnail: '/images/projects/5.jpg',
+    thumbnail: '/images/projects/nft6.jpg',
   },
   {
     category: 'TECHNOLOGY',
     title: 'Unique Product Design',
-    thumbnail: '/images/projects/6.jpg',
+    thumbnail: '/images/projects/nft7.jpg',
   },
   {
     category: 'design',
     title: 'Unique Product Design',
-    thumbnail: '/images/projects/7.jpg',
+    thumbnail: '/images/projects/nft8.jpg',
   },
   {
     category: 'marketing',
     title: 'Unique Product Design',
-    thumbnail: '/images/projects/8.jpg',
+    thumbnail: '/images/projects/nft9.jpg',
+  },
+  {
+    category: 'marketing',
+    title: 'Unique Product Design',
+    thumbnail: '/images/projects/nft10.jpg',
+  },
+  {
+    category: 'marketing',
+    title: 'Unique Product Design',
+    thumbnail: '/images/projects/nft11.jpg',
+  },
+  {
+    category: 'marketing',
+    title: 'Unique Product Design',
+    thumbnail: '/images/projects/nft12.jpg',
   },
 ]
 

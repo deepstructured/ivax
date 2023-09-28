@@ -87,7 +87,7 @@ export const Filter: FC<IProps> = ({
           All <sup>{originalData.length}</sup>
         </li>
 
-        {optionsData.map((option, idx) => (
+        {/* {optionsData.map((option, idx) => (
           <li
             key={idx}
             onClick={() => filterData(option, idx)}
@@ -103,7 +103,7 @@ export const Filter: FC<IProps> = ({
               }
             </sup>
           </li>
-        ))}
+        ))} */}
       </ul>
       <div className={clsx(mobileFilterActive && styles.active, styles.mobile)}>
         <div

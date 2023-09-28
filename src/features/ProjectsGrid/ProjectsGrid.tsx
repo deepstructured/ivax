@@ -4,6 +4,7 @@ import { Button } from '../../shared/Button/Button'
 import { ProjectCard } from '../../entities/ProjectCard/ProjectCard'
 import { useReveal } from '../../hooks/useReveal'
 import { gsap } from 'gsap'
+import { projectsData } from '../../widgets/screens/Home/Projects/data'
 
 interface IProps {
   data: any[]
@@ -74,9 +75,15 @@ export const ProjectsGrid: FC<IProps> = ({ data }) => {
               />
             ))}
       </div>
-      <Button className={styles.button} type="circle">
-        Load more projects
-      </Button>
+      {projectsPerView !== projectsData.length && (
+        <Button
+          onClick={() => setProjectsPerView(projectsData.length)}
+          className={styles.button}
+          type="circle"
+        >
+          Load more projects
+        </Button>
+      )}
     </div>
   )
 }
