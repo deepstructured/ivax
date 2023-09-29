@@ -102,7 +102,7 @@ export const Services = () => {
         >
           <h2>
             <span className="reveal left">We</span>{' '}
-            <span className="yellow reveal right">delivery</span>
+            <span className="yellow reveal right">deliver</span>
           </h2>
           <div ref={refBulb} className={clsx(styles.bulb, 'cursor-common')}>
             <img src="/images/bulb.png" alt="" />

@@ -12,6 +12,17 @@
   .grid {
     display: grid;
 
+    &::-webkit-scrollbar {
+      appearance: none;
+      width: 6px;
+      background-color: #fff;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $secondary;
+      border-radius: 3px;
+    }
+
     grid-template-columns: repeat(4, 1fr);
 
     row-gap: 80px;

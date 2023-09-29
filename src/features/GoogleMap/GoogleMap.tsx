@@ -4,13 +4,13 @@ import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api'
 import styles from './GoogleMap.module.scss'
 
 const center = {
-  lat: 50.44935569771669,
-  lng: 30.52710439794528,
+  lat: 50.43917412804731,
+  lng: 30.517174253281798,
 }
 
 const markerPosition = {
-  lat: 50.44935569771669,
-  lng: 30.52710439794528,
+  lat: 50.43917412804731,
+  lng: 30.517174253281798,
 }
 
 function MapLocation() {

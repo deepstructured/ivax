@@ -33,14 +33,10 @@
     }
 
     .head {
-      border: 1px solid $primary;
-      border-radius: 30px;
-
-      padding: 16px 24px;
-
+      padding-right: 5px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: end;
 
       transition: 0.7s ease;
       transition-property: border-radius, border;

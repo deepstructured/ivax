@@ -8,9 +8,16 @@ interface IProps {
   category: string
   thumbnail: string
   id: number
+  link: string
 }
 
-export const ProjectCard: FC<IProps> = ({ title, category, thumbnail, id }) => {
+export const ProjectCard: FC<IProps> = ({
+  title,
+  category,
+  thumbnail,
+  id,
+  link,
+}) => {
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -64,7 +71,7 @@ export const ProjectCard: FC<IProps> = ({ title, category, thumbnail, id }) => {
   return (
     <div ref={ref} className={clsx(styles.projectCard, 'cursor-scale')}>
       <div className={styles.content}>
-        <a href="" className={styles.thumbnail}>
+        <a href={link} className={styles.thumbnail}>
           <img
             src="/images/icons/thumb-arrow.svg"
             alt=""

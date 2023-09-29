@@ -106,32 +106,10 @@ export const Filter: FC<IProps> = ({
         ))} */}
       </ul>
       <div className={clsx(mobileFilterActive && styles.active, styles.mobile)}>
-        <div
-          onClick={() =>
-            mobileFilterActive
-              ? setMobileFilterActive(false)
-              : setMobileFilterActive(true)
-          }
-          className={styles.head}
-        >
+        <div className={styles.head}>
           <ul>
-            <li className={styles.active}>
-              {typeof activeOption !== 'string'
-                ? `${optionsData[activeOption]} ${
-                    originalData.filter(
-                      (item) =>
-                        item[filterKey].toLowerCase() ===
-                        optionsData[activeOption].toLowerCase()
-                    ).length
-                  }`
-                : `All ${originalData.length}`}
-            </li>
+            <li className={styles.active}>All{originalData.length}</li>
           </ul>
-          <img
-            className={styles.dropdownArrow}
-            src="/images/icons/dropdown-arrow.svg"
-            alt=""
-          />
         </div>
         <ul className={styles.body}>
           {activeOption !== 'all' && (
@@ -145,30 +123,6 @@ export const Filter: FC<IProps> = ({
               All
             </li>
           )}
-          {optionsData.map((option, idx) => (
-            <li
-              onClick={() => {
-                filterData(option, idx)
-                setMobileFilterActive(false)
-              }}
-              key={option}
-              className={
-                typeof activeOption !== 'string'
-                  ? optionsData[activeOption] === option
-                    ? styles.active
-                    : ''
-                  : ''
-              }
-            >
-              {option}{' '}
-              {
-                originalData.filter(
-                  (item) =>
-                    item[filterKey].toLowerCase() === option.toLowerCase()
-                ).length
-              }
-            </li>
-          ))}
         </ul>
       </div>
     </div>

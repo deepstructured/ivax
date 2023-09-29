@@ -44,7 +44,7 @@ export const Testimonial: FC<IProps> = ({ author, position, text }) => {
         false,
         ref.current.closest('section'),
         true,
-        'bottom 80%',
+        'bottom 150%',
         'top 80%'
       )
 
@@ -60,7 +60,7 @@ export const Testimonial: FC<IProps> = ({ author, position, text }) => {
         ref.current.closest('section'),
         true,
         'bottom 80%',
-        'top 80%'
+        'top 150%'
       )
 
       useReveal(
@@ -74,7 +74,7 @@ export const Testimonial: FC<IProps> = ({ author, position, text }) => {
         ref.current.closest('section'),
         true,
         'bottom 80%',
-        'top 80%'
+        'top 150%'
       )
     }
   }, [author, text, position])

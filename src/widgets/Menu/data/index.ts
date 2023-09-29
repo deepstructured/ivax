@@ -9,7 +9,7 @@ const menuLinks = [
   },
   {
     href: '#services',
-    title: 'we delivery',
+    title: 'we deliver',
   },
   {
     href: '#partners',

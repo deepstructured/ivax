@@ -23,10 +23,10 @@ const partnersData = [
     id: 6,
     img: '/images/partners/6.png',
   },
-  {
-    id: 7,
-    img: '/images/partners/7.png',
-  },
+  // {
+  //   id: 7,
+  //   img: '/images/partners/7.png',
+  // },
   {
     id: 8,
     img: '/images/partners/8.png',
@@ -50,6 +50,18 @@ const partnersData = [
   {
     id: 13,
     img: '/images/partners/13.png',
+  },
+  {
+    id: 14,
+    img: '/images/partners/14.png',
+  },
+  {
+    id: 15,
+    img: '/images/partners/15.png',
+  },
+  {
+    id: 16,
+    img: '/images/partners/16.png',
   },
 ]
 

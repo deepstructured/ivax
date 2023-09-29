@@ -13,6 +13,6 @@ const socialsData = [
   },
 ]
 
-const langData = ['ua', 'en']
+const langData = ['en']
 
 export { socialsData, langData }

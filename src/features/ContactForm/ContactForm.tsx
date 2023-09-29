@@ -14,6 +14,11 @@ import {
 import { FileInput } from '../../shared/FileInput/FileInput'
 import { useReveal } from '../../hooks/useReveal'
 
+const TG_BOT_API_KEY = import.meta.env.VITE_TG_BOT_API_KEY
+const TG_CHAT_ID = import.meta.env.VITE_TG_CHAT_ID
+
+const servicesWords = ['Branding', 'Web Design', 'Development', 'Video']
+
 export const ContactForm = () => {
   const refForm = useRef<HTMLFormElement>(null)
 
@@ -51,6 +56,55 @@ export const ContactForm = () => {
     const value = target.value
 
     setState(value)
+  }
+
+  const renderMessage = () => {
+    return `Name: ${name}%0APhone: ${phone}%0AE-Mail: ${email}%0AMessage: ${message}%0AServices - ${renderServicesToString()}`
+  }
+
+  const renderServicesToString = (): string => {
+    let str = ''
+
+    const selectedServices = Object.values(services).filter(
+      (service) => service === true
+    )
+
+    Object.keys(services).map((key, idx) => {
+      console.log(Object.values(services)[idx])
+      if (Object.values(services)[idx] === true) {
+        str =
+          idx < selectedServices.length - 1
+            ? str.concat(`${servicesWords[idx]}, `)
+            : str.concat(`${servicesWords[idx]}`)
+      }
+    })
+
+    return str
+  }
+
+  const sendForm = () => {
+    fetch(
+      `https://api.telegram.org/bot${TG_BOT_API_KEY}/sendMessage?chat_id=${TG_CHAT_ID}&parse_mode=html&text=${renderMessage()}&disable_web_page_preview=true`
+    )
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Failed to send message')
+        } else {
+          setName('')
+          setEmail('')
+          setMessage('')
+          setPhone('')
+          setServices({
+            branding: false,
+            webDesign: false,
+            development: false,
+            video: false,
+          })
+        }
+      })
+      .catch(() => {
+        alert('Enter and select all data and answers')
+      })
   }
 
   useEffect(() => {
@@ -104,7 +158,23 @@ export const ContactForm = () => {
   }, [])
 
   return (
-    <form ref={refForm} action="" className={styles.contactForm}>
+    <form
+      onSubmit={(ev) => {
+        ev.preventDefault()
+
+        if (
+          name !== '' &&
+          phone !== '' &&
+          email.includes('@') &&
+          message !== ''
+        ) {
+          sendForm()
+        }
+      }}
+      ref={refForm}
+      action=""
+      className={styles.contactForm}
+    >
       <h2>
         <span className="yellow reveal left">Tell us</span>{' '}
         <span className="reveal right">more</span>
@@ -184,19 +254,19 @@ export const ContactForm = () => {
           <h3 className="reveal top">Communication</h3>
           <ul>
             <li className="reveal bottom">
-              <a href="tel:+380322958453">+38 (032) 295 84 53</a>
+              <a href="tel:+380634178440">+38 (063) 417 84 40</a>
             </li>
             <li className="yellow reveal bottom">
-              <a href="mailto:ivax_dev@gmail.com">ivax_dev@gmail.com</a>
+              <a href="mailto:ivax.studio@gmail.com">ivax.studio@gmail.com</a>
             </li>
           </ul>
         </ul>
         <ul className={styles.col}>
           <h3 className="reveal top">Address</h3>
           <li className="reveal bottom">
-            Lviv, Ukraine
+            Kyiv, Ukraine
             <br />
-            st. Zalizniaka 21
+            st. Velyka Vasylkivska 23
           </li>
         </ul>
       </div>
